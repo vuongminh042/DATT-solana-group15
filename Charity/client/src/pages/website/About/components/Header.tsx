@@ -6,11 +6,34 @@ import sidebar4 from '../../../../assets/img/causes/sidebar4.jpg'
 import sidebar5 from '../../../../assets/img/causes/sidebar5.jpg'
 import sidebar6 from '../../../../assets/img/causes/sidebar6.jpg'
 import { Link } from 'react-router-dom'
+
+
 const Header = () => {
     return (
         <>
-            <header className="header-area header-transparent">
-                <div id="sticky-header" className="header_menu_area res_padd">
+            <header className="header-area">
+                <div className="header_top_area d-none d-lg-block">
+                    <div className="container">
+                        <div className="row align-items-center">
+                            <div className="col-xxl-9 col-xl-9 col-lg-8">
+                                <div className="top_mailing">
+                                    <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="f392979e9a9db3979c9e929a9ddd909c9e">[email&nbsp;protected]</span></a>
+                                    <a href="#" className="theme-2"><i className="fal fa-phone" />088889797697</a>
+                                    <a href="#" className="theme-3"><i className="fal fa-map-marker-alt" />street 222, South Africa</a>
+                                </div>
+                            </div>
+                            <div className="col-xxl-3 col-xl-3 col-lg-4 text-start text-md-end">
+                                <div className="top_social">
+                                    <a href="#" className="facebook"><i className="fab fa-facebook-f" /></a>
+                                    <a href="#" className="google"><i className="fab fa-google-plus-g" /></a>
+                                    <a href="#" className="twitter"><i className="fab fa-twitter" /></a>
+                                    <a href="#" className="pinterest"><i className="fab fa-pinterest-p" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sticky-header" className="header_menu_area header_menu_area_2">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
@@ -18,28 +41,28 @@ const Header = () => {
                                     <a href="index.html"><img src={logo} alt="" /></a>
                                 </div>
                             </div>
-                            <div className="col-xxl-7 col-xl-6 col-lg-8 d-none d-lg-block">
-                                <div className="main-menu theme-1 text-center">
+                            <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
+                                <div className="main-menu menu_2 text-center">
                                     <nav id="mobile-menu">
                                         <ul>
-                                            <li className="active menu-item-has-children"><Link to='/'>Home</Link></li>
-                                            <li><Link to='/about'>About</Link></li>
-                                            <li className="menu-item-has-children"><a href="cause-details.html">Causes</a>
+                                            <li className="menu-item-has-children"><Link to='/'>Home</Link></li>
+                                            <li className="active"><Link to='/about'>About</Link></li>
+                                            <li className="menu-item-has-children"><a href="cause.html">Causes</a>
                                                 <ul className="sub-menu">
-                                                    <li><a href="cause-details.html">Causes</a></li>
-                                                    <li><a href="cause-details.html">Cause Details</a></li>
-                                                </ul>
+                                                    <li><a href="cause.html">Causes</a>
+                                                    </li><li><a href="cause-details.html">Cause Details</a>
+                                                    </li></ul>
                                             </li>
                                             <li className="menu-item-has-children"><a href="#">Pages</a>
                                                 <ul className="sub-menu">
-                                                    <li><a href="event.html">Events</a></li>
-                                                    <li><a href="event-details.html">Events Details</a></li>
-                                                    <li><a href="volunteer.html">Volunteer</a></li>
-                                                    <li><a href="volunteer-details.html">Volunteer Details</a></li>
-                                                    <li><a href="donation.html">Donation</a></li>
-                                                    <li><a href="mission.html">Mission</a></li>
-                                                    <li><a href="faq.html">Faq</a></li>
-                                                </ul>
+                                                    <li><a href="event.html">Events</a>
+                                                    </li><li><a href="event-details.html">Events Details</a>
+                                                    </li><li><a href="volunteer.html">Volunteer</a>
+                                                    </li><li><a href="volunteer-details.html">Volunteer Details</a>
+                                                    </li><li><a href="donation.html">Donation</a>
+                                                    </li><li><a href="mission.html">Mission</a>
+                                                    </li><li><a href="faq.html">Faq</a>
+                                                    </li></ul>
                                             </li>
                                             <li className="menu-item-has-children"><a href="blog.html">News</a>
                                                 <ul className="sub-menu">
@@ -52,16 +75,13 @@ const Header = () => {
                                     </nav>
                                 </div>
                             </div>
-                            <div className="col-xxl-3 col-xl-4 col-lg-2 col-md-6 col-6">
+                            <div className="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
                                 <div className="header-right d-flex align-items-center justify-content-end">
-                                    <div className="header-icon d-inline-block">
-                                        <a className="nav-search search-trigger" href="javascript:void(0)"><i className="fal fa-search"></i></a>
-                                    </div>
-                                    <div className="header-sing d-inline-block ml-20 d-none d-xl-block">
-                                        <a className="g_btn hbtn_1 to_right1 rad-30" href="donation.html">Make Donation<span></span></a>
+                                    <div className="header-sing d-inline-block d-none d-xl-block">
+                                        <a className="g_btn hbtn_1 to_right1 rad-30" href="donation.html">Make Donation<span /></a>
                                     </div>
                                     <div className="hamburger-menu menu-bar info-bar d-inline-block ml-20">
-                                        <button className="hamburger-btn open-mobile-menu"><i className="fal fa-bars"></i></button>
+                                        <button className="hamburger-btn open-mobile-menu"><i className="fal fa-bars" /></button>
                                     </div>
                                 </div>
                             </div>
@@ -69,6 +89,7 @@ const Header = () => {
                     </div>
                 </div>
             </header>
+
 
             <div className="fix d-lg-none">
                 <div className="side-info">
@@ -92,7 +113,7 @@ const Header = () => {
                             <h4>Contact Info</h4>
                             <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                             <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                            <a href="https://wphix.com/cdn-cgi/l/email-protection#9afbfef7f3f4dafef5f7fbf3f4b4f9f5f7" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="4223262f2b2c02262d2f232b2c6c212d2f">[email&nbsp;protected]</span></span></a>
+                            <a href="https://wphix.com/cdn-cgi/l/email-protection#3051545d595e70545f5d51595e1e535f5d" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="caabaea7a3a48aaea5a7aba3a4e4a9a5a7">[email&nbsp;protected]</span></span></a>
                         </div>
                         <div className="top_social offset_social mt-20 mb-30">
                             <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
@@ -138,7 +159,7 @@ const Header = () => {
                             <a className="popup-image" href={sidebar3}><img src={sidebar3} alt="sidebar-img" /></a>
                         </div>
                         <div className="col-4 mb-15">
-                            <a className="popup-image" href={sidebar4}><img src={sidebar4} alt="sidebar-img" /></a>
+                            <a className="popup-image" href={sidebar3}><img src={sidebar4} alt="sidebar-img" /></a>
                         </div>
                         <div className="col-4 mb-15">
                             <a className="popup-image" href={sidebar5}><img src={sidebar5} alt="sidebar-img" /></a>
@@ -155,7 +176,7 @@ const Header = () => {
                             <h4>Contact Info</h4>
                             <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                             <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                            <a href="https://wphix.com/cdn-cgi/l/email-protection#f392979e9a9db3979c9e929a9ddd909c9e" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="5c3d383135321c3833313d3532723f3331">[email&nbsp;protected]</span></span></a>
+                            <a href="https://wphix.com/cdn-cgi/l/email-protection#3c5d585155527c5853515d5552125f5351" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="cfaeaba2a6a18faba0a2aea6a1e1aca0a2">[email&nbsp;protected]</span></span></a>
                         </div>
                         <div className="top_social offset_social mt-20 mb-30">
                             <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
@@ -171,7 +192,6 @@ const Header = () => {
 
             <div className="offcanvas-overlay" />
         </>
-
     )
 }
 
