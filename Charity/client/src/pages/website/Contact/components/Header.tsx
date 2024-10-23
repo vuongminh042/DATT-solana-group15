@@ -17,7 +17,7 @@ const Header = () => {
                         <div className="row align-items-center">
                             <div className="col-xxl-9 col-xl-9 col-lg-8">
                                 <div className="top_mailing">
-                                    <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="f392979e9a9db3979c9e929a9ddd909c9e">[email&nbsp;protected]</span></a>
+                                    <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="741510191d1a34101b19151d1a5a171b19">[email&nbsp;protected]</span></a>
                                     <a href="#" className="theme-2"><i className="fal fa-phone" />088889797697</a>
                                     <a href="#" className="theme-3"><i className="fal fa-map-marker-alt" />street 222, South Africa</a>
                                 </div>
@@ -46,7 +46,7 @@ const Header = () => {
                                     <nav id="mobile-menu">
                                         <ul>
                                             <li className="menu-item-has-children"><Link to='/'>Home</Link></li>
-                                            <li className="active"><Link to='/about'>About</Link></li>
+                                            <li><Link to='/about'>About</Link></li>
                                             <li className="menu-item-has-children"><a href="cause.html">Causes</a>
                                                 <ul className="sub-menu">
                                                     <li><a href="cause.html">Causes</a>
@@ -70,7 +70,7 @@ const Header = () => {
                                                     <li><a href="blog-details.html">News Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><Link to='/contact'>Contact</Link></li>
+                                            <li className="active"><Link to='/contact'>Contact</Link></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -89,7 +89,6 @@ const Header = () => {
                     </div>
                 </div>
             </header>
-
 
             <div className="fix d-lg-none">
                 <div className="side-info">
@@ -113,7 +112,7 @@ const Header = () => {
                             <h4>Contact Info</h4>
                             <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                             <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                            <a href="https://wphix.com/cdn-cgi/l/email-protection#3051545d595e70545f5d51595e1e535f5d" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="caabaea7a3a48aaea5a7aba3a4e4a9a5a7">[email&nbsp;protected]</span></span></a>
+                            <a href="https://wphix.com/cdn-cgi/l/email-protection#6302070e0a0d23070c0e020a0d4d000c0e" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="95f4f1f8fcfbd5f1faf8f4fcfbbbf6faf8">[email&nbsp;protected]</span></span></a>
                         </div>
                         <div className="top_social offset_social mt-20 mb-30">
                             <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
@@ -159,7 +158,7 @@ const Header = () => {
                             <a className="popup-image" href={sidebar3}><img src={sidebar3} alt="sidebar-img" /></a>
                         </div>
                         <div className="col-4 mb-15">
-                            <a className="popup-image" href={sidebar3}><img src={sidebar4} alt="sidebar-img" /></a>
+                            <a className="popup-image" href={sidebar4}><img src={sidebar4} alt="sidebar-img" /></a>
                         </div>
                         <div className="col-4 mb-15">
                             <a className="popup-image" href={sidebar5}><img src={sidebar5} alt="sidebar-img" /></a>
@@ -176,7 +175,7 @@ const Header = () => {
                             <h4>Contact Info</h4>
                             <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                             <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                            <a href="https://wphix.com/cdn-cgi/l/email-protection#3c5d585155527c5853515d5552125f5351" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="cfaeaba2a6a18faba0a2aea6a1e1aca0a2">[email&nbsp;protected]</span></span></a>
+                            <a href="https://wphix.com/cdn-cgi/l/email-protection#5031343d393e10343f3d31393e7e333f3d" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="48292c252126082c2725292126662b2725">[email&nbsp;protected]</span></span></a>
                         </div>
                         <div className="top_social offset_social mt-20 mb-30">
                             <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
