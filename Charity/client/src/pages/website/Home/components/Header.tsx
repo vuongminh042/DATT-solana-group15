@@ -47,7 +47,7 @@ const Header = () => {
                                                     <li><a href="blog-details.html">News Details</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><Link to='/contact'>Contact</Link></li>
                                         </ul>
                                     </nav>
                                 </div>
