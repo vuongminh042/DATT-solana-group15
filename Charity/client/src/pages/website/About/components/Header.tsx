@@ -38,7 +38,7 @@ const Header = () => {
                         <div className="row align-items-center">
                             <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
                                 <div className="logo">
-                                    <a href="index.html"><img src={logo} alt="" /></a>
+                                    <Link to='/'><img src={logo} alt="" /></Link>
                                 </div>
                             </div>
                             <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
@@ -47,10 +47,10 @@ const Header = () => {
                                         <ul>
                                             <li className="menu-item-has-children"><Link to='/'>Home</Link></li>
                                             <li className="active"><Link to='/about'>About</Link></li>
-                                            <li className="menu-item-has-children"><a href="cause.html">Causes</a>
+                                            <li className="menu-item-has-children"><Link to='/causes'>Causes</Link>
                                                 <ul className="sub-menu">
-                                                    <li><a href="cause.html">Causes</a>
-                                                    </li><li><a href="cause-details.html">Cause Details</a>
+                                                    <li><Link to='/causes'>Causes</Link>
+                                                    </li><li><Link to='/cause-details'>Cause Details</Link>
                                                     </li></ul>
                                             </li>
                                             <li className="menu-item-has-children"><a href="#">Pages</a>
