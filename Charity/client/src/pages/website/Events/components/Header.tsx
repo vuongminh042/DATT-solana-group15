@@ -7,18 +7,19 @@ import sidebar5 from '../../../../assets/img/causes/sidebar5.jpg'
 import sidebar6 from '../../../../assets/img/causes/sidebar6.jpg'
 import { Link } from 'react-router-dom'
 
+
+
 const Header = () => {
     return (
         <>
             <div>
-                {/* Header One Start*/}
                 <header className="header-area">
                     <div className="header_top_area d-none d-lg-block">
                         <div className="container">
                             <div className="row align-items-center">
                                 <div className="col-xxl-9 col-xl-9 col-lg-8">
                                     <div className="top_mailing">
-                                        <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="9afbfef7f3f4dafef5f7fbf3f4b4f9f5f7">[email&nbsp;protected]</span></a>
+                                        <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="741510191d1a34101b19151d1a5a171b19">[email&nbsp;protected]</span></a>
                                         <a href="#" className="theme-2"><i className="fal fa-phone" />088889797697</a>
                                         <a href="#" className="theme-3"><i className="fal fa-map-marker-alt" />street 222, South Africa</a>
                                     </div>
@@ -46,17 +47,18 @@ const Header = () => {
                                     <div className="main-menu menu_2 text-center">
                                         <nav id="mobile-menu">
                                             <ul>
-                                                <li className="menu-item-has-children"><Link to='/'>Home</Link></li>
-                                                <li><Link to='/about'>About</Link></li>
-                                                <li className="active menu-item-has-children"><Link to='/causes'>Causes</Link>
+                                                <li className="menu-item-has-children"><Link to='/'>Home</Link>
+                                                </li>
+                                                <li><Link to='/about' >About</Link></li>
+                                                <li className="menu-item-has-children"><a href="cause.html">Causes</a>
                                                     <ul className="sub-menu">
                                                         <li><Link to='/causes'>Causes</Link>
                                                         </li><li><Link to='/cause-details'>Cause Details</Link>
                                                         </li></ul>
                                                 </li>
-                                                <li className="menu-item-has-children"><a href="#">Pages</a>
+                                                <li className="active menu-item-has-children"><a href="#">Pages</a>
                                                     <ul className="sub-menu">
-                                                        <li><Link to='/events' >Events</Link>
+                                                        <li><Link to='/events'>Events</Link>
                                                         </li><li><a href="event-details.html">Events Details</a>
                                                         </li><li><a href="volunteer.html">Volunteer</a>
                                                         </li><li><a href="volunteer-details.html">Volunteer Details</a>
@@ -71,7 +73,7 @@ const Header = () => {
                                                         <li><a href="blog-details.html">News Details</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><Link to='/contact'>Contact</Link></li>
+                                                <li><a href="contact.html">Contact</a></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -79,7 +81,7 @@ const Header = () => {
                                 <div className="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
                                     <div className="header-right d-flex align-items-center justify-content-end">
                                         <div className="header-sing d-inline-block d-none d-xl-block">
-                                            <a className="g_btn hbtn_1 to_right1 rad-30" href="donation.html">Make Donation<span /></a>
+                                            <a className="g_btn hbtn_1 to_right1 rad-30" href="event.html">Make Donation<span /></a>
                                         </div>
                                         <div className="hamburger-menu menu-bar info-bar d-inline-block ml-20">
                                             <button className="hamburger-btn open-mobile-menu"><i className="fal fa-bars" /></button>
@@ -115,7 +117,7 @@ const Header = () => {
                                 <h4>Contact Info</h4>
                                 <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                                 <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                                <a href="https://wphix.com/cdn-cgi/l/email-protection#4a2b2e2723240a2e25272b232464292527" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="4627222b2f280622292b272f286825292b">[email&nbsp;protected]</span></span></a>
+                                <a href="https://wphix.com/cdn-cgi/l/email-protection#2c4d484145426c4843414d4542024f4341" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="6c0d080105022c0803010d0502420f0301">[email&nbsp;protected]</span></span></a>
                             </div>
                             <div className="top_social offset_social mt-20 mb-30">
                                 <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
@@ -178,7 +180,7 @@ const Header = () => {
                                 <h4>Contact Info</h4>
                                 <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                                 <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                                <a href="https://wphix.com/cdn-cgi/l/email-protection#f190959c989fb1959e9c90989fdf929e9c" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="0f6e6b6266614f6b60626e6661216c6062">[email&nbsp;protected]</span></span></a>
+                                <a href="https://wphix.com/cdn-cgi/l/email-protection#a8c9ccc5c1c6e8ccc7c5c9c1c686cbc7c5" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="59383d343037193d3634383037773a3634">[email&nbsp;protected]</span></span></a>
                             </div>
                             <div className="top_social offset_social mt-20 mb-30">
                                 <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
@@ -192,7 +194,6 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="offcanvas-overlay" />
-                {/* slide-bar end */}
             </div>
 
         </>
