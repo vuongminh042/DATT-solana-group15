@@ -33,10 +33,10 @@ const Header = () => {
                                             <li className="menu-item-has-children"><a href="#">Pages</a>
                                                 <ul className="sub-menu">
                                                     <li><Link to='/events'>Events</Link></li>
-                                                    <li><a href="event-details.html">Events Details</a></li>
+                                                    <li><Link to='/events-details'>Events Details</Link></li>
                                                     <li><a href="volunteer.html">Volunteer</a></li>
                                                     <li><a href="volunteer-details.html">Volunteer Details</a></li>
-                                                    <li><a href="donation.html">Donation</a></li>
+                                                    <li><Link to='/donation'>Donation</Link></li>
                                                     <li><a href="mission.html">Mission</a></li>
                                                     <li><a href="faq.html">Faq</a></li>
                                                 </ul>
