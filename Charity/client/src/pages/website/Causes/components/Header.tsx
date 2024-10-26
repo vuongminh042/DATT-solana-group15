@@ -54,7 +54,7 @@ const Header = () => {
                                             </li>
                                             <li className="menu-item-has-children"><a href="#">Pages</a>
                                                 <ul className="sub-menu">
-                                                    <li><a href="event.html">Events</a>
+                                                    <li><Link to='/events'>Events</Link>
                                                     </li><li><a href="event-details.html">Events Details</a>
                                                     </li><li><a href="volunteer.html">Volunteer</a>
                                                     </li><li><a href="volunteer-details.html">Volunteer Details</a>
