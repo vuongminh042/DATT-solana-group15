@@ -3,7 +3,6 @@ import fcta2_1 from '../../../../assets/img/footer/fcta2_1.png'
 import fcta2_2 from '../../../../assets/img/footer/fcta2_2.png'
 
 
-
 const Footer = () => {
     return (
         <>
@@ -71,7 +70,7 @@ const Footer = () => {
                                         <div className="footer_info_content">
                                             <p><span><strong>Address :</strong>44 New Design Street, <br /> Melbourne 005</span></p>
                                             <p><a href="#"><span><strong>Phone :</strong>(01) 800 433 633</span></a></p>
-                                            <p><a href="#"><span><strong>Email :</strong><span className="__cf_email__" data-cfemail="70191e161f303508111d001c155e131f1d">[email&nbsp;protected]</span></span></a></p>
+                                            <p><a href="#"><span><strong>Email :</strong><span className="__cf_email__" data-cfemail="046d6a626b44417c65697468612a676b69">[email&nbsp;protected]</span></span></a></p>
                                         </div>
                                     </div>
                                 </div>

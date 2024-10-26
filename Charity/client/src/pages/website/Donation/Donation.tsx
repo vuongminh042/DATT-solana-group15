@@ -17,7 +17,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 
 
-const EventsDetails = () => {
+const Donation = () => {
     return (
         <div>
             <Header />
@@ -27,4 +27,4 @@ const EventsDetails = () => {
     )
 }
 
-export default EventsDetails
+export default Donation

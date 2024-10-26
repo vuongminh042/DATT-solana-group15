@@ -50,7 +50,7 @@ const Header = () => {
                                                 <li className="menu-item-has-children"><Link to='/'>Home</Link>
                                                 </li>
                                                 <li><Link to='/about' >About</Link></li>
-                                                <li className="menu-item-has-children"><a href="cause.html">Causes</a>
+                                                <li className="menu-item-has-children"><Link to='/causes'>Causes</Link>
                                                     <ul className="sub-menu">
                                                         <li><Link to='/causes'>Causes</Link>
                                                         </li><li><Link to='/cause-details'>Cause Details</Link>
@@ -59,10 +59,10 @@ const Header = () => {
                                                 <li className="active menu-item-has-children"><a href="#">Pages</a>
                                                     <ul className="sub-menu">
                                                         <li><Link to='/events'>Events</Link>
-                                                        </li><li><a href="event-details.html">Events Details</a>
+                                                        </li><li><Link to='/events-details'>Events Details</Link>
                                                         </li><li><a href="volunteer.html">Volunteer</a>
                                                         </li><li><a href="volunteer-details.html">Volunteer Details</a>
-                                                        </li><li><a href="donation.html">Donation</a>
+                                                        </li><li><Link to='/donation'>Donation</Link>
                                                         </li><li><a href="mission.html">Mission</a>
                                                         </li><li><a href="faq.html">Faq</a>
                                                         </li></ul>
@@ -73,7 +73,7 @@ const Header = () => {
                                                         <li><a href="blog-details.html">News Details</a></li>
                                                     </ul>
                                                 </li>
-                                                <li><a href="contact.html">Contact</a></li>
+                                                <li><Link to='/contact'>Contact</Link></li>
                                             </ul>
                                         </nav>
                                     </div>
@@ -90,8 +90,8 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </header>
+                    </div >
+                </header >
                 {/* Header One End*/}
                 {/* slide-bar start */}
                 {/* Sidebar for Mobile */}
@@ -194,7 +194,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="offcanvas-overlay" />
-            </div>
+            </div >
 
         </>
     )

@@ -7,8 +7,6 @@ import sidebar5 from '../../../../assets/img/causes/sidebar5.jpg'
 import sidebar6 from '../../../../assets/img/causes/sidebar6.jpg'
 import { Link } from 'react-router-dom'
 
-
-
 const Header = () => {
     return (
         <>
@@ -19,7 +17,7 @@ const Header = () => {
                             <div className="row align-items-center">
                                 <div className="col-xxl-9 col-xl-9 col-lg-8">
                                     <div className="top_mailing">
-                                        <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="5130353c383f11353e3c30383f7f323e3c">[email&nbsp;protected]</span></a>
+                                        <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="6607020b0f082602090b070f084805090b">[email&nbsp;protected]</span></a>
                                         <a href="#" className="theme-2"><i className="fal fa-phone" />088889797697</a>
                                         <a href="#" className="theme-3"><i className="fal fa-map-marker-alt" />street 222, South Africa</a>
                                     </div>
@@ -48,7 +46,7 @@ const Header = () => {
                                         <nav id="mobile-menu">
                                             <ul>
                                                 <li className="menu-item-has-children"><Link to='/'>Home</Link></li>
-                                                <li><Link to='/about' >About</Link></li>
+                                                <li><Link to='/about'>About</Link></li>
                                                 <li className="menu-item-has-children"><Link to='/causes'>Causes</Link>
                                                     <ul className="sub-menu">
                                                         <li><Link to='/causes'>Causes</Link>
@@ -116,7 +114,7 @@ const Header = () => {
                                 <h4>Contact Info</h4>
                                 <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                                 <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                                <a href="https://wphix.com/cdn-cgi/l/email-protection#80e1e4ede9eec0e4efede1e9eeaee3efed" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="ea8b8e878384aa8e85878b8384c4898587">[email&nbsp;protected]</span></span></a>
+                                <a href="https://wphix.com/cdn-cgi/l/email-protection#6203060f0b0c22060d0f030b0c4c010d0f" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="a2c3c6cfcbcce2c6cdcfc3cbcc8cc1cdcf">[email&nbsp;protected]</span></span></a>
                             </div>
                             <div className="top_social offset_social mt-20 mb-30">
                                 <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
@@ -179,7 +177,7 @@ const Header = () => {
                                 <h4>Contact Info</h4>
                                 <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                                 <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                                <a href="https://wphix.com/cdn-cgi/l/email-protection#6706030a0e092703080a060e094904080a" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="1a7b7e7773745a7e75777b737434797577">[email&nbsp;protected]</span></span></a>
+                                <a href="https://wphix.com/cdn-cgi/l/email-protection#1372777e7a7d53777c7e727a7d3d707c7e" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="1e7f7a7377705e7a71737f7770307d7173">[email&nbsp;protected]</span></span></a>
                             </div>
                             <div className="top_social offset_social mt-20 mb-30">
                                 <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
@@ -193,7 +191,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="offcanvas-overlay" />
-            </div >
+            </div>
 
         </>
     )
