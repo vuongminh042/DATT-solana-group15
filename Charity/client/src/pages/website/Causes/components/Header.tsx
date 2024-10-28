@@ -59,7 +59,7 @@ const Header = () => {
                                                     </li><li><a href="volunteer.html">Volunteer</a>
                                                     </li><li><a href="volunteer-details.html">Volunteer Details</a>
                                                     </li><li><Link to='/donation'>Donation</Link>
-                                                    </li><li><a href="mission.html">Mission</a>
+                                                    </li><li><Link to='/mission'>Mission</Link>
                                                     </li><li><a href="faq.html">Faq</a>
                                                     </li></ul>
                                             </li>

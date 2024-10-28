@@ -7,6 +7,7 @@ import sidebar5 from '../../../../assets/img/causes/sidebar5.jpg'
 import sidebar6 from '../../../../assets/img/causes/sidebar6.jpg'
 import { Link } from 'react-router-dom'
 
+
 const Header = () => {
     return (
         <>
@@ -17,7 +18,7 @@ const Header = () => {
                             <div className="row align-items-center">
                                 <div className="col-xxl-9 col-xl-9 col-lg-8">
                                     <div className="top_mailing">
-                                        <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="6607020b0f082602090b070f084805090b">[email&nbsp;protected]</span></a>
+                                        <a href="#" className="theme-1"><i className="fal fa-envelope" /><span className="__cf_email__" data-cfemail="78191c151116381c1715191116561b1715">[email&nbsp;protected]</span></a>
                                         <a href="#" className="theme-2"><i className="fal fa-phone" />088889797697</a>
                                         <a href="#" className="theme-3"><i className="fal fa-map-marker-alt" />street 222, South Africa</a>
                                     </div>
@@ -38,7 +39,7 @@ const Header = () => {
                             <div className="row align-items-center">
                                 <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
                                     <div className="logo">
-                                        <Link to='/'><img src={logo} alt="" /></Link>
+                                        <Link to='/' ><img src={logo} alt="" /></Link>
                                     </div>
                                 </div>
                                 <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
@@ -61,7 +62,7 @@ const Header = () => {
                                                         </li><li><a href="volunteer-details.html">Volunteer Details</a>
                                                         </li><li><Link to='/donation'>Donation</Link>
                                                         </li><li><Link to='/mission'>Mission</Link>
-                                                        </li><li><a href="faq.html">Faq</a>
+                                                        </li><li><Link to='/faq'>Faq</Link>
                                                         </li></ul>
                                                 </li>
                                                 <li className="menu-item-has-children"><a href="blog.html">News</a>
@@ -114,7 +115,7 @@ const Header = () => {
                                 <h4>Contact Info</h4>
                                 <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                                 <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                                <a href="https://wphix.com/cdn-cgi/l/email-protection#6203060f0b0c22060d0f030b0c4c010d0f" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="a2c3c6cfcbcce2c6cdcfc3cbcc8cc1cdcf">[email&nbsp;protected]</span></span></a>
+                                <a href="https://wphix.com/cdn-cgi/l/email-protection#0667626b6f684662696b676f682865696b" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="9efffaf3f7f0defaf1f3fff7f0b0fdf1f3">[email&nbsp;protected]</span></span></a>
                             </div>
                             <div className="top_social offset_social mt-20 mb-30">
                                 <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>
@@ -177,7 +178,7 @@ const Header = () => {
                                 <h4>Contact Info</h4>
                                 <a href="#" className="theme-1"><i className="fal fa-map-marker-alt" /><span>12/A, Mirnada City Tower, NYC</span></a>
                                 <a href="tel:088889797697" className="theme-2"><i className="fal fa-phone" /><span>088889797697</span></a>
-                                <a href="https://wphix.com/cdn-cgi/l/email-protection#1372777e7a7d53777c7e727a7d3d707c7e" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="1e7f7a7377705e7a71737f7770307d7173">[email&nbsp;protected]</span></span></a>
+                                <a href="https://wphix.com/cdn-cgi/l/email-protection#3e5f5a5357507e5a51535f5750105d5153" className="theme-3"><i className="far fa-envelope" /><span><span className="__cf_email__" data-cfemail="6302070e0a0d23070c0e020a0d4d000c0e">[email&nbsp;protected]</span></span></a>
                             </div>
                             <div className="top_social offset_social mt-20 mb-30">
                                 <a href="#" target="_blank" className="facebook"><i className="fab fa-facebook-f" /></a>

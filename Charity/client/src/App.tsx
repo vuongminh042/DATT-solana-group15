@@ -9,6 +9,8 @@ import CauseDetails from './pages/website/Cause-details/Cause-details'
 import Events from './pages/website/Events/Events'
 import EventsDetails from './pages/website/Events-details/Events-details'
 import Donation from './pages/website/Donation/Donation'
+import Mission from './pages/website/Mission/Mission'
+import Faq from './pages/website/Faq/Faq'
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
         <Route path='/events' element={<Events />} />
         <Route path='/events-details' element={<EventsDetails />} />
         <Route path='/donation' element={<Donation />} />
+        <Route path='/mission' element={<Mission />} />
+        <Route path='/faq' element={<Faq />} />
         <Route path='/contact' element={<Contact />} />
       </Routes>
     </div>
