@@ -1,3 +1,19 @@
+import { Link } from "react-router-dom";
+import member1 from '../../../../assets/img/team/member1.jpg'
+import member2 from '../../../../assets/img/team/member2.jpg'
+import member3 from '../../../../assets/img/team/member3.jpg'
+import member4 from '../../../../assets/img/team/member4.jpg'
+import member5 from '../../../../assets/img/team/member5.jpg'
+import member6 from '../../../../assets/img/team/member6.jpg'
+import member7 from '../../../../assets/img/team/member7.jpg'
+import member8 from '../../../../assets/img/team/member8.jpg'
+import about_big_1 from '../../../../assets/img/about/about_big_1.jpg'
+import about_small1 from '../../../../assets/img/about/about_small1.jpg'
+import nfeed2_1 from '../../../../assets/img/news/nfeed2_1.jpg'
+import nfeed2_2 from '../../../../assets/img/news/nfeed2_2.jpg'
+import nfeed2_3 from '../../../../assets/img/news/nfeed2_3.jpg'
+
+
 const Main = () => {
   return (
     <div>
@@ -14,7 +30,7 @@ const Main = () => {
                 <div className="breadcrumb_section">
                   <ul className="breadcrumb-list volunteer_breadcrumb">
                     <li className="bhas_border">
-                      <a href="index.html">Home</a>
+                      <Link to='/'>Home</Link>
                     </li>
                     <li>
                       <span className="active">Team</span>
@@ -36,13 +52,13 @@ const Main = () => {
               <div className="col-xxl-3 col-xl-4 col-lg-4 col-sm-6 text-center">
                 <div className="single_team mb-30">
                   <div className="team_thumb img_effect_white">
-                    <a href="volunteer-details.html">
-                      <img src="assets/img/team/member1.jpg" alt="img" />
-                    </a>
+                    <Link to='/volunteer-details'>
+                      <img src={member1} alt="img" />
+                    </Link>
                   </div>
                   <span className="designation">Founder</span>
                   <h5 className="member_name">
-                    <a href="volunteer-details.html">Miranda H. Halim</a>
+                    <Link to='/volunteer-details'>Miranda H. Halim</Link>
                   </h5>
                   <div className="member_social">
                     <a href="#" className="facebook">
@@ -63,13 +79,13 @@ const Main = () => {
               <div className="col-xxl-3 col-xl-4 col-lg-4 col-sm-6 text-center">
                 <div className="single_team mb-30">
                   <div className="team_thumb img_effect_white">
-                    <a href="volunteer-details.html">
-                      <img src="assets/img/team/member2.jpg" alt="img" />
-                    </a>
+                    <Link to='/volunteer-details'>
+                      <img src={member2} alt="img" />
+                    </Link>
                   </div>
                   <span className="designation">Chairman</span>
                   <h5 className="member_name">
-                    <a href="volunteer-details.html">N. Uddin</a>
+                    <Link to='/volunteer-details'>N. Uddin</Link>
                   </h5>
                   <div className="member_social">
                     <a href="#" className="facebook">
@@ -90,13 +106,13 @@ const Main = () => {
               <div className="col-xxl-3 col-xl-4 col-lg-4 col-sm-6 text-center">
                 <div className="single_team mb-30">
                   <div className="team_thumb img_effect_white">
-                    <a href="volunteer-details.html">
-                      <img src="assets/img/team/member3.jpg" alt="img" />
-                    </a>
+                    <Link to='/volunteer-details'>
+                      <img src={member3} alt="img" />
+                    </Link>
                   </div>
                   <span className="designation">Designer</span>
                   <h5 className="member_name">
-                    <a href="volunteer-details.html">Mark Billah</a>
+                    <Link to='/volunteer-details'>Mark Billah</Link>
                   </h5>
                   <div className="member_social">
                     <a href="#" className="facebook">
@@ -117,13 +133,13 @@ const Main = () => {
               <div className="col-xxl-3 col-xl-4 col-lg-4 col-sm-6 text-center">
                 <div className="single_team mb-30">
                   <div className="team_thumb img_effect_white">
-                    <a href="volunteer-details.html">
-                      <img src="assets/img/team/member4.jpg" alt="img" />
-                    </a>
+                    <Link to='/volunteer-details'>
+                      <img src={member4} alt="img" />
+                    </Link>
                   </div>
                   <span className="designation">Developer</span>
                   <h5 className="member_name">
-                    <a href="volunteer-details.html">Andreu Salim</a>
+                    <Link to='/volunteer-details'>Andreu Salim</Link>
                   </h5>
                   <div className="member_social">
                     <a href="#" className="facebook">
@@ -144,13 +160,13 @@ const Main = () => {
               <div className="col-xxl-3 col-xl-4 col-lg-4 col-sm-6 text-center">
                 <div className="single_team mb-30">
                   <div className="team_thumb img_effect_white">
-                    <a href="volunteer-details.html">
-                      <img src="assets/img/team/member5.jpg" alt="img" />
-                    </a>
+                    <Link to='/volunteer-details'>
+                      <img src={member5} alt="img" />
+                    </Link>
                   </div>
                   <span className="designation">Founder</span>
                   <h5 className="member_name">
-                    <a href="volunteer-details.html">Mark Tahiya</a>
+                    <Link to='/volunteer-details'>Mark Tahiya</Link>
                   </h5>
                   <div className="member_social">
                     <a href="#" className="facebook">
@@ -171,13 +187,13 @@ const Main = () => {
               <div className="col-xxl-3 col-xl-4 col-lg-4 col-sm-6 text-center">
                 <div className="single_team mb-30">
                   <div className="team_thumb img_effect_white">
-                    <a href="volunteer-details.html">
-                      <img src="assets/img/team/member6.jpg" alt="img" />
-                    </a>
+                    <Link to='/volunteer-details'>
+                      <img src={member6} alt="img" />
+                    </Link>
                   </div>
                   <span className="designation">Developer</span>
                   <h5 className="member_name">
-                    <a href="volunteer-details.html">Andreu Salim</a>
+                    <Link to='/volunteer-details'>Andreu Salim</Link>
                   </h5>
                   <div className="member_social">
                     <a href="#" className="facebook">
@@ -198,13 +214,13 @@ const Main = () => {
               <div className="col-xxl-3 col-xl-4 col-lg-4 col-sm-6 text-center">
                 <div className="single_team mb-30">
                   <div className="team_thumb img_effect_white">
-                    <a href="volunteer-details.html">
-                      <img src="assets/img/team/member7.jpg" alt="img" />
-                    </a>
+                    <Link to='/volunteer-details'>
+                      <img src={member7} alt="img" />
+                    </Link>
                   </div>
                   <span className="designation">Chairman</span>
                   <h5 className="member_name">
-                    <a href="volunteer-details.html">Andreu Masum</a>
+                    <Link to='/volunteer-details'>Andreu Masum</Link>
                   </h5>
                   <div className="member_social">
                     <a href="#" className="facebook">
@@ -225,13 +241,13 @@ const Main = () => {
               <div className="col-xxl-3 col-xl-4 col-lg-4 col-sm-6 text-center">
                 <div className="single_team mb-30">
                   <div className="team_thumb img_effect_white">
-                    <a href="volunteer-details.html">
-                      <img src="assets/img/team/member8.jpg" alt="img" />
-                    </a>
+                    <Link to='/volunteer-details'>
+                      <img src={member8} alt="img" />
+                    </Link>
                   </div>
                   <span className="designation">Developer</span>
                   <h5 className="member_name">
-                    <a href="volunteer-details.html">Andreu Israt</a>
+                    <Link to='/volunteer-details'>Andreu Israt</Link>
                   </h5>
                   <div className="member_social">
                     <a href="#" className="facebook">
@@ -294,12 +310,12 @@ const Main = () => {
                 <div className="about_team_img pr-20">
                   <div className="about_signle_img">
                     <img
-                      src="assets/img/about/about_big_1.jpg"
+                      src={about_big_1}
                       alt="img"
                       className="big_single"
                     />
                     <img
-                      src="assets/img/about/about_small1.jpg"
+                      src={about_small1}
                       alt="img"
                       className="small_single"
                     />
@@ -346,9 +362,9 @@ const Main = () => {
               <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
                 <div className="single_nfeed single_nfeed_2 has_before mb-30">
                   <div className="single_feed_img img_effect_white">
-                    <a href="blog-details.html">
-                      <img src="assets/img/news/nfeed2_1.jpg" alt="img" />
-                    </a>
+                    <Link to='/blog-details'>
+                      <img src={nfeed2_1} alt="img" />
+                    </Link>
                   </div>
                   <div className="nfeed_content nfeed_content_2">
                     <div className="nfeed_title">
@@ -359,10 +375,10 @@ const Main = () => {
                         Charity, Goods
                       </a>
                       <h3 className="n_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           Expected Goods for everybody in a fund campagin
                           anyways to win.
-                        </a>
+                        </Link>
                       </h3>
                     </div>
                     <div className="nfeed_meta_wrapper d-flex">
@@ -389,23 +405,22 @@ const Main = () => {
               <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
                 <div className="single_nfeed single_nfeed_2 has_before mb-30">
                   <div className="single_feed_img img_effect_white">
-                    <a href="blog-details.html">
-                      <img src="assets/img/news/nfeed2_2.jpg" alt="img" />
-                    </a>
+                    <Link to='/blog-details'>
+                      <img src={nfeed2_2} alt="img" />
+                    </Link>
                   </div>
                   <div className="nfeed_content nfeed_content_2">
                     <div className="nfeed_title">
-                      <a
-                        href="blog-details.html"
+                      <Link to='/blog-details'
                         className="nsub_title nsub_title_2"
                       >
                         Charity, Cloths
-                      </a>
+                      </Link>
                       <h3 className="n_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           Necessary Cloths for everyone in a fund campaign
                           anyways to win.
-                        </a>
+                        </Link>
                       </h3>
                     </div>
                     <div className="nfeed_meta_wrapper d-flex">
@@ -432,23 +447,22 @@ const Main = () => {
               <div className="col-xxl-4 col-xl-4 col-lg-6 col-md-6 col-sm-12">
                 <div className="single_nfeed single_nfeed_2 mb-30">
                   <div className="single_feed_img img_effect_white">
-                    <a href="blog-details.html">
-                      <img src="assets/img/news/nfeed2_3.jpg" alt="img" />
-                    </a>
+                    <Link to='/blog-details'>
+                      <img src={nfeed2_3} alt="img" />
+                    </Link>
                   </div>
                   <div className="nfeed_content nfeed_content_2">
                     <div className="nfeed_title">
-                      <a
-                        href="blog-details.html"
+                      <Link to='/blog-details'
                         className="nsub_title nsub_title_2"
                       >
                         Charity, Food
-                      </a>
+                      </Link>
                       <h3 className="n_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           Healthy food for everyone in a fund campaign anyways
                           to win.
-                        </a>
+                        </Link>
                       </h3>
                     </div>
                     <div className="nfeed_meta_wrapper d-flex">

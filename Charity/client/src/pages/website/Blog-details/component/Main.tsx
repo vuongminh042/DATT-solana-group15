@@ -1,3 +1,34 @@
+import { Link } from 'react-router-dom';
+import breadcrumb_bg_4 from '../../../../assets/img/bg/breadcrumb_bg_4.jpg'
+import blog_details_big from '../../../../assets/img/news/blog_details_big.jpg'
+import details_s1 from '../../../../assets/img/news/details_s1.jpg'
+import details_s2 from '../../../../assets/img/news/details_s2.jpg'
+import dot9 from '../../../../assets/img/news/dot9.png'
+import blog_person from '../../../../assets/img/news/blog_person.jpg'
+import blog_feed1 from '../../../../assets/img/news/blog_feed1.jpg'
+import blog_feed2 from '../../../../assets/img/news/blog_feed2.jpg'
+import blog_feed3 from '../../../../assets/img/news/blog_feed3.jpg'
+import blog_feed4 from '../../../../assets/img/news/blog_feed4.jpg'
+import insta1 from '../../../../assets/img/news/insta1.jpg'
+import insta2 from '../../../../assets/img/news/insta2.jpg'
+import insta3 from '../../../../assets/img/news/insta3.jpg'
+import insta4 from '../../../../assets/img/news/insta4.jpg'
+import insta5 from '../../../../assets/img/news/insta5.jpg'
+import insta6 from '../../../../assets/img/news/insta6.jpg'
+import insta7 from '../../../../assets/img/news/insta7.jpg'
+import insta8 from '../../../../assets/img/news/insta8.jpg'
+import insta9 from '../../../../assets/img/news/insta9.jpg'
+import insta10 from '../../../../assets/img/news/insta10.jpg'
+import insta11 from '../../../../assets/img/news/insta11.jpg'
+import insta12 from '../../../../assets/img/news/insta12.jpg'
+import blog_add from '../../../../assets/img/news/blog_add.jpg'
+import details_person from '../../../../assets/img/news/details_person.jpg'
+import comment1 from '../../../../assets/img/news/comment1.jpg'
+import comment2 from '../../../../assets/img/news/comment2.jpg'
+import comment3 from '../../../../assets/img/news/comment3.jpg'
+
+
+
 const Main = () => {
   return (
     <div>
@@ -6,7 +37,7 @@ const Main = () => {
         {/*breadcrumb area start*/}
         <section
           className="breadcrumb_area breadcrumb_overlay"
-          data-background="assets/img/bg/breadcrumb_bg_4.jpg"
+          data-background={breadcrumb_bg_4}
         >
           <div className="container">
             <div className="row">
@@ -14,7 +45,7 @@ const Main = () => {
                 <div className="breadcrumb_section">
                   <ul className="breadcrumb-list volunteer_breadcrumb">
                     <li className="bhas_border">
-                      <a href="index.html">Home</a>
+                      <Link to='/'>Home</Link>
                     </li>
                     <li>
                       <span className="active">Blog Details</span>
@@ -91,7 +122,7 @@ const Main = () => {
                     </p>
                     <div className="blog_details_img mb-45">
                       <img
-                        src="assets/img/news/blog_details_big.jpg"
+                        src={blog_details_big}
                         alt="img"
                       />
                     </div>
@@ -114,7 +145,7 @@ const Main = () => {
                     </h6>
                     <div className="blog_details_thumb d-flex pb-30">
                       <div className="details_thumb">
-                        <img src="assets/img/news/details_s1.jpg" alt="img" />
+                        <img src={details_s1} alt="img" />
                       </div>
                       <div className="details_content">
                         <p>
@@ -176,7 +207,7 @@ const Main = () => {
                     </p>
                     <div className="blog_details_thumb d-flex mb-20">
                       <div className="details_thumb">
-                        <img src="assets/img/news/details_s2.jpg" alt="img" />
+                        <img src={details_s2} alt="img" />
                       </div>
                       <div className="details_content">
                         <p>
@@ -247,23 +278,22 @@ const Main = () => {
                   <hr className="mt-0 mb-45" />
                   <div className="details_postnav mb-50 d-none">
                     <div className="post-dot-shape">
-                      <img src="assets/img/news/dot9.png" alt="img" />
+                      <img src={dot9} alt="img" />
                     </div>
                     <div className="row">
                       <div className="col-xl-6 col-sm-6">
-                        <a href="blog-details.html" className="single_post_nav">
+                        <Link to='/blog-details' className="single_post_nav">
                           <span>Prev Post</span>
                           <h4>Tips On Minimalist</h4>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-xl-6 col-sm-6">
-                        <a
-                          href="blog-details.html"
+                        <Link to='/blog-details'
                           className="single_post_nav right_nav text-end"
                         >
                           <span>Next Post</span>
                           <h4>Less Is More</h4>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -274,13 +304,13 @@ const Main = () => {
                       <div className="col-sm-6">
                         <div className="related_post_single mb-30">
                           <div className="details_thumb">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               <img
                                 src="assets/img/news/details_rp1.jpg"
                                 className="img-fluid"
                                 alt="img"
                               />{" "}
-                            </a>
+                            </Link>
                           </div>
                           <div className="details_content">
                             <div className="blog_meta mb-10">
@@ -290,9 +320,9 @@ const Main = () => {
                               </a>
                             </div>
                             <h6 className="related_title theme-1">
-                              <a href="blog-details.html">
+                              <Link to='/blog-details'>
                                 A series of iOS 7 inspire vector icons sense.
-                              </a>
+                              </Link>
                             </h6>
                             <p>
                               Lorem ipsum dolor sit amet, conse ctet ur
@@ -304,13 +334,13 @@ const Main = () => {
                       <div className="col-sm-6">
                         <div className="related_post_single mb-30">
                           <div className="details_thumb">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               <img
                                 src="assets/img/news/details_rp2.jpg"
                                 className="img-fluid"
                                 alt="img"
                               />
-                            </a>
+                            </Link>
                           </div>
                           <div className="details_content">
                             <div className="blog_meta mb-10">
@@ -320,9 +350,9 @@ const Main = () => {
                               </a>
                             </div>
                             <h6 className="related_title theme-1">
-                              <a href="blog-details.html">
+                              <Link to='/blog-details'>
                                 iPhone inspires a man to buy its configaration.
-                              </a>
+                              </Link>
                             </h6>
                             <p>
                               Lorem ipsum dolor sit amet, conse ctet ur
@@ -336,17 +366,17 @@ const Main = () => {
                   {/* /. related post */}
                   <div className="details_author_box d-flex">
                     <div className="author_thumb">
-                      <a href="volunteer-details.html">
+                      <Link to='/volunteer-details'>
                         <img
-                          src="assets/img/news/details_person.jpg"
+                          src={details_person}
                           alt="img"
                         />
-                      </a>
+                      </Link>
                     </div>
                     <div className="details_content">
                       <span>Written by</span>
                       <h6 className="author_details_name">
-                        <a href="volunteer-details.html">Andreu D. William</a>
+                        <Link to='/blog-details'>Andreu D. William</Link>
                       </h6>
                       <p className="mb-0">
                         Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -365,22 +395,22 @@ const Main = () => {
                         <li className="mb-30">
                           <div className="comments_box  pb-30">
                             <div className="comment_avater f-left">
-                              <a href="volunteer-details.html">
+                              <Link to='/volunteer-details'>
                                 <img
-                                  src="assets/img/news/comment1.jpg"
+                                  src={comment1}
                                   alt="img"
                                 />
-                              </a>
+                              </Link>
                             </div>
                             <div className="comment_text has-children">
                               <div className="avater_text">
                                 <h5>
-                                  <a href="volunteer-details.html">
+                                  <Link to='/volunteer-details'>
                                     Arista Williamson{" "}
                                     <span>
                                       <i className="fal fa-bookmark" />
                                     </span>
-                                  </a>
+                                  </Link>
                                 </h5>
                                 <div className="blog_meta mb-10">
                                   <a href="#" className="calendar">
@@ -407,22 +437,22 @@ const Main = () => {
                             <li className="children">
                               <div className="comments_box">
                                 <div className="comment_avater f-left">
-                                  <a href="volunteer-details.html">
+                                  <Link to='/volunteer-details'>
                                     <img
-                                      src="assets/img/news/comment2.jpg"
+                                      src={comment2}
                                       alt="img"
                                     />
-                                  </a>
+                                  </Link>
                                 </div>
                                 <div className="comment_text">
                                   <div className="avater_text">
                                     <h5>
-                                      <a href="volunteer-details.html">
+                                      <Link to='/volunteer-details'>
                                         Mark Kelian{" "}
                                         <span>
                                           <i className="fal fa-bookmark" />
                                         </span>
-                                      </a>
+                                      </Link>
                                     </h5>
                                     <div className="blog_meta mb-10">
                                       <a href="#" className="calendar">
@@ -451,22 +481,22 @@ const Main = () => {
                         <li className="mb-45">
                           <div className="comments_box  pb-30">
                             <div className="comment_avater f-left">
-                              <a href="volunteer-details.html">
+                              <Link to='/volunteer-details'>
                                 <img
-                                  src="assets/img/news/comment3.jpg"
+                                  src={comment3}
                                   alt="img"
                                 />
-                              </a>
+                              </Link>
                             </div>
                             <div className="comment_text">
                               <div className="avater_text">
                                 <h5>
-                                  <a href="volunteer-details.html">
+                                  <Link to='/volunteer-details'>
                                     H. Akanda{" "}
                                     <span>
                                       <i className="fal fa-bookmark" />
                                     </span>
-                                  </a>
+                                  </Link>
                                 </h5>
                                 <div className="blog_meta mb-10">
                                   <a href="#" className="calendar">
@@ -569,17 +599,17 @@ const Main = () => {
                     </div>
                     <div className="about_widget_content text-center">
                       <div className="widget_about_img">
-                        <a href="volunteer-details.html">
+                        <Link to='/volunteer-details'>
                           <img
-                            src="assets/img/news/blog_person.jpg"
+                            src={blog_person}
                             alt="img"
                           />
-                        </a>
+                        </Link>
                       </div>
                       <h6 className="about_person_title">
-                        <a href="volunteer-details.html">
+                        <Link to='/volunteer-details'>
                           Rosalina D. Willaimson
-                        </a>
+                        </Link>
                       </h6>
                       <p>
                         Lorem ipsum dolor sit amet, consect etur adipisicing
@@ -631,18 +661,18 @@ const Main = () => {
                     <div className="feed_widget_content">
                       <div className="single_feed_widget has_border">
                         <div className="feed_widget_img">
-                          <a href="blog-details.html">
+                          <Link to='/blog-details'>
                             <img
-                              src="assets/img/news/blog_feed1.jpg"
+                              src={blog_feed1}
                               alt="img"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="feed_widget_text">
                           <h5 className="feed_widget_title theme-1">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               How to improve knowledge for myself
-                            </a>
+                            </Link>
                           </h5>
                           <a href="#" className="feed_widget_date theme-1">
                             <i className="fal fa-calendar-alt" />
@@ -652,18 +682,18 @@ const Main = () => {
                       </div>
                       <div className="single_feed_widget has_border">
                         <div className="feed_widget_img">
-                          <a href="blog-details.html">
+                          <Link to='/blog-details'>
                             <img
-                              src="assets/img/news/blog_feed2.jpg"
+                              src={blog_feed2}
                               alt="img"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="feed_widget_text">
                           <h5 className="feed_widget_title theme-1">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               Everybody needs to know how to help myself
-                            </a>
+                            </Link>
                           </h5>
                           <a href="#" className="feed_widget_date theme-1">
                             <i className="fal fa-calendar-alt" />
@@ -673,18 +703,18 @@ const Main = () => {
                       </div>
                       <div className="single_feed_widget has_border">
                         <div className="feed_widget_img">
-                          <a href="blog-details.html">
+                          <Link to='/blog-details'>
                             <img
-                              src="assets/img/news/blog_feed3.jpg"
+                              src={blog_feed3}
                               alt="img"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="feed_widget_text">
                           <h5 className="feed_widget_title theme-1">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               Good foods available on behalf of fundraise
-                            </a>
+                            </Link>
                           </h5>
                           <a href="#" className="feed_widget_date theme-1">
                             <i className="fal fa-calendar-alt" />
@@ -694,18 +724,18 @@ const Main = () => {
                       </div>
                       <div className="single_feed_widget">
                         <div className="feed_widget_img">
-                          <a href="blog-details.html">
+                          <Link to='/blog-details'>
                             <img
-                              src="assets/img/news/blog_feed4.jpg"
+                              src={blog_feed4}
                               alt="img"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="feed_widget_text">
                           <h5 className="feed_widget_title theme-1">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               Keep focus on you to find out yourself
-                            </a>
+                            </Link>
                           </h5>
                           <a href="#" className="feed_widget_date theme-1">
                             <i className="fal fa-calendar-alt" />
@@ -747,40 +777,40 @@ const Main = () => {
                     </div>
                     <div className="instagram_widget_img_wrapper">
                       <a href="#">
-                        <img src="assets/img/news/insta1.jpg" alt="img" />
+                        <img src={insta1} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta2.jpg" alt="img" />
+                        <img src={insta2} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta3.jpg" alt="img" />
+                        <img src={insta3} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta4.jpg" alt="img" />
+                        <img src={insta4} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta5.jpg" alt="img" />
+                        <img src={insta5} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta6.jpg" alt="img" />
+                        <img src={insta6} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta7.jpg" alt="img" />
+                        <img src={insta7} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta8.jpg" alt="img" />
+                        <img src={insta8} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta9.jpg" alt="img" />
+                        <img src={insta9} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta10.jpg" alt="img" />
+                        <img src={insta10} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta11.jpg" alt="img" />
+                        <img src={insta11} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta12.jpg" alt="img" />
+                        <img src={insta12} alt="img" />
                       </a>
                     </div>
                   </div>
@@ -816,9 +846,9 @@ const Main = () => {
                       </h4>
                     </div>
                     <div className="advertise_img">
-                      <a href="blog-details.html">
-                        <img src="assets/img/news/blog_add.jpg" alt="img" />
-                      </a>
+                      <Link to='/blog-details'>
+                        <img src={blog_add} alt="img" />
+                      </Link>
                       <div className="advertise_abs">
                         <span>270x240</span>
                       </div>

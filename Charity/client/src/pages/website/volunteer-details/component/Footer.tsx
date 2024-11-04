@@ -1,3 +1,8 @@
+import logo_white from '../../../../assets/img/logo/logo_white.png'
+import fcta2_1 from '../../../../assets/img/footer/fcta2_1.png'
+import fcta2_2 from '../../../../assets/img/footer/fcta2_2.png'
+
+
 const Footer = () => {
   return (
     <div>
@@ -23,7 +28,7 @@ const Footer = () => {
                 <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-7 col-sm-7">
                   <div className="footer_widget footer_about mb-50">
                     <div className="footer_logo mb-35">
-                      <img src="assets/img/logo/logo_white.png" alt="img" />
+                      <img src={logo_white} alt="img" />
                     </div>
                     <p className="mb-30">
                       Eaque ipsa quae ab illo inventore veris quasi architecto
@@ -149,7 +154,7 @@ const Footer = () => {
               <div className="row">
                 <div className="col-xxl-6 col-xl-6 col-lg-6 col-sm-12">
                   <div className="fcta_sigle has_bg mb-30">
-                    <img src="assets/img/footer/fcta2_1.png" alt="img" />
+                    <img src={fcta2_1} alt="img" />
                     <div className="fcta_text">
                       <h4>Help &amp; Support Now</h4>
                       <span>
@@ -168,7 +173,7 @@ const Footer = () => {
                 </div>
                 <div className="col-xxl-6 col-xl-6 col-lg-6 col-sm-12">
                   <div className="fcta_sigle has_bg pad_170s mb-30">
-                    <img src="assets/img/footer/fcta2_2.png" alt="img" />
+                    <img src={fcta2_2} alt="img" />
                     <div className="fcta_text">
                       <h4>Join as Volunteer</h4>
                       <span>

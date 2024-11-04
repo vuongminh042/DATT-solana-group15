@@ -1,4 +1,12 @@
-import React from "react";
+import logo from '../../../../assets/img/logo/logo.png'
+import sidebar1 from '../../../../assets/img/causes/sidebar1.jpg'
+import sidebar2 from '../../../../assets/img/causes/sidebar2.jpg'
+import sidebar3 from '../../../../assets/img/causes/sidebar3.jpg'
+import sidebar4 from '../../../../assets/img/causes/sidebar4.jpg'
+import sidebar5 from '../../../../assets/img/causes/sidebar5.jpg'
+import sidebar6 from '../../../../assets/img/causes/sidebar6.jpg'
+import { Link } from 'react-router-dom'
+
 
 const Header = () => {
   return (
@@ -57,85 +65,39 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
                   <div className="logo">
-                    <a href="index.html">
-                      <img src="assets/img/logo/logo.png" alt="" />
-                    </a>
+                    <Link to='/'><img src={logo} alt="" /></Link>
                   </div>
                 </div>
                 <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
                   <div className="main-menu menu_2 text-center">
                     <nav id="mobile-menu">
                       <ul>
-                        <li className="menu-item-has-children">
-                          <a href="index.html">Home</a>
+                        <li className="menu-item-has-children"><Link to='/'>Home</Link></li>
+                        <li><Link to='/about'>About</Link></li>
+                        <li className="active menu-item-has-children"><Link to='/causes'>Causes</Link>
                           <ul className="sub-menu">
-                            <li>
-                              <a href="index.html">Home 1</a>
-                            </li>
-                            <li>
-                              <a href="index-2.html">Home 2</a>
-                            </li>
-                            <li>
-                              <a href="index-3.html">Home 3</a>
-                            </li>
+                            <li><Link to='/causes'>Causes</Link>
+                            </li><li><Link to='/cause-details'>Cause Details</Link>
+                            </li></ul>
+                        </li>
+                        <li className="menu-item-has-children"><a href="#">Pages</a>
+                          <ul className="sub-menu">
+                            <li><Link to='/events'>Events</Link>
+                            </li><li><Link to='/events-details'>Events Details</Link>
+                            </li><li><Link to='/volunteer'>Volunteer</Link>
+                            </li><li><Link to='/volunteer-details'>Volunteer Details</Link>
+                            </li><li><Link to='/donation'>Donation</Link>
+                            </li><li><Link to='/mission'>Mission</Link>
+                            </li><li><Link to='/faq'>Faq</Link>
+                            </li></ul>
+                        </li>
+                        <li className="menu-item-has-children"><Link to='/blog'>News</Link>
+                          <ul className="sub-menu">
+                            <li><Link to='/blog'>News</Link></li>
+                            <li><Link to='/blog-details'>News Details</Link></li>
                           </ul>
                         </li>
-                        <li>
-                          <a href="about.html">About</a>
-                        </li>
-                        <li className="menu-item-has-children">
-                          <a href="cause.html">Causes</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="cause.html">Causes</a>
-                            </li>
-                            <li>
-                              <a href="cause-details.html">Cause Details</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="menu-item-has-children">
-                          <a href="#">Pages</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="event.html">Events</a>
-                            </li>
-                            <li>
-                              <a href="event-details.html">Events Details</a>
-                            </li>
-                            <li>
-                              <a href="volunteer.html">Volunteer</a>
-                            </li>
-                            <li>
-                              <a href="volunteer-details.html">
-                                Volunteer Details
-                              </a>
-                            </li>
-                            <li>
-                              <a href="donation.html">Donation</a>
-                            </li>
-                            <li>
-                              <a href="mission.html">Mission</a>
-                            </li>
-                            <li>
-                              <a href="faq.html">Faq</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li className="active menu-item-has-children">
-                          <a href="blog.html">News</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="blog.html">News</a>
-                            </li>
-                            <li>
-                              <a href="blog-details.html">News Details</a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a href="contact.html">Contact</a>
-                        </li>
+                        <li><Link to='/contact'>Contact</Link></li>
                       </ul>
                     </nav>
                   </div>
@@ -143,13 +105,7 @@ const Header = () => {
                 <div className="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
                   <div className="header-right d-flex align-items-center justify-content-end">
                     <div className="header-sing d-inline-block d-none d-xl-block">
-                      <a
-                        className="g_btn hbtn_1 to_right1 rad-30"
-                        href="donation.html"
-                      >
-                        Make Donation
-                        <span />
-                      </a>
+                      <Link to='/donation' className="g_btn hbtn_1 to_right1 rad-30">Make Donation<span /></Link>
                     </div>
                     <div className="hamburger-menu menu-bar info-bar d-inline-block ml-20">
                       <button className="hamburger-btn open-mobile-menu">
@@ -169,11 +125,7 @@ const Header = () => {
           <div className="side-info">
             <div className="offset-widget offset-logo mb-30 pb-20">
               <div className="row align-items-center">
-                <div className="col-8">
-                  <a href="index.html" className="mobile_logo">
-                    <img src="assets/img/logo/logo.png" alt="Logo" />
-                  </a>
-                </div>
+                <div className="col-8"><Link to='/' className="mobile_logo"><img src={logo} alt="Logo" /></Link></div>
                 <div className="col-4 text-end">
                   <button className="side-info-close">
                     <i className="fal fa-times" />
@@ -244,9 +196,9 @@ const Header = () => {
             <div className="offset-widget offset-logo mb-30 pb-20">
               <div className="row align-items-center">
                 <div className="col-8">
-                  <a href="index.html">
-                    <img src="assets/img/logo/logo.png" alt="Logo" />
-                  </a>
+                  <Link to='/'>
+                    <img src={logo} alt="Logo" />
+                  </Link>
                 </div>
                 <div className="col-4 text-end">
                   <button className="side-info-close">
@@ -284,52 +236,22 @@ const Header = () => {
             </div>
             <div className="row side-row">
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar1.jpg"
-                >
-                  <img src="assets/img/causes/sidebar1.jpg" alt="sidebar-img" />
-                </a>
+                <a className="popup-image" href={sidebar1}><img src={sidebar1} alt="sidebar-img" /></a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar2.jpg"
-                >
-                  <img src="assets/img/causes/sidebar2.jpg" alt="sidebar-img" />
-                </a>
+                <a className="popup-image" href={sidebar2}><img src={sidebar2} alt="sidebar-img" /></a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar3.jpg"
-                >
-                  <img src="assets/img/causes/sidebar3.jpg" alt="sidebar-img" />
-                </a>
+                <a className="popup-image" href={sidebar3}><img src={sidebar3} alt="sidebar-img" /></a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar4.jpg"
-                >
-                  <img src="assets/img/causes/sidebar4.jpg" alt="sidebar-img" />
-                </a>
+                <a className="popup-image" href={sidebar4}><img src={sidebar4} alt="sidebar-img" /></a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar5.jpg"
-                >
-                  <img src="assets/img/causes/sidebar5.jpg" alt="sidebar-img" />
-                </a>
+                <a className="popup-image" href={sidebar5}><img src={sidebar5} alt="sidebar-img" /></a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar6.jpg"
-                >
-                  <img src="assets/img/causes/sidebar6.jpg" alt="sidebar-img" />
-                </a>
+                <a className="popup-image" href={sidebar6}><img src={sidebar6} alt="sidebar-img" /></a>
               </div>
             </div>
             <div className="side-map mt-20 mb-30">

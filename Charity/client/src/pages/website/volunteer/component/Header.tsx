@@ -73,19 +73,19 @@ const Header = () => {
                     <nav id="mobile-menu">
                       <ul>
                         <li className="menu-item-has-children">
-                          <a href="index.html">Home</a>
+                          <Link to='/'>Home</Link>
                         </li>
                         <li>
-                          <a href="about.html">About</a>
+                          <Link to='/about'>About</Link>
                         </li>
                         <li className="menu-item-has-children">
-                          <a href="cause.html">Causes</a>
+                          <Link to='/causes'>Causes</Link>
                           <ul className="sub-menu">
                             <li>
-                              <a href="cause.html">Causes</a>
+                              <Link to='/causes'>Causes</Link>
                             </li>
                             <li>
-                              <a href="cause-details.html">Cause Details</a>
+                              <Link to='/cause-details'>Cause Details</Link>
                             </li>
                           </ul>
                         </li>
@@ -93,41 +93,41 @@ const Header = () => {
                           <a href="#">Pages</a>
                           <ul className="sub-menu">
                             <li>
-                              <a href="event">Events</a>
+                              <Link to='/events'>Events</Link>
                             </li>
                             <li>
-                              <a href="event-details">Events Details</a>
+                              <Link to='/events-details'>Events Details</Link>
                             </li>
                             <li>
-                              <a href="volunteer">Volunteer</a>
+                              <Link to='/volunteer'>Volunteer</Link>
                             </li>
                             <li>
-                              <a href="volunteer-details">Volunteer Details</a>
+                              <Link to='/volunteer-details'>Volunteer Details</Link>
                             </li>
                             <li>
-                              <a href="donation">Donation</a>
+                              <Link to='/donation'>Donation</Link>
                             </li>
                             <li>
-                              <a href="mission">Mission</a>
+                              <Link to='/mission'>Mission</Link>
                             </li>
                             <li>
-                              <a href="faq">Faq</a>
+                              <Link to='/faq'>Faq</Link>
                             </li>
                           </ul>
                         </li>
                         <li className="menu-item-has-children">
-                          <a href="blog.html">News</a>
+                          <Link to='/blog'>News</Link>
                           <ul className="sub-menu">
                             <li>
-                              <a href="blog.html">News</a>
+                              <Link to='/blog'>News</Link>
                             </li>
                             <li>
-                              <a href="blog-details.html">News Details</a>
+                              <Link to='/blog-details'>News Details</Link>
                             </li>
                           </ul>
                         </li>
                         <li>
-                          <a href="contact.html">Contact</a>
+                          <Link to='/contact'>Contact</Link>
                         </li>
                       </ul>
                     </nav>
@@ -136,13 +136,12 @@ const Header = () => {
                 <div className="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
                   <div className="header-right d-flex align-items-center justify-content-end">
                     <div className="header-sing d-inline-block d-none d-xl-block">
-                      <a
+                      <Link to='/donation'
                         className="g_btn hbtn_1 to_right1 rad-30"
-                        href="donation.html"
                       >
                         Make Donation
                         <span />
-                      </a>
+                      </Link>
                     </div>
                     <div className="hamburger-menu menu-bar info-bar d-inline-block ml-20">
                       <button className="hamburger-btn open-mobile-menu">
@@ -154,7 +153,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </header>
+        </header >
         {/* Header One End*/}
         {/* slide-bar start */}
         {/* Sidebar for Mobile */}
@@ -163,9 +162,9 @@ const Header = () => {
             <div className="offset-widget offset-logo mb-30 pb-20">
               <div className="row align-items-center">
                 <div className="col-8">
-                  <a href="index.html" className="mobile_logo">
+                  <Link to='/' className="mobile_logo">
                     <img src={logo} alt="Logo" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-4 text-end">
                   <button className="side-info-close">
@@ -237,9 +236,9 @@ const Header = () => {
             <div className="offset-widget offset-logo mb-30 pb-20">
               <div className="row align-items-center">
                 <div className="col-8">
-                  <a href="index.html">
+                  <Link to='/'>
                     <img src={logo} alt="Logo" />
-                  </a>
+                  </Link>
                 </div>
                 <div className="col-4 text-end">
                   <button className="side-info-close">
@@ -361,8 +360,8 @@ const Header = () => {
         </div>
         <div className="offcanvas-overlay" />
         {/* slide-bar end */}
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

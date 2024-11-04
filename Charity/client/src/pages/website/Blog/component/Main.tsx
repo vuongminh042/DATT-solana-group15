@@ -1,4 +1,30 @@
-import React from "react";
+import { Link } from 'react-router-dom';
+import breadcrum_bg_2 from '../../../../assets/img/bg/breadcrum_bg_2.jpg'
+import blog_image from '../../../../assets/img/news/blog_image.jpg'
+import admin from '../../../../assets/img/news/admin.jpg'
+import blog_video from '../../../../assets/img/news/blog_video.jpg'
+import blog_image2 from '../../../../assets/img/news/blog_image2.jpg'
+import blog_audio from '../../../../assets/img/news/blog_audio.jpg'
+import audio_logo from '../../../../assets/img/news/audio_logo.png'
+import blog_quote from '../../../../assets/img/news/blog_quote.jpg'
+import blog_person from '../../../../assets/img/news/blog_person.jpg'
+import blog_feed1 from '../../../../assets/img/news/blog_feed1.jpg'
+import blog_feed2 from '../../../../assets/img/news/blog_feed2.jpg'
+import blog_feed3 from '../../../../assets/img/news/blog_feed3.jpg'
+import blog_feed4 from '../../../../assets/img/news/blog_feed4.jpg'
+import insta1 from '../../../../assets/img/news/insta1.jpg'
+import insta2 from '../../../../assets/img/news/insta2.jpg'
+import insta3 from '../../../../assets/img/news/insta3.jpg'
+import insta4 from '../../../../assets/img/news/insta4.jpg'
+import insta5 from '../../../../assets/img/news/insta5.jpg'
+import insta6 from '../../../../assets/img/news/insta6.jpg'
+import insta7 from '../../../../assets/img/news/insta7.jpg'
+import insta8 from '../../../../assets/img/news/insta8.jpg'
+import insta9 from '../../../../assets/img/news/insta9.jpg'
+import insta10 from '../../../../assets/img/news/insta10.jpg'
+import insta11 from '../../../../assets/img/news/insta11.jpg'
+import insta12 from '../../../../assets/img/news/insta12.jpg'
+import blog_add from '../../../../assets/img/news/blog_add.jpg'
 
 const Main = () => {
   return (
@@ -8,7 +34,7 @@ const Main = () => {
         {/*breadcrumb area start*/}
         <section
           className="breadcrumb_area breadcrumb_overlay"
-          data-background="assets/img/bg/breadcrum_bg_2.jpg"
+          data-background={breadcrum_bg_2}
         >
           <div className="container">
             <div className="row">
@@ -16,7 +42,7 @@ const Main = () => {
                 <div className="breadcrumb_section">
                   <ul className="breadcrumb-list volunteer_breadcrumb">
                     <li className="bhas_border">
-                      <a href="index.html">Home</a>
+                      <Link to='/'>Home</Link>
                     </li>
                     <li>
                       <span className="active">Blog</span>
@@ -39,28 +65,28 @@ const Main = () => {
                 <div className="blog_area mb-40">
                   <div className="blog_image_wrapper mb-40">
                     <div className="blog_image">
-                      <a href="blog-details.html" className="w_img">
-                        <img src="assets/img/news/blog_image.jpg" alt="img" />
-                      </a>
+                      <Link to='/blog-details' className="w_img">
+                        <img src={blog_image} alt="img" />
+                      </Link>
                       <div className="admin_meta has_abs">
-                        <a href="blog-details.html" className="blog_cat">
+                        <Link to='/blog-details' className="blog_cat">
                           Business
-                        </a>
+                        </Link>
                         <div className="blog_admin">
                           <a href="volunteer-details.html">
-                            <img src="assets/img/news/admin.jpg" alt="img" />
+                            <img src={admin} alt="img" />
                           </a>
-                          <a href="volunteer-details.html" className="admin_by">
+                          <Link to='/blog-details' className="admin_by">
                             By Hetmayer
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
                     <div className="blog_content">
                       <h4 className="blog_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           Become a monthly giver and save a child’s life today
-                        </a>
+                        </Link>
                       </h4>
                       <p>
                         Novia's spaciously two bedroom apartments are perfect
@@ -86,9 +112,9 @@ const Main = () => {
                   </div>
                   <div className="blog_video_wrapper mb-40">
                     <div className="blog_image">
-                      <a href="blog-details.html" className="w_img">
-                        <img src="assets/img/news/blog_video.jpg" alt="img" />
-                      </a>
+                      <Link to='/blog-details' className="w_img">
+                        <img src={blog_video} alt="img" />
+                      </Link>
                       <a
                         href="https://www.youtube.com/watch?v=LiydZUP8__I"
                         className="video_play has_abs"
@@ -96,25 +122,25 @@ const Main = () => {
                         <i className="fal fa-play" />
                       </a>
                       <div className="admin_meta has_abs">
-                        <a href="blog-details.html" className="blog_cat">
+                        <Link to='/blog-details' className="blog_cat">
                           Medical
-                        </a>
+                        </Link>
                         <div className="blog_admin">
-                          <a href="volunteer-details.html">
-                            <img src="assets/img/news/admin.jpg" alt="img" />
-                          </a>
-                          <a href="volunteer-details.html" className="admin_by">
+                          <Link to='/blog-details'>
+                            <img src={admin} alt="img" />
+                          </Link>
+                          <Link to='/blog-details' className="admin_by">
                             By Mark
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
                     <div className="blog_content">
                       <h4 className="blog_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           What takes an online fundraising site from good to
                           great?
-                        </a>
+                        </Link>
                       </h4>
                       <p>
                         Novia's spaciously two bedroom apartments are perfect
@@ -140,29 +166,29 @@ const Main = () => {
                   </div>
                   <div className="blog_image_wrapper mb-40">
                     <div className="blog_image">
-                      <a href="blog-details.html" className="w_img">
-                        <img src="assets/img/news/blog_image2.jpg" alt="img" />
-                      </a>
+                      <Link to='/blog-details' className="w_img">
+                        <img src={blog_image2} alt="img" />
+                      </Link>
                       <div className="admin_meta has_abs">
-                        <a href="blog-details.html" className="blog_cat">
+                        <Link to='/blog-details' className="blog_cat">
                           Education
-                        </a>
+                        </Link>
                         <div className="blog_admin">
-                          <a href="volunteer-details.html">
-                            <img src="assets/img/news/admin.jpg" alt="img" />
-                          </a>
-                          <a href="volunteer-details.html" className="admin_by">
+                          <Link to='/blog-details'>
+                            <img src={admin} alt="img" />
+                          </Link>
+                          <Link to='/blog-details' className="admin_by">
                             By Salim
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
                     <div className="blog_content">
                       <h4 className="blog_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           Themepure always offers for everybody to enrich
                           knowledge by yourself
-                        </a>
+                        </Link>
                       </h4>
                       <p>
                         Novia's spaciously two bedroom apartments are perfect
@@ -188,19 +214,19 @@ const Main = () => {
                   </div>
                   <div className="blog_audio_wrapper mb-40">
                     <div className="blog_audio_img">
-                      <a href="blog-details.html" className="w_img">
-                        <img src="assets/img/news/blog_audio.jpg" alt="img" />
-                      </a>
-                      <a href="blog-details.html" className="audio_logo_abs">
-                        <img src="assets/img/news/audio_logo.png" alt="" />
-                      </a>
+                      <Link to='/blog-details' className="w_img">
+                        <img src={blog_audio} alt="img" />
+                      </Link>
+                      <Link to='/blog-details' className="audio_logo_abs">
+                        <img src={audio_logo} alt="" />
+                      </Link>
                     </div>
                     <div className="blog_content">
                       <h4 className="blog_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           How to Survive a Recession When the Future Feels
                           Uncertain
-                        </a>
+                        </Link>
                       </h4>
                       <p>
                         Novia's spaciously two bedroom apartments are perfect
@@ -227,10 +253,10 @@ const Main = () => {
                   <div className="blog_noimg_wrapper mb-40">
                     <div className="blog_content noimg_content">
                       <h4 className="blog_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           All People can help others but can not do normally for
                           a social restriction
-                        </a>
+                        </Link>
                       </h4>
                       <p>
                         Novia's spaciously two bedroom apartments are perfect
@@ -256,15 +282,15 @@ const Main = () => {
                   </div>
                   <div
                     className="blog_blockquote_wrapper bg_cover mb-40"
-                    data-background="assets/img/news/blog_quote.jpg"
+                    data-background={blog_quote}
                   >
                     <div className="blog_blockquote_content">
                       <i className="fas fa-quote-left" />
                       <h4 className="blog_title">
-                        <a href="blog-details.html">
+                        <Link to='/blog-details'>
                           Dharma Home Suites at Novia offers fully plain
                           furnished
-                        </a>
+                        </Link>
                       </h4>
                     </div>
                   </div>
@@ -295,17 +321,17 @@ const Main = () => {
                     </div>
                     <div className="about_widget_content text-center">
                       <div className="widget_about_img">
-                        <a href="volunteer-details.html">
+                        <Link to='/blog-details'>
                           <img
-                            src="assets/img/news/blog_person.jpg"
+                            src={blog_person}
                             alt="img"
                           />
-                        </a>
+                        </Link>
                       </div>
                       <h6 className="about_person_title">
-                        <a href="volunteer-details.html">
+                        <Link to='/blog-details'>
                           Rosalina D. Willaimson
-                        </a>
+                        </Link>
                       </h6>
                       <p>
                         Lorem ipsum dolor sit amet, consect etur adipisicing
@@ -357,18 +383,18 @@ const Main = () => {
                     <div className="feed_widget_content">
                       <div className="single_feed_widget has_border">
                         <div className="feed_widget_img">
-                          <a href="blog-details.html">
+                          <Link to='/blog-details'>
                             <img
-                              src="assets/img/news/blog_feed1.jpg"
+                              src={blog_feed1}
                               alt="img"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="feed_widget_text">
                           <h5 className="feed_widget_title theme-1">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               How to improve knowledge for myself
-                            </a>
+                            </Link>
                           </h5>
                           <a href="#" className="feed_widget_date theme-1">
                             <i className="fal fa-calendar-alt" />
@@ -378,18 +404,18 @@ const Main = () => {
                       </div>
                       <div className="single_feed_widget has_border">
                         <div className="feed_widget_img">
-                          <a href="blog-details.html">
+                          <Link to='/blog-details'>
                             <img
-                              src="assets/img/news/blog_feed2.jpg"
+                              src={blog_feed2}
                               alt="img"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="feed_widget_text">
                           <h5 className="feed_widget_title theme-1">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               Everybody needs to know how to help myself
-                            </a>
+                            </Link>
                           </h5>
                           <a href="#" className="feed_widget_date theme-1">
                             <i className="fal fa-calendar-alt" />
@@ -399,18 +425,18 @@ const Main = () => {
                       </div>
                       <div className="single_feed_widget has_border">
                         <div className="feed_widget_img">
-                          <a href="blog-details.html">
+                          <Link to='/blog-details'>
                             <img
-                              src="assets/img/news/blog_feed3.jpg"
+                              src={blog_feed3}
                               alt="img"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="feed_widget_text">
                           <h5 className="feed_widget_title theme-1">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               Good foods available on behalf of fundraise
-                            </a>
+                            </Link>
                           </h5>
                           <a href="#" className="feed_widget_date theme-1">
                             <i className="fal fa-calendar-alt" />
@@ -420,18 +446,18 @@ const Main = () => {
                       </div>
                       <div className="single_feed_widget">
                         <div className="feed_widget_img">
-                          <a href="blog-details.html">
+                          <Link to='/blog-details'>
                             <img
-                              src="assets/img/news/blog_feed4.jpg"
+                              src={blog_feed4}
                               alt="img"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="feed_widget_text">
                           <h5 className="feed_widget_title theme-1">
-                            <a href="blog-details.html">
+                            <Link to='/blog-details'>
                               Keep focus on you to find out yourself
-                            </a>
+                            </Link>
                           </h5>
                           <a href="#" className="feed_widget_date theme-1">
                             <i className="fal fa-calendar-alt" />
@@ -473,40 +499,40 @@ const Main = () => {
                     </div>
                     <div className="instagram_widget_img_wrapper">
                       <a href="#">
-                        <img src="assets/img/news/insta1.jpg" alt="img" />
+                        <img src={insta1} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta2.jpg" alt="img" />
+                        <img src={insta2} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta3.jpg" alt="img" />
+                        <img src={insta3} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta4.jpg" alt="img" />
+                        <img src={insta4} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta5.jpg" alt="img" />
+                        <img src={insta5} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta6.jpg" alt="img" />
+                        <img src={insta6} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta7.jpg" alt="img" />
+                        <img src={insta7} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta8.jpg" alt="img" />
+                        <img src={insta8} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta9.jpg" alt="img" />
+                        <img src={insta9} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta10.jpg" alt="img" />
+                        <img src={insta10} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta11.jpg" alt="img" />
+                        <img src={insta11} alt="img" />
                       </a>
                       <a href="#">
-                        <img src="assets/img/news/insta12.jpg" alt="img" />
+                        <img src={insta12} alt="img" />
                       </a>
                     </div>
                   </div>
@@ -542,9 +568,9 @@ const Main = () => {
                       </h4>
                     </div>
                     <div className="advertise_img">
-                      <a href="blog-details.html">
-                        <img src="assets/img/news/blog_add.jpg" alt="img" />
-                      </a>
+                      <Link to='/blog-details'>
+                        <img src={blog_add} alt="img" />
+                      </Link>
                       <div className="advertise_abs">
                         <span>270x240</span>
                       </div>

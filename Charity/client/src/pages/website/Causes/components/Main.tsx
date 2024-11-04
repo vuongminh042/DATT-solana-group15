@@ -23,6 +23,7 @@ import cause7 from '../../../../assets/img/causes/cause7.jpg'
 import cause20 from '../../../../assets/img/causes/cause20.jpg'
 import breadcrum_bg_2 from '../../../../assets/img/bg/breadcrum_bg_2.jpg'
 import cause_s2 from '../../../../assets/img/causes/cause_s2.jpg'
+import { Link } from 'react-router-dom'
 
 const Main = () => {
     return (
@@ -1241,7 +1242,7 @@ const Main = () => {
                         </div>
                         <div className="row">
                             <div className="cause_button text-center mt-10 mb-30">
-                                <a href="cause.html" className="cause_btn g_btn to_right1 rad-30">Load More <i className="far fa-plus" /> <span /></a>
+                                <Link to='/causes' className="cause_btn g_btn to_right1 rad-30">Load More <i className="far fa-plus" /> <span /></Link>
                             </div>
                         </div>
                     </div>

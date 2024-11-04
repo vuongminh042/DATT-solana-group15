@@ -1,3 +1,7 @@
+import { Link } from 'react-router-dom';
+import person from '../../../../assets/img/team/person.jpg'
+import breadcrumb_bg_3 from '../../../../assets/img/bg/breadcrumb_bg_3.jpg'
+
 const Main = () => {
   return (
     <div>
@@ -6,7 +10,7 @@ const Main = () => {
         {/*breadcrumb area start*/}
         <section
           className="breadcrumb_area breadcrumb_overlay"
-          data-background="assets/img/bg/breadcrumb_bg_3.jpg"
+          data-background={breadcrumb_bg_3}
         >
           <div className="container">
             <div className="row">
@@ -14,7 +18,7 @@ const Main = () => {
                 <div className="breadcrumb_section">
                   <ul className="breadcrumb-list volunteer_breadcrumb">
                     <li className="bhas_border">
-                      <a href="index.html">Home</a>
+                      <Link to='/'>Home</Link>
                     </li>
                     <li>
                       <span className="active">Team Details</span>
@@ -35,7 +39,7 @@ const Main = () => {
             <div className="row align-items-center mb-80">
               <div className="col-xxl-5 col-xl-5 col-lg-5">
                 <div className="team_single_img">
-                  <img src="assets/img/team/person.jpg" alt="img" />
+                  <img src={person} alt="img" />
                 </div>
               </div>
               <div className="col-xxl-7 col-xl-7 col-lg-7">

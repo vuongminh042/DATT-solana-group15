@@ -39,7 +39,7 @@ const Header = () => {
                             <div className="row align-items-center">
                                 <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
                                     <div className="logo">
-                                        <Link to='/' ><img src={logo} alt="" /></Link>
+                                        <Link to='/'><img src={logo} alt="" /></Link>
                                     </div>
                                 </div>
                                 <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
@@ -58,17 +58,17 @@ const Header = () => {
                                                     <ul className="sub-menu">
                                                         <li><Link to='/events'>Events</Link>
                                                         </li><li><Link to='/events-details'>Events Details</Link>
-                                                        </li><li><a href="volunteer.html">Volunteer</a>
-                                                        </li><li><a href="volunteer-details.html">Volunteer Details</a>
+                                                        </li><li><Link to='/volunteer'>Volunteer</Link>
+                                                        </li><li><Link to='/volunteer-details'>Volunteer Details</Link>
                                                         </li><li><Link to='/donation'>Donation</Link>
                                                         </li><li><Link to='/mission'>Mission</Link>
                                                         </li><li><Link to='/faq'>Faq</Link>
                                                         </li></ul>
                                                 </li>
-                                                <li className="menu-item-has-children"><a href="blog.html">News</a>
+                                                <li className="menu-item-has-children"><Link to='/blog'>News</Link>
                                                     <ul className="sub-menu">
-                                                        <li><a href="blog.html">News</a></li>
-                                                        <li><a href="blog-details.html">News Details</a></li>
+                                                        <li><Link to='/blog'>News</Link></li>
+                                                        <li><Link to='/blog-details'>News Details</Link></li>
                                                     </ul>
                                                 </li>
                                                 <li><Link to='/contact'>Contact</Link></li>
@@ -79,7 +79,7 @@ const Header = () => {
                                 <div className="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
                                     <div className="header-right d-flex align-items-center justify-content-end">
                                         <div className="header-sing d-inline-block d-none d-xl-block">
-                                            <a className="g_btn hbtn_1 to_right1 rad-30" href="donation.html">Make Donation<span /></a>
+                                            <Link to='/donation' className="g_btn hbtn_1 to_right1 rad-30">Make Donation<span /></Link>
                                         </div>
                                         <div className="hamburger-menu menu-bar info-bar d-inline-block ml-20">
                                             <button className="hamburger-btn open-mobile-menu"><i className="fal fa-bars" /></button>
@@ -97,7 +97,7 @@ const Header = () => {
                     <div className="side-info">
                         <div className="offset-widget offset-logo mb-30 pb-20">
                             <div className="row align-items-center">
-                                <div className="col-8"><a href="index.html" className="mobile_logo"><img src={logo} alt="Logo" /></a></div>
+                                <div className="col-8"><Link to='/' className="mobile_logo"><img src={logo} alt="Logo" /></Link></div>
                                 <div className="col-4 text-end"><button className="side-info-close"><i className="fal fa-times" /></button></div>
                             </div>
                         </div>

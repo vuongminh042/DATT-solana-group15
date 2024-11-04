@@ -34,17 +34,17 @@ const Header = () => {
                                                 <ul className="sub-menu">
                                                     <li><Link to='/events'>Events</Link></li>
                                                     <li><Link to='/events-details'>Events Details</Link></li>
-                                                    <li><a href="volunteer.html">Volunteer</a></li>
-                                                    <li><a href="volunteer-details.html">Volunteer Details</a></li>
+                                                    <li><Link to='/volunteer'>Volunteer</Link></li>
+                                                    <li><Link to='/volunteer-details'>Volunteer Details</Link></li>
                                                     <li><Link to='/donation'>Donation</Link></li>
                                                     <li><Link to='/mission'>Mission</Link></li>
-                                                    <li><a href="faq.html">Faq</a></li>
+                                                    <li><Link to='/faq'>Faq</Link></li>
                                                 </ul>
                                             </li>
-                                            <li className="menu-item-has-children"><a href="blog.html">News</a>
+                                            <li className="menu-item-has-children"><Link to='/blog'>News</Link>
                                                 <ul className="sub-menu">
-                                                    <li><a href="blog.html">News</a></li>
-                                                    <li><a href="blog-details.html">News Details</a></li>
+                                                    <li><Link to='/blog'>News</Link></li>
+                                                    <li><Link to='/blog-details'>News Details</Link></li>
                                                 </ul>
                                             </li>
                                             <li><Link to='/contact'>Contact</Link></li>

@@ -12,7 +12,6 @@ import Mission from "./pages/website/Mission/Mission";
 import Faq from "./pages/website/Faq/Faq";
 import Volunteer from "./pages/website/volunteer/Volunteer";
 import VolunteerDetails from "./pages/website/volunteer-details/volunteer-details";
-import Site from "./pages/website/Site/Site";
 import Blog from "./pages/website/Blog/Blog";
 import BlogDetails from "./pages/website/Blog-details/Blog-details";
 
@@ -31,7 +30,6 @@ function App() {
         <Route path="/faq" element={<Faq />} />
         <Route path="/volunteer" element={<Volunteer />} />
         <Route path="/volunteer-details" element={<VolunteerDetails />} />
-        <Route path="/site" element={<Site />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-details" element={<BlogDetails />} />
         <Route path="/contact" element={<Contact />} />
