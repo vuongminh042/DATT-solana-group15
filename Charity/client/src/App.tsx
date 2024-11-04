@@ -9,7 +9,7 @@ import Volunteer from "./pages/website/volunteer/Volunteer";
 import Site from "./pages/website/Site/Site";
 import Blog from "./pages/website/Blog/Blog";
 import BlogDetails from "./pages/website/Blog-details/Blog-details";
-import VolunteerDetails from "./pages/website/Volunteer-details/volunteer-details";
+
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route path="/causes" element={<Causes />} />
         <Route path="/cause-details" element={<CauseDetails />} />
         <Route path="/volunteer" element={<Volunteer />} />
-        <Route path="/volunteer-details" element={<VolunteerDetails />} />
+        
         <Route path="/site" element={<Site />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-details" element={<BlogDetails />} />
