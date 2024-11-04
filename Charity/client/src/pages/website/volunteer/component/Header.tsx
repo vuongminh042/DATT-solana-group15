@@ -5,7 +5,7 @@ import sidebar3 from "../../../../assets/img/causes/sidebar3.jpg";
 import sidebar4 from "../../../../assets/img/causes/sidebar4.jpg";
 import sidebar5 from "../../../../assets/img/causes/sidebar5.jpg";
 import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
@@ -63,9 +63,9 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
                   <div className="logo">
-                    <a href="index.html">
+                    <Link to="/">
                       <img src={logo} alt="" />
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
@@ -74,17 +74,6 @@ const Header = () => {
                       <ul>
                         <li className="menu-item-has-children">
                           <a href="index.html">Home</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="index.html">Home 1</a>
-                            </li>
-                            <li>
-                              <a href="index-2.html">Home 2</a>
-                            </li>
-                            <li>
-                              <a href="index-3.html">Home 3</a>
-                            </li>
-                          </ul>
                         </li>
                         <li>
                           <a href="about.html">About</a>
@@ -104,27 +93,25 @@ const Header = () => {
                           <a href="#">Pages</a>
                           <ul className="sub-menu">
                             <li>
-                              <a href="event.html">Events</a>
+                              <a href="event">Events</a>
                             </li>
                             <li>
-                              <a href="event-details.html">Events Details</a>
+                              <a href="event-details">Events Details</a>
                             </li>
                             <li>
-                              <a href="volunteer.html">Volunteer</a>
+                              <a href="volunteer">Volunteer</a>
                             </li>
                             <li>
-                              <a href="volunteer-details.html">
-                                Volunteer Details
-                              </a>
+                              <a href="volunteer-details">Volunteer Details</a>
                             </li>
                             <li>
-                              <a href="donation.html">Donation</a>
+                              <a href="donation">Donation</a>
                             </li>
                             <li>
-                              <a href="mission.html">Mission</a>
+                              <a href="mission">Mission</a>
                             </li>
                             <li>
-                              <a href="faq.html">Faq</a>
+                              <a href="faq">Faq</a>
                             </li>
                           </ul>
                         </li>

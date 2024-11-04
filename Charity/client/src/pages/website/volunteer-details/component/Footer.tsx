@@ -2,6 +2,7 @@ const Footer = () => {
   return (
     <div>
       <div>
+        {/* Main Area End*/}
         {/* back to top start */}
         <div className="progress-wrap">
           <svg

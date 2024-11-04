@@ -16,7 +16,7 @@ import Footer from "./component/Footer";
 import Header from "./component/Header";
 import Main from "./component/Main";
 
-const volunteerDetails = () => {
+const VolunteerDetails = () => {
   return (
     <div>
       <Header />
@@ -26,4 +26,4 @@ const volunteerDetails = () => {
   );
 };
 
-export default volunteerDetails;
+export default VolunteerDetails;

@@ -1,3 +1,11 @@
+import logo from "../../../../assets/img/logo/logo.png";
+import sidebar1 from "../../../../assets/img/causes/sidebar1.jpg";
+import sidebar2 from "../../../../assets/img/causes/sidebar2.jpg";
+import sidebar3 from "../../../../assets/img/causes/sidebar3.jpg";
+import sidebar4 from "../../../../assets/img/causes/sidebar4.jpg";
+import sidebar5 from "../../../../assets/img/causes/sidebar5.jpg";
+import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div>
@@ -55,9 +63,9 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
                   <div className="logo">
-                    <a href="index.html">
-                      <img src="assets/img/logo/logo.png" alt="" />
-                    </a>
+                    <Link to="/">
+                      <img src={logo} alt="" />
+                    </Link>
                   </div>
                 </div>
                 <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
@@ -65,30 +73,19 @@ const Header = () => {
                     <nav id="mobile-menu">
                       <ul>
                         <li className="menu-item-has-children">
-                          <a href="index.html">Home</a>
-                          <ul className="sub-menu">
-                            <li>
-                              <a href="index.html">Home 1</a>
-                            </li>
-                            <li>
-                              <a href="index-2.html">Home 2</a>
-                            </li>
-                            <li>
-                              <a href="index-3.html">Home 3</a>
-                            </li>
-                          </ul>
+                          <Link to="/">Home</Link>
                         </li>
                         <li>
-                          <a href="about.html">About</a>
+                          <Link to="/about">About</Link>
                         </li>
                         <li className="menu-item-has-children">
-                          <a href="cause.html">Causes</a>
+                          <Link to="cause">Causes</Link>
                           <ul className="sub-menu">
                             <li>
-                              <a href="cause.html">Causes</a>
+                              <Link to="/cause">Causes</Link>
                             </li>
                             <li>
-                              <a href="cause-details.html">Cause Details</a>
+                              <Link to="/cause-details">Cause Details</Link>
                             </li>
                           </ul>
                         </li>
@@ -96,18 +93,18 @@ const Header = () => {
                           <a href="#">Pages</a>
                           <ul className="sub-menu">
                             <li>
-                              <a href="event.html">Events</a>
+                              <Link to="/event">Events</Link>
                             </li>
                             <li>
-                              <a href="event-details.html">Events Details</a>
+                              <Link to="/event-details">Events Details</Link>
                             </li>
                             <li>
-                              <a href="volunteer.html">Volunteer</a>
+                              <Link to="/volunteer">Volunteer</Link>
                             </li>
                             <li>
-                              <a href="volunteer-details.html">
+                              <Link to="/volunteer-details">
                                 Volunteer Details
-                              </a>
+                              </Link>
                             </li>
                             <li>
                               <a href="donation.html">Donation</a>
@@ -169,7 +166,7 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="col-8">
                   <a href="index.html" className="mobile_logo">
-                    <img src="assets/img/logo/logo.png" alt="Logo" />
+                    <img src={logo} alt="Logo" />
                   </a>
                 </div>
                 <div className="col-4 text-end">
@@ -243,7 +240,7 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="col-8">
                   <a href="index.html">
-                    <img src="assets/img/logo/logo.png" alt="Logo" />
+                    <img src={logo} alt="Logo" />
                   </a>
                 </div>
                 <div className="col-4 text-end">
@@ -282,51 +279,33 @@ const Header = () => {
             </div>
             <div className="row side-row">
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar1.jpg"
-                >
-                  <img src="assets/img/causes/sidebar1.jpg" alt="sidebar-img" />
+                <a className="popup-image" href={sidebar1}>
+                  <img src={sidebar1} alt="sidebar-img" />
                 </a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar2.jpg"
-                >
-                  <img src="assets/img/causes/sidebar2.jpg" alt="sidebar-img" />
+                <a className="popup-image" href={sidebar2}>
+                  <img src={sidebar2} alt="sidebar-img" />
                 </a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar3.jpg"
-                >
-                  <img src="assets/img/causes/sidebar3.jpg" alt="sidebar-img" />
+                <a className="popup-image" href={sidebar3}>
+                  <img src={sidebar3} alt="sidebar-img" />
                 </a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar4.jpg"
-                >
-                  <img src="assets/img/causes/sidebar4.jpg" alt="sidebar-img" />
+                <a className="popup-image" href={sidebar4}>
+                  <img src={sidebar4} alt="sidebar-img" />
                 </a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar5.jpg"
-                >
-                  <img src="assets/img/causes/sidebar5.jpg" alt="sidebar-img" />
+                <a className="popup-image" href={sidebar5}>
+                  <img src={sidebar5} alt="sidebar-img" />
                 </a>
               </div>
               <div className="col-4 mb-15">
-                <a
-                  className="popup-image"
-                  href="assets/img/causes/sidebar6.jpg"
-                >
-                  <img src="assets/img/causes/sidebar6.jpg" alt="sidebar-img" />
+                <a className="popup-image" href={sidebar6}>
+                  <img src={sidebar6} alt="sidebar-img" />
                 </a>
               </div>
             </div>

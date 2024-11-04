@@ -249,7 +249,6 @@ const Main = () => {
         </div>
         {/*team single area end */}
       </main>
-      {/* Main Area End*/}
     </div>
   );
 };
