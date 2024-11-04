@@ -15,6 +15,10 @@ import VolunteerDetails from "./pages/website/volunteer-details/volunteer-detail
 import Blog from "./pages/website/Blog/Blog";
 import BlogDetails from "./pages/website/Blog-details/Blog-details";
 import Dashboard from "./pages/dashboard/Dashboard";
+import PostList from "./pages/dashboard/Posts/PostList";
+import AddPost from "./pages/dashboard/Posts/AddPost";
+import EditPost from "./pages/dashboard/Posts/EditPost";
+import UserList from "./pages/dashboard/UserList";
 
 function App() {
   return (
@@ -35,7 +39,13 @@ function App() {
         <Route path="/blog-details" element={<BlogDetails />} />
         <Route path="/contact" element={<Contact />} />
 
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="post-list" element={<PostList />} />
+          <Route path="post-add" element={<AddPost />} />
+          <Route path="post-edit" element={<EditPost />} />
+          <Route path="user-list" element={<UserList />} />
+        </Route>
+
       </Routes>
     </div>
   );

@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Outlet } from 'react-router-dom'; // Import Outlet
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -147,8 +148,8 @@ const Dashboard: React.FC = () => {
                         />
                     </Sider>
                     <Content style={{ padding: '0 24px', minHeight: 280 }}>
-                        {/* Content area for each selected option */}
-                        Dashboard Content
+                        {/* Use Outlet to render child routes here */}
+                        <Outlet />
                     </Content>
                 </Layout>
             </Content>
