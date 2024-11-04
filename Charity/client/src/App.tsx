@@ -14,6 +14,7 @@ import Volunteer from "./pages/website/volunteer/Volunteer";
 import VolunteerDetails from "./pages/website/volunteer-details/volunteer-details";
 import Blog from "./pages/website/Blog/Blog";
 import BlogDetails from "./pages/website/Blog-details/Blog-details";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 function App() {
   return (
@@ -33,6 +34,8 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-details" element={<BlogDetails />} />
         <Route path="/contact" element={<Contact />} />
+
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
   );
