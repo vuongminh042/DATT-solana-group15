@@ -129,6 +129,7 @@ const Header = () => {
                         <li>
                           <Link to='/contact'>Contact</Link>
                         </li>
+                        <li><Link to='/login'>Login</Link></li>
                       </ul>
                     </nav>
                   </div>
@@ -180,9 +181,9 @@ const Header = () => {
                     type="search"
                     placeholder="What are you searching for?"
                   />
-                  <button type="submit" className="offset_search_button">
+                  {/* <button type="submit" className="offset_search_button">
                     <i className="fal fa-search" />
-                  </button>
+                  </button> */}
                 </div>
               </form>
             </div>

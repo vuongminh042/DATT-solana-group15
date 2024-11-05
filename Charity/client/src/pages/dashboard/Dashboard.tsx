@@ -11,7 +11,7 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
-import { Outlet } from 'react-router-dom'; // Import Outlet
+import { Link, Outlet } from 'react-router-dom'; // Import Outlet
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -40,7 +40,7 @@ const items2: MenuProps['items'] = [
         icon: <UserOutlined />,
         label: 'User Management',
         children: [
-            { key: '5', label: 'User List' },
+            { key: '5', label: <Link to="user-list">User List</Link> },
         ],
     },
     {
@@ -59,9 +59,9 @@ const items2: MenuProps['items'] = [
         icon: <FileTextOutlined />,
         label: 'News & Blog Management',
         children: [
-            { key: '10', label: 'All Posts' },
-            { key: '11', label: 'Create Post' },
-            { key: '12', label: 'Edit Post' },
+            { key: '10', label: <Link to='post-list'>All Posts</Link> },
+            { key: '11', label: <Link to='post-add'>Create Post</Link> },
+            { key: '12', label: <Link to='post-edit'>Edit Post</Link> },
         ],
     },
     {

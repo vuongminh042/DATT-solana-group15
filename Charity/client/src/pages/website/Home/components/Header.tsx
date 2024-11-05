@@ -48,15 +48,16 @@ const Header = () => {
                                                 </ul>
                                             </li>
                                             <li><Link to='/contact'>Contact</Link></li>
+                                            <li><Link to='/login'>Login</Link></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
                             <div className="col-xxl-3 col-xl-4 col-lg-2 col-md-6 col-6">
                                 <div className="header-right d-flex align-items-center justify-content-end">
-                                    <div className="header-icon d-inline-block">
+                                    {/* <div className="header-icon d-inline-block">
                                         <a className="nav-search search-trigger" href="javascript:void(0)"><i className="fal fa-search"></i></a>
-                                    </div>
+                                    </div> */}
                                     <div className="header-sing d-inline-block ml-20 d-none d-xl-block">
                                         <a className="g_btn hbtn_1 to_right1 rad-30" href="donation.html">Make Donation<span></span></a>
                                     </div>

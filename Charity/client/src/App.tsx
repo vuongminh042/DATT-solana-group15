@@ -19,6 +19,11 @@ import PostList from "./pages/dashboard/Posts/PostList";
 import AddPost from "./pages/dashboard/Posts/AddPost";
 import EditPost from "./pages/dashboard/Posts/EditPost";
 import UserList from "./pages/dashboard/UserList";
+import Register from "./pages/website/Register/Register";
+import Login from "./pages/website/Login/Login";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 function App() {
   return (
@@ -38,6 +43,8 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog-details" element={<BlogDetails />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="post-list" element={<PostList />} />
@@ -45,8 +52,8 @@ function App() {
           <Route path="post-edit" element={<EditPost />} />
           <Route path="user-list" element={<UserList />} />
         </Route>
-
       </Routes>
+      <ToastContainer />
     </div>
   );
 }
