@@ -127,31 +127,6 @@ const Register: React.FC = () => {
                         />
                     </div>
 
-                    <div>
-                        <label className="block text-gray-600">Role</label>
-                        <select
-                            name="role"
-                            value={formData.role}
-                            onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border rounded-lg focus:border-blue-400 focus:outline-none focus:bg-white"
-                        >
-                            <option value="member">Member</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label className="block text-gray-600">Profile Picture URL</label>
-                        <input
-                            type="text"
-                            name="profile_picture"
-                            placeholder="Enter profile picture URL"
-                            value={formData.profile_picture}
-                            onChange={handleChange}
-                            className="w-full px-4 py-2 mt-2 text-gray-700 bg-gray-100 border rounded-lg focus:border-blue-400 focus:outline-none focus:bg-white"
-                        />
-                    </div>
-
                     <button
                         type="submit"
                         className="w-full px-4 py-2 mt-4 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none"
