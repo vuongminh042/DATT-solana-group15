@@ -1,16 +1,11 @@
-import React from 'react';
 import {
-    LaptopOutlined,
-    NotificationOutlined,
-    UserOutlined,
-    TeamOutlined,
-    DollarOutlined,
-    SettingOutlined,
     FileTextOutlined,
-    FundOutlined
+    UserOutlined,
+    TagsOutlined // Import an icon for the Category section
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import React from 'react';
 import { Link, Outlet } from 'react-router-dom'; // Import Outlet
 
 const { Header, Content, Footer, Sider } = Layout;
@@ -25,33 +20,11 @@ const items1: MenuProps['items'] = [
 // Define sidebar navigation items with detailed options
 const items2: MenuProps['items'] = [
     {
-        key: 'sub1',
-        icon: <FundOutlined />,
-        label: 'Campaign Management',
-        children: [
-            { key: '1', label: 'View All Campaigns' },
-            { key: '2', label: 'Add New Campaign' },
-            { key: '3', label: 'Edit Campaign' },
-            { key: '4', label: 'Campaign Progress' },
-        ],
-    },
-    {
         key: 'sub2',
         icon: <UserOutlined />,
         label: 'User Management',
         children: [
             { key: '5', label: <Link to="user-list">User List</Link> },
-        ],
-    },
-    {
-        key: 'sub3',
-        icon: <DollarOutlined />,
-        label: 'Donation Management',
-        children: [
-            { key: '6', label: 'All Donations' },
-            { key: '7', label: 'Verify Donations' },
-            { key: '8', label: 'Payment Methods' },
-            { key: '9', label: 'Transaction Verification' },
         ],
     },
     {
@@ -66,50 +39,14 @@ const items2: MenuProps['items'] = [
     },
     {
         key: 'sub5',
-        icon: <TeamOutlined />,
-        label: 'Volunteer Management',
+        icon: <TagsOutlined />, // Icon for Category
+        label: 'Category Management',
         children: [
-            { key: '13', label: 'Volunteer List' },
-            { key: '14', label: 'Assign Tasks' },
-            { key: '15', label: 'Volunteer Contributions' },
+            { key: '13', label: <Link to="category-list">All Categories</Link> },
+            { key: '14', label: <Link to="category-add">Add Category</Link> },
+            { key: '15', label: <Link to="category-edit">Edit Category</Link> },
         ],
-    },
-    {
-        key: 'sub6',
-        icon: <NotificationOutlined />,
-        label: 'Feedback & Reviews',
-        children: [
-            { key: '16', label: 'View Feedback' },
-            { key: '17', label: 'Approve Reviews' },
-        ],
-    },
-    {
-        key: 'sub7',
-        icon: <SettingOutlined />,
-        label: 'Settings & Privacy',
-        children: [
-            { key: '18', label: 'General Settings' },
-            { key: '19', label: 'Privacy Policies' },
-        ],
-    },
-    {
-        key: 'sub8',
-        icon: <LaptopOutlined />,
-        label: 'Financial Reports',
-        children: [
-            { key: '20', label: 'Financial Summary' },
-            { key: '21', label: 'Periodic Reports' },
-        ],
-    },
-    {
-        key: 'sub9',
-        icon: <NotificationOutlined />,
-        label: 'Notifications Settings',
-        children: [
-            { key: '22', label: 'Manage Notifications' },
-            { key: '23', label: 'Email/SMS Configurations' },
-        ],
-    },
+    }
 ];
 
 const Dashboard: React.FC = () => {
@@ -142,7 +79,7 @@ const Dashboard: React.FC = () => {
                         <Menu
                             mode="inline"
                             defaultSelectedKeys={['1']}
-                            defaultOpenKeys={['sub1']}
+                            defaultOpenKeys={['sub2']}
                             style={{ height: '100%' }}
                             items={items2}
                         />
