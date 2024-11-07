@@ -9,7 +9,7 @@ const CategoryAdd = () => {
   // Handle form submission
   const onFinish = (values) => {
     // Gửi yêu cầu POST đến API của backend
-    fetch("http://localhost:8000/category", {
+    fetch("http://localhost:8000/api/category", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const PostList = () => {
         const fetchPosts = async () => {
             try {
                 // Giả sử bạn có một API endpoint để lấy danh sách bài viết
-                const response = await axios.get('https://your-api-endpoint.com/posts');
+                const response = await axios.get('https://locahost:8000/api/post');
                 setPosts(response.data);
             } catch (error) {
                 console.error("Error fetching posts:", error);

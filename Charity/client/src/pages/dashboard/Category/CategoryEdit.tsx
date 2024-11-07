@@ -12,7 +12,7 @@ const CategoryEdit = () => {
     // Fetch category data by ID when the component mounts
     useEffect(() => {
         // Replace with actual API call to fetch category by ID
-        fetch(`/api/categories/${id}`)
+        fetch(`http://localhost:8000/api/category/${id}`)
             .then(response => response.json())
             .then(data => {
                 form.setFieldsValue({
@@ -29,8 +29,8 @@ const CategoryEdit = () => {
     // Handle form submission for updating category
     const onFinish = (values) => {
         // Replace with actual API call to update the category
-        fetch(`/api/categories/${id}`, {
-            method: 'PUT',
+        fetch(`http://localhost:8000/api/category/${id}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -39,7 +39,7 @@ const CategoryEdit = () => {
             .then(response => response.json())
             .then(data => {
                 message.success('Category updated successfully!');
-                navigate('/category-list'); // Redirect after successful update
+                navigate('/dashboard/category-list'); // Redirect after successful update
             })
             .catch(error => {
                 message.error('Failed to update category');
