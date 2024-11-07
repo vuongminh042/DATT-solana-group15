@@ -18,8 +18,10 @@ const Login: React.FC = () => {
         {
             onSuccess: (data) => {
                 toast.success("Login successful!");
-                localStorage.setItem("user", JSON.stringify(data));
-                navigate("/dashboard");
+                localStorage.setItem("user", JSON.stringify(data.user._id));
+                // console.log(datas);
+                
+                // navigate("/dashboard");
             },
             onError: (error) => {
                 console.error("Login failed:", error);
