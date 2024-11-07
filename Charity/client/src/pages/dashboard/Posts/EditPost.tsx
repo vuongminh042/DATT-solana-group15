@@ -86,20 +86,7 @@ const EditPost = () => {
                 layout="vertical"
                 style={{ maxWidth: 600, margin: '0 auto' }}
             >
-                {/* User ID */}
-                <Form.Item
-                    name="user_id"
-                    label="User"
-                    rules={[{ required: true, message: 'Please select a user!' }]}
-                >
-                    <Select placeholder="Select a user">
-                        {users.map((user) => (
-                            <Select.Option key={user._id} value={user._id}>
-                                {user.name}
-                            </Select.Option>
-                        ))}
-                    </Select>
-                </Form.Item>
+                
 
                 {/* Category ID */}
                 <Form.Item

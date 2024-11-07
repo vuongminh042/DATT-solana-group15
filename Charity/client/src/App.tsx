@@ -51,7 +51,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="post-list" element={<PostList />} />
           <Route path="post-add" element={<AddPost />} />
-          <Route path="post-edit" element={<EditPost />} />
+          <Route path="post-edit/:id" element={<EditPost />} />
           <Route path="user-list" element={<UserList />} />
           <Route path="category-list" element={<CategoryList />} />
           <Route path="category-add" element={<CategoryAdd />} />

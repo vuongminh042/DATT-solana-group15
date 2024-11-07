@@ -34,7 +34,6 @@ const items2: MenuProps['items'] = [
         children: [
             { key: '10', label: <Link to='post-list'>All Posts</Link> },
             { key: '11', label: <Link to='post-add'>Create Post</Link> },
-            { key: '12', label: <Link to='post-edit'>Edit Post</Link> },
         ],
     },
     {

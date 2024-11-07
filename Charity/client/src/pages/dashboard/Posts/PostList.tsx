@@ -84,7 +84,7 @@ const PostList = () => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <Link to={`/edit/${record._id}`}>Chỉnh sửa</Link>
+                    <Link to={`/dashboard/post-edit/${record._id}`}>Chỉnh sửa</Link>
                     <Popconfirm
                         title="Bạn có chắc chắn muốn xóa bài viết này?"
                         onConfirm={() => handleDelete(record._id)}
