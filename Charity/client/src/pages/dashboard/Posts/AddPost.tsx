@@ -1,23 +1,58 @@
-import React, { useState } from 'react';
-import { Button, Form, Input, Upload, Select, Typography, message } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Select, Typography, message } from 'antd';
 import axios from 'axios';
+import { useState, useEffect } from 'react';
 
 const { Title } = Typography;
 const { TextArea } = Input;
 
 const AddPost = () => {
-    const [imageUrl, setImageUrl] = useState(null);
+    const [categories, setCategories] = useState([]);
+    const [users, setUsers] = useState([]);
 
-    // Xử lý form submit
-    const onFinish = async () => {
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await fetch("http://localhost:8000/api/category");
+                const result = await response.json();
+                if (result.success) {
+                    setCategories(result.data);
+                } else {
+                    message.error(result.message || "Failed to load categories");
+                }
+            } catch (error) {
+                message.error("Failed to load categories");
+                console.error("Error:", error);
+            }
+        };
+
+        const fetchUsers = async () => {
+            try {
+                const response = await fetch("http://localhost:8000/api/auth");
+                const result = await response.json();
+                if (result.success) {
+                    setUsers(result.data);
+                } else {
+                    message.error(result.message || "Failed to load users");
+                }
+            } catch (error) {
+                message.error("Failed to load users");
+                console.error("Error:", error);
+            }
+        };
+
+        fetchCategories();
+        fetchUsers();
+    }, []);
+
+    const onFinish = async (values) => {
         try {
-            // Logic để gửi bài viết mới tới API
-            const response = await axios.post('https://your-api-endpoint.com/posts', {
-                title,
-                description,
-                image: imageUrl,
-                category_id,
+            const response = await axios.post('http://localhost:8000/api/post', {
+                user_id: values.user_id,
+                category_id: values.category_id,
+                title: values.title,
+                images: values.images,
+                description: values.description,
+                messages: values.messages,
             });
 
             if (response.data.success) {
@@ -31,13 +66,6 @@ const AddPost = () => {
         }
     };
 
-    // Xử lý upload ảnh
-    const handleImageUpload = (info) => {
-        if (info.file.status === 'done') {
-            setImageUrl(info.file.response?.url);  // Giả sử API trả về URL ảnh
-        }
-    };
-
     return (
         <div style={{ padding: '20px' }}>
             <Title level={2}>Thêm Bài viết Mới</Title>
@@ -47,16 +75,43 @@ const AddPost = () => {
                 layout="vertical"
                 style={{ maxWidth: 600, margin: '0 auto' }}
             >
-                {/* Tiêu đề bài viết */}
+                {/* User ID */}
+                <Form.Item
+                    name="user_id"
+                    label="Người dùng"
+                    rules={[{ required: true, message: 'Vui lòng chọn người dùng!' }]}
+                >
+                    <Select placeholder="Chọn người dùng">
+                        {users.map((user) => (
+                            <Select.Option key={user._id} value={user._id}>
+                                {user.name}
+                            </Select.Option>
+                        ))}
+                    </Select>
+                </Form.Item>
+
+                <Form.Item
+                    name="category_id"
+                    label="Danh mục"
+                    rules={[{ required: true, message: 'Vui lòng chọn danh mục!' }]}
+                >
+                    <Select placeholder="Chọn danh mục">
+                        {categories.map((category) => (
+                            <Select.Option key={category._id} value={category._id}>
+                                {category.name}
+                            </Select.Option>
+                        ))}
+                    </Select>
+                </Form.Item>
+
                 <Form.Item
                     name="title"
                     label="Tiêu đề"
-                    rules={[{ required: true, message: 'Vui lòng nhập tiêu đề bài viết!' }]}
+                    rules={[{ required: true, message: 'Vui lòng nhập tiêu đề bài viết!', min: 6, max: 255 }]}
                 >
                     <Input placeholder="Nhập tiêu đề bài viết" />
                 </Form.Item>
 
-                {/* Mô tả bài viết */}
                 <Form.Item
                     name="description"
                     label="Mô tả"
@@ -65,33 +120,20 @@ const AddPost = () => {
                     <TextArea rows={4} placeholder="Nhập mô tả bài viết" />
                 </Form.Item>
 
-                {/* Ảnh bài viết */}
                 <Form.Item
-                    name="image"
-                    label="Ảnh"
-                    rules={[{ required: true, message: 'Vui lòng tải lên ảnh!' }]}
+                    name="images"
+                    label="Link ảnh"
+                    rules={[{ required: true, message: 'Vui lòng nhập link ảnh!', max: 255 }]}
                 >
-                    <Upload
-                        action="/upload" // Thay đổi URL upload ảnh theo API của bạn
-                        listType="picture"
-                        onChange={handleImageUpload}
-                        beforeUpload={() => false} // Ngừng tự động upload ảnh
-                    >
-                        <Button icon={<UploadOutlined />}>Tải lên ảnh</Button>
-                    </Upload>
+                    <Input placeholder="Nhập URL ảnh bài viết" />
                 </Form.Item>
 
-                {/* Danh mục bài viết */}
                 <Form.Item
-                    name="category"
-                    label="Danh mục"
-                    rules={[{ required: true, message: 'Vui lòng chọn danh mục!' }]}
+                    name="messages"
+                    label="Tin nhắn"
+                    rules={[{ required: true, message: 'Vui lòng nhập nội dung tin nhắn!' }]}
                 >
-                    <Select placeholder="Chọn danh mục">
-                        <Select.Option value="1">Danh mục 1</Select.Option>
-                        <Select.Option value="2">Danh mục 2</Select.Option>
-                        <Select.Option value="3">Danh mục 3</Select.Option>
-                    </Select>
+                    <TextArea rows={2} placeholder="Nhập nội dung tin nhắn" />
                 </Form.Item>
 
                 <Form.Item>
