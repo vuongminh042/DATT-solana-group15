@@ -65,13 +65,13 @@ const PostList = () => {
             title: 'Danh mục',
             dataIndex: 'category_id',
             key: 'category_id',
-            render: (category) => category?.name || 'Không có danh mục',
+            render: (category) => category.name || 'Không có danh mục',
         },
         {
             title: 'Người dùng',
             dataIndex: 'user_id',
             key: 'user_id',
-            render: (user) => user?.name || 'Không có người dùng',
+            render: (user) => user.name || 'Không có người dùng',
         },
         {
             title: 'Tin nhắn',

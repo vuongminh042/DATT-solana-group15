@@ -20,7 +20,7 @@ class PostController {
 
   async get(req, res, next) {
     try {
-      const data = await Post.find();
+      const data = await Post.find().populate('category_id').populate('user_id');
       if (data) {
         return res.status(200).json({
           success: true,
@@ -36,7 +36,7 @@ class PostController {
 
   async getDetail(req, res, next) {
     try {
-      const data = await Post.findById(req.params.id);
+      const data = await Post.findById(req.params.id).populate('category_id').populate('user_id');
       if (data) {
         return res.status(200).json({
           success: true,
