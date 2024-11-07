@@ -26,40 +26,33 @@ const PostList = () => {
             title: 'Tiêu đề',
             dataIndex: 'title',
             key: 'title',
-            render: (text) => <Title level={5}>{text}</Title>,
+            render: () => <Title level={5}></Title>,
         },
         {
             title: 'Ảnh',
             dataIndex: 'images',
             key: 'images',
-            render: (images) => <Image width={100} src={images} />,
+            render: () => <Image width={100} src="" />,
         },
         {
             title: 'Mô tả',
             dataIndex: 'description',
             key: 'description',
-            render: (text) => <p>{text}</p>,
-        },
-        {
-            title: 'Người dùng',
-            dataIndex: 'user_id',
-            key: 'user_id',
-            render: (user_id) => <span>{user_id}</span>,
+            render: () => <p></p>,
         },
         {
             title: 'Danh mục',
             dataIndex: 'category_id',
             key: 'category_id',
-            render: (category_id) => <span>{category_id}</span>,
+            render: () => <span></span>,
         },
         {
             title: 'Hành động',
             key: 'action',
-            render: (_, record) => (
+            render: () => (
                 <Space size="middle">
-                    {/* Bạn có thể thêm các hành động như chỉnh sửa hoặc xóa ở đây */}
-                    <a href={`/edit/${record._id}`}>Chỉnh sửa</a>
-                    <a href={`/delete/${record._id}`} style={{ color: 'red' }}>Xóa</a>
+                    <a href="">Chỉnh sửa</a>
+                    <a href="" style={{ color: 'red' }}>Xóa</a>
                 </Space>
             ),
         },

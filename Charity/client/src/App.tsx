@@ -23,6 +23,9 @@ import Register from "./pages/website/Register/Register";
 import Login from "./pages/website/Login/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CategoryList from "./pages/dashboard/Category/CategoryList";
+import CategoryAdd from "./pages/dashboard/Category/CategoryAdd";
+import CategoryEdit from "./pages/dashboard/Category/CategoryEdit";
 
 
 function App() {
@@ -51,6 +54,9 @@ function App() {
           <Route path="post-add" element={<AddPost />} />
           <Route path="post-edit" element={<EditPost />} />
           <Route path="user-list" element={<UserList />} />
+          <Route path="category-list" element={<CategoryList />} />
+          <Route path="category-add" element={<CategoryAdd />} />
+          <Route path="category-edit" element={<CategoryEdit />} />
         </Route>
       </Routes>
       <ToastContainer />
