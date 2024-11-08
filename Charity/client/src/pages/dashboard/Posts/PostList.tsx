@@ -1,3 +1,4 @@
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Image, Space, Table, Typography, message, Popconfirm } from 'antd';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -68,10 +69,10 @@ const PostList = () => {
             render: (category) => category.name || 'Không có danh mục',
         },
         {
-            title: 'Người dùng',
+            title: 'Người tạo',
             dataIndex: 'user_id',
             key: 'user_id',
-            render: (user) => user.name || 'Không có người dùng',
+            render: (user) => user.name || 'Không có người tạo',
         },
         {
             title: 'Tin nhắn',
@@ -84,14 +85,14 @@ const PostList = () => {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <Link to={`/dashboard/post-edit/${record._id}`}>Chỉnh sửa</Link>
+                    <Link to={`/dashboard/post-edit/${record._id}`}><EditOutlined /></Link>
                     <Popconfirm
                         title="Bạn có chắc chắn muốn xóa bài viết này?"
                         onConfirm={() => handleDelete(record._id)}
                         okText="Xóa"
                         cancelText="Hủy"
                     >
-                        <a style={{ color: 'red' }}>Xóa</a>
+                        <a style={{ color: 'red' }}><DeleteOutlined /></a>
                     </Popconfirm>
                 </Space>
             ),

@@ -1,29 +1,36 @@
-import { Button, Popconfirm, Table, Typography } from 'antd';
+import { LockOutlined } from '@ant-design/icons';
+import { Button, Popconfirm, Table, Typography, message } from 'antd';
+import { useEffect, useState } from 'react';
 
 const { Title } = Typography;
 
-const data = [
-    {
-        key: '1',
-        name: 'John Doe',
-        email: 'john@example.com',
-        phone: '0123456789',
-        nickname: 'johnny',
-        role: 'member',
-        isActive: true,
-    },
-    {
-        key: '2',
-        name: 'Jane Smith',
-        email: 'jane@example.com',
-        phone: '0987654321',
-        nickname: 'janey',
-        role: 'admin',
-        isActive: false,
-    },
-];
-
 const UserList = () => {
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        fetchUsers();
+    }, []);
+
+    const fetchUsers = () => {
+        setLoading(true);
+        fetch("http://localhost:8000/api/auth")
+            .then((response) => response.json())
+            .then((result) => {
+                if (result.success) {
+                    setData(result.data.map((item) => ({ key: item._id, ...item })));
+                } else {
+                    message.error(result.message || "Failed to load users");
+                }
+                setLoading(false);
+            })
+            .catch((error) => {
+                message.error("Failed to load users");
+                console.error("Error:", error);
+                setLoading(false);
+            });
+    };
+
     const columns = [
         {
             title: 'Name',
@@ -62,28 +69,21 @@ const UserList = () => {
             render: (_, record) => (
                 <Popconfirm
                     title="Are you sure you want to lock this account?"
-                    onConfirm={() => handleLockAccount(record.key)}
                     okText="Yes"
                     cancelText="No"
                 >
                     <Button type="primary" danger>
-                        Lock Account
+                        <LockOutlined />
                     </Button>
                 </Popconfirm>
             ),
         },
     ];
 
-    const handleLockAccount = (key) => {
-        // Logic để khóa tài khoản người dùng dựa trên key
-        console.log(`Lock account for user with key: ${key}`);
-        // Thêm mã để gọi API hoặc xử lý logic khóa tài khoản ở đây
-    };
-
     return (
         <div>
             <Title level={2}>User List</Title>
-            <Table columns={columns} dataSource={data} />
+            <Table columns={columns} dataSource={data} loading={loading} />
         </div>
     );
 };
