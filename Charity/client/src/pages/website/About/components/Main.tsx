@@ -2,6 +2,7 @@ import aboutus1 from '../../../../assets/img/about/aboutus1.jpg'
 import aboutus2 from '../../../../assets/img/about/aboutus2.jpg'
 import video_bg from '../../../../assets/img/bg/video_bg.jpg'
 import breadcrum_bg_2 from '../../../../assets/img/bg/breadcrum_bg_2.jpg'
+import { Link } from 'react-router-dom'
 
 
 const Main = () => {
@@ -9,7 +10,7 @@ const Main = () => {
         <>
             <main>
                 {/*breadcrumb area start*/}
-                <section className="breadcrumb_area breadcrumb_overlay" data-background={breadcrum_bg_2}>
+                <section className="breadcrumb_area breadcrumb_overlay" style={{ backgroundImage: `url(${breadcrum_bg_2})` }}>
                     <div className="container">
                         <div className="row">
                             <div className="col-xl-12">
@@ -57,7 +58,7 @@ const Main = () => {
                                             <p>Helped Fund <span className="theme-1">24,537</span> Projects in <span className="theme-4">24 Countries</span>, <br />
                                                 Benefiting Over <span className="theme-2">8.2 Million</span> People.</p>
                                         </div>
-                                        <a href="about.html" className="g_btn trans_btn rad-50 p-45">Learn More <span /></a>
+                                        <Link to='/about' className="g_btn trans_btn rad-50 p-45">Learn More <span /></Link>
                                     </div>
                                 </div>
                             </div>
@@ -182,8 +183,22 @@ const Main = () => {
                     <div className="container">
                         <div className="row">
                             <div className="col-xxl-12">
-                                <div className="about_video_section text-center p-250 bg_cover" data-background={video_bg}>
-                                    <a href="https://www.youtube.com/watch?v=B4GwnBrp41s" className="play_btn p-rel popup-video ab_4"><i className="fas fa-play" /></a>
+                                <div
+                                    className="about_video_section text-center p-250 bg_cover"
+                                    style={{
+                                        backgroundImage: `url(${video_bg || 'https://via.placeholder.com/800x400'})`,
+                                        backgroundSize: 'cover',
+                                        backgroundPosition: 'center',
+                                    }}
+                                >
+                                    <a
+                                        href="https://www.youtube.com/watch?v=B4GwnBrp41s"
+                                        className="play_btn p-rel popup-video ab_4"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <i className="fas fa-play" style={{ fontSize: '32px', color: '#fff' }} />
+                                    </a>
                                 </div>
                             </div>
                         </div>

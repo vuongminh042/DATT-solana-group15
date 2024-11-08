@@ -1,5 +1,6 @@
 import mission from '../../../../assets/img/bg/mission.jpg'
 import mission_bg from '../../../../assets/img/bg/mission_bg.jpg'
+import breadcrum_bg_2 from '../../../../assets/img/bg/breadcrum_bg_2.jpg'
 
 const Main = () => {
     return (
@@ -7,7 +8,7 @@ const Main = () => {
             <div>
                 <main>
                     {/*breadcrumb area start*/}
-                    <section className="breadcrumb_area breadcrumb_overlay" data-background="assets/img/bg/breadcrum_bg_2.jpg">
+                    <section className="breadcrumb_area breadcrumb_overlay" style={{ backgroundImage: `url(${breadcrum_bg_2})` }}>
                         <div className="container">
                             <div className="row">
                                 <div className="col-xl-12">

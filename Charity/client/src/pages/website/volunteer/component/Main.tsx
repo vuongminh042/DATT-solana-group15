@@ -12,6 +12,7 @@ import about_small1 from '../../../../assets/img/about/about_small1.jpg'
 import nfeed2_1 from '../../../../assets/img/news/nfeed2_1.jpg'
 import nfeed2_2 from '../../../../assets/img/news/nfeed2_2.jpg'
 import nfeed2_3 from '../../../../assets/img/news/nfeed2_3.jpg'
+import breadcrum_bg_2 from '../../../../assets/img/bg/breadcrum_bg_2.jpg'
 
 
 const Main = () => {
@@ -22,7 +23,7 @@ const Main = () => {
         {/*breadcrumb area start*/}
         <section
           className="breadcrumb_area breadcrumb_overlay"
-          data-background="assets/img/bg/breadcrum_bg_2.jpg"
+          style={{ backgroundImage: `url(${breadcrum_bg_2})` }}
         >
           <div className="container">
             <div className="row">
