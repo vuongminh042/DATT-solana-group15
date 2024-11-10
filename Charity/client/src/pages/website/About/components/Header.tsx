@@ -141,8 +141,22 @@ const Header = () => {
                         </ul>
                       </li>
 
-                      <li>
-                        <Link to="">Hello :{name}</Link>
+                      <li className="menu-item-has-children">
+                        {name ? (
+                          <Link to="/">Hello, {name}!</Link>
+                        ) : (
+                          <Link to="/account">
+                            Account
+                            <ul className="sub-menu">
+                              <li>
+                                <Link to="/register">Register</Link>
+                              </li>
+                              <li>
+                                <Link to="/login">Login</Link>
+                              </li>
+                            </ul>
+                          </Link>
+                        )}
                       </li>
                     </ul>
                   </nav>
