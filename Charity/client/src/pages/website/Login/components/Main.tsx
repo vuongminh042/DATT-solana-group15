@@ -25,7 +25,7 @@ const Main: React.FC = () => {
         setUserName(data.user.name);
         localStorage.setItem("user", JSON.stringify(data.user));
 
-        navigate("/about");
+        navigate("/");
       },
       onError: (error) => {
         console.error("Login failed:", error);

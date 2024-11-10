@@ -7,6 +7,7 @@ import sidebar5 from "../../../../assets/img/causes/sidebar5.jpg";
 import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [name, setUserName] = useState<string | null>(null); // State mới để lưu tên người dùng
@@ -24,6 +25,14 @@ const Header = () => {
       console.error("Lỗi khi lấy dữ liệu từ localStorage:", error);
     }
   }, []);
+  const handleLogout = () => {
+    if (window.confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+      localStorage.removeItem("user");
+      setUserName(null);
+      toast.success("Đăng xuất thành công!");
+    }
+  };
+
   return (
     <div>
       <div>
@@ -147,7 +156,14 @@ const Header = () => {
                         </li>
                         <li className="menu-item-has-children">
                           {name ? (
-                            <Link to="/">Hello, {name}!</Link>
+                            <div className="user-menu">
+                              <Link to="/">Hello, {name}!</Link>
+                              <ul className="sub-menu">
+                                <li onClick={handleLogout}>
+                                  <Link to="">Log out</Link>
+                                </li>
+                              </ul>
+                            </div>
                           ) : (
                             <Link to="/account">
                               Account
