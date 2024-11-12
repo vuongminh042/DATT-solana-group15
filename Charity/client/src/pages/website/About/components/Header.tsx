@@ -152,10 +152,10 @@ const Header = () => {
                       <li className="menu-item-has-children">
                         {name ? (
                           <div className="user-menu">
-                            <Link to="/">Hello, {name}!</Link>
+                            <Link to="/about">Hello, {name}!</Link>
                             <ul className="sub-menu">
                               <li onClick={handleLogout}>
-                                <Link to="">Log out</Link>
+                                <Link to="/about">Log out</Link>
                               </li>
                             </ul>
                           </div>

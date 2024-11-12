@@ -119,7 +119,7 @@ const Header = () => {
                             </ul>
                           </div>
                         ) : (
-                          <Link to="/account">
+                          <Link to="#">
                             Account
                             <ul className="sub-menu">
                               <li>
