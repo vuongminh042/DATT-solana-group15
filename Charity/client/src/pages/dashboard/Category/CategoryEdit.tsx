@@ -11,14 +11,17 @@ const CategoryEdit = () => {
 
     // Fetch category data by ID when the component mounts
     useEffect(() => {
-        // Replace with actual API call to fetch category by ID
-        fetch(`/api/categories/${id}`)
+        fetch(`http://localhost:8000/api/category/${id}`)
             .then(response => response.json())
             .then(data => {
-                form.setFieldsValue({
-                    name: data.name,
-                    description: data.description,
-                });
+                if (data.success) {
+                    form.setFieldsValue({
+                        name: data.data.name,
+                        description: data.data.description,
+                    });
+                } else {
+                    message.error("Failed to load category data");
+                }
             })
             .catch(error => {
                 message.error('Failed to load category data');
@@ -28,9 +31,8 @@ const CategoryEdit = () => {
 
     // Handle form submission for updating category
     const onFinish = (values) => {
-        // Replace with actual API call to update the category
-        fetch(`/api/categories/${id}`, {
-            method: 'PUT',
+        fetch(`http://localhost:8000/api/category/${id}`, {
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -38,8 +40,12 @@ const CategoryEdit = () => {
         })
             .then(response => response.json())
             .then(data => {
-                message.success('Category updated successfully!');
-                navigate('/category-list'); // Redirect after successful update
+                if (data.success) {
+                    message.success('Category updated successfully!');
+                    navigate('/dashboard/category-list'); // Redirect after successful update
+                } else {
+                    message.error("Failed to update category");
+                }
             })
             .catch(error => {
                 message.error('Failed to update category');
@@ -55,6 +61,10 @@ const CategoryEdit = () => {
                 name="category_edit"
                 onFinish={onFinish}
                 layout="vertical"
+                initialValues={{
+                    name: "",
+                    description: "",
+                }}
                 style={{ maxWidth: 600, margin: '0 auto' }}
             >
                 <Form.Item
@@ -77,7 +87,7 @@ const CategoryEdit = () => {
                     <Button type="primary" htmlType="submit">
                         Update Category
                     </Button>
-                    <Button type="default" onClick={() => navigate('/category-list')}>
+                    <Button type="default" onClick={() => navigate('/dashboard/category-list')}>
                         Cancel
                     </Button>
                 </Space>

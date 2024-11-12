@@ -34,7 +34,7 @@ const Main = () => {
         {/*breadcrumb area start*/}
         <section
           className="breadcrumb_area breadcrumb_overlay"
-          data-background={breadcrum_bg_2}
+          style={{ backgroundImage: `url(${breadcrum_bg_2})` }}
         >
           <div className="container">
             <div className="row">

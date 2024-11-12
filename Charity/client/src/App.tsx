@@ -27,7 +27,6 @@ import CategoryList from "./pages/dashboard/Category/CategoryList";
 import CategoryAdd from "./pages/dashboard/Category/CategoryAdd";
 import CategoryEdit from "./pages/dashboard/Category/CategoryEdit";
 
-
 function App() {
   return (
     <div className="App">
@@ -52,11 +51,11 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="post-list" element={<PostList />} />
           <Route path="post-add" element={<AddPost />} />
-          <Route path="post-edit" element={<EditPost />} />
+          <Route path="post-edit/:id" element={<EditPost />} />
           <Route path="user-list" element={<UserList />} />
           <Route path="category-list" element={<CategoryList />} />
           <Route path="category-add" element={<CategoryAdd />} />
-          <Route path="category-edit" element={<CategoryEdit />} />
+          <Route path="category-edit/:id" element={<CategoryEdit />} />
         </Route>
       </Routes>
       <ToastContainer />

@@ -1,14 +1,38 @@
-import logo from '../../../../assets/img/logo/logo.png'
-import sidebar1 from '../../../../assets/img/causes/sidebar1.jpg'
-import sidebar2 from '../../../../assets/img/causes/sidebar2.jpg'
-import sidebar3 from '../../../../assets/img/causes/sidebar3.jpg'
-import sidebar4 from '../../../../assets/img/causes/sidebar4.jpg'
-import sidebar5 from '../../../../assets/img/causes/sidebar5.jpg'
-import sidebar6 from '../../../../assets/img/causes/sidebar6.jpg'
-import { Link } from 'react-router-dom'
-
+import logo from "../../../../assets/img/logo/logo.png";
+import sidebar1 from "../../../../assets/img/causes/sidebar1.jpg";
+import sidebar2 from "../../../../assets/img/causes/sidebar2.jpg";
+import sidebar3 from "../../../../assets/img/causes/sidebar3.jpg";
+import sidebar4 from "../../../../assets/img/causes/sidebar4.jpg";
+import sidebar5 from "../../../../assets/img/causes/sidebar5.jpg";
+import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const Header = () => {
+  const [name, setUserName] = useState<string | null>(null); // State mới để lưu tên người dùng
+  useEffect(() => {
+    const storedName = localStorage.getItem("user");
+    try {
+      if (storedName) {
+        const storedUserObject = JSON.parse(storedName);
+        const userName = storedUserObject.name;
+        setUserName(userName);
+      } else {
+        console.error("Không tìm thấy tên người dùng trong localStorage");
+      }
+    } catch (error) {
+      console.error("Lỗi khi lấy dữ liệu từ localStorage:", error);
+    }
+  }, []);
+  const handleLogout = () => {
+    if (window.confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+      localStorage.removeItem("user");
+      setUserName(null);
+      toast.success("Đăng xuất thành công!");
+    }
+  };
+
   return (
     <div>
       <div>
@@ -65,40 +89,95 @@ const Header = () => {
               <div className="row align-items-center">
                 <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
                   <div className="logo">
-                    <Link to='/'><img src={logo} alt="" /></Link>
+                    <Link to="/">
+                      <img src={logo} alt="" />
+                    </Link>
                   </div>
                 </div>
                 <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
                   <div className="main-menu menu_2 text-center">
                     <nav id="mobile-menu">
                       <ul>
-                        <li className="menu-item-has-children"><Link to='/'>Home</Link></li>
-                        <li><Link to='/about'>About</Link></li>
-                        <li className="active menu-item-has-children"><Link to='/causes'>Causes</Link>
-                          <ul className="sub-menu">
-                            <li><Link to='/causes'>Causes</Link>
-                            </li><li><Link to='/cause-details'>Cause Details</Link>
-                            </li></ul>
+                        <li className="menu-item-has-children">
+                          <Link to="/">Home</Link>
                         </li>
-                        <li className="menu-item-has-children"><a href="#">Pages</a>
-                          <ul className="sub-menu">
-                            <li><Link to='/events'>Events</Link>
-                            </li><li><Link to='/events-details'>Events Details</Link>
-                            </li><li><Link to='/volunteer'>Volunteer</Link>
-                            </li><li><Link to='/volunteer-details'>Volunteer Details</Link>
-                            </li><li><Link to='/donation'>Donation</Link>
-                            </li><li><Link to='/mission'>Mission</Link>
-                            </li><li><Link to='/faq'>Faq</Link>
-                            </li></ul>
+                        <li>
+                          <Link to="/about">About</Link>
                         </li>
-                        <li className="menu-item-has-children"><Link to='/blog'>News</Link>
+                        <li className="active menu-item-has-children">
+                          <Link to="/causes">Causes</Link>
                           <ul className="sub-menu">
-                            <li><Link to='/blog'>News</Link></li>
-                            <li><Link to='/blog-details'>News Details</Link></li>
+                            <li>
+                              <Link to="/causes">Causes</Link>
+                            </li>
+                            <li>
+                              <Link to="/cause-details">Cause Details</Link>
+                            </li>
                           </ul>
                         </li>
-                        <li><Link to='/contact'>Contact</Link></li>
-                        <li><Link to='/login'>Login</Link></li>
+                        <li className="menu-item-has-children">
+                          <a href="#">Pages</a>
+                          <ul className="sub-menu">
+                            <li>
+                              <Link to="/events">Events</Link>
+                            </li>
+                            <li>
+                              <Link to="/events-details">Events Details</Link>
+                            </li>
+                            <li>
+                              <Link to="/volunteer">Volunteer</Link>
+                            </li>
+                            <li>
+                              <Link to="/volunteer-details">
+                                Volunteer Details
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/donation">Donation</Link>
+                            </li>
+                            <li>
+                              <Link to="/mission">Mission</Link>
+                            </li>
+                            <li>
+                              <Link to="/faq">Faq</Link>
+                            </li>
+                          </ul>
+                        </li>
+                        <li className="menu-item-has-children">
+                          <Link to="/blog">News</Link>
+                          <ul className="sub-menu">
+                            <li>
+                              <Link to="/blog">News</Link>
+                            </li>
+                            <li>
+                              <Link to="/blog-details">News Details</Link>
+                            </li>
+                          </ul>
+                        </li>
+                        <li className="menu-item-has-children">
+                          {name ? (
+                            <div className="user-menu">
+                              <Link to="/">Hello, {name}!</Link>
+                              <ul className="sub-menu">
+                                <li onClick={handleLogout}>
+                                  <Link to="">Log out</Link>
+                                </li>
+                              </ul>
+                            </div>
+                          ) : (
+                            <Link to="/account">
+                              Account
+                              <ul className="sub-menu">
+                                <li>
+                                  <Link to="/register">Register</Link>
+                                </li>
+                                <li>
+                                  <Link to="/login">Login</Link>
+                                </li>
+                              </ul>
+                            </Link>
+                          )}
+                        </li>
                       </ul>
                     </nav>
                   </div>
@@ -106,7 +185,13 @@ const Header = () => {
                 <div className="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
                   <div className="header-right d-flex align-items-center justify-content-end">
                     <div className="header-sing d-inline-block d-none d-xl-block">
-                      <Link to='/donation' className="g_btn hbtn_1 to_right1 rad-30">Make Donation<span /></Link>
+                      <Link
+                        to="/donation"
+                        className="g_btn hbtn_1 to_right1 rad-30"
+                      >
+                        Make Donation
+                        <span />
+                      </Link>
                     </div>
                     <div className="hamburger-menu menu-bar info-bar d-inline-block ml-20">
                       <button className="hamburger-btn open-mobile-menu">
@@ -127,7 +212,11 @@ const Header = () => {
             <div className="offset-widget offset-logo mb-30 pb-20">
               <div className="row align-items-center">
                 <div className="col-8">
-                  <div className="col-8"><Link to='/' className="mobile_logo"><img src={logo} alt="Logo" /></Link></div>
+                  <div className="col-8">
+                    <Link to="/" className="mobile_logo">
+                      <img src={logo} alt="Logo" />
+                    </Link>
+                  </div>
                 </div>
                 <div className="col-4 text-end">
                   <button className="side-info-close">
@@ -198,7 +287,11 @@ const Header = () => {
           <div className="offset-sidebar side-info">
             <div className="offset-widget offset-logo mb-30 pb-20">
               <div className="row align-items-center">
-                <div className="col-8"><Link to='/'><img src={logo} alt="Logo" /></Link></div>
+                <div className="col-8">
+                  <Link to="/">
+                    <img src={logo} alt="Logo" />
+                  </Link>
+                </div>
                 <div className="col-4 text-end">
                   <button className="side-info-close">
                     <i className="fal fa-times" />
@@ -235,22 +328,34 @@ const Header = () => {
             </div>
             <div className="row side-row">
               <div className="col-4 mb-15">
-                <a className="popup-image" href={sidebar1}><img src={sidebar1} alt="sidebar-img" /></a>
+                <a className="popup-image" href={sidebar1}>
+                  <img src={sidebar1} alt="sidebar-img" />
+                </a>
               </div>
               <div className="col-4 mb-15">
-                <a className="popup-image" href={sidebar2}><img src={sidebar2} alt="sidebar-img" /></a>
+                <a className="popup-image" href={sidebar2}>
+                  <img src={sidebar2} alt="sidebar-img" />
+                </a>
               </div>
               <div className="col-4 mb-15">
-                <a className="popup-image" href={sidebar3}><img src={sidebar3} alt="sidebar-img" /></a>
+                <a className="popup-image" href={sidebar3}>
+                  <img src={sidebar3} alt="sidebar-img" />
+                </a>
               </div>
               <div className="col-4 mb-15">
-                <a className="popup-image" href={sidebar4}><img src={sidebar4} alt="sidebar-img" /></a>
+                <a className="popup-image" href={sidebar4}>
+                  <img src={sidebar4} alt="sidebar-img" />
+                </a>
               </div>
               <div className="col-4 mb-15">
-                <a className="popup-image" href={sidebar5}><img src={sidebar5} alt="sidebar-img" /></a>
+                <a className="popup-image" href={sidebar5}>
+                  <img src={sidebar5} alt="sidebar-img" />
+                </a>
               </div>
               <div className="col-4 mb-15">
-                <a className="popup-image" href={sidebar6}><img src={sidebar6} alt="sidebar-img" /></a>
+                <a className="popup-image" href={sidebar6}>
+                  <img src={sidebar6} alt="sidebar-img" />
+                </a>
               </div>
             </div>
             <div className="side-map mt-20 mb-30">

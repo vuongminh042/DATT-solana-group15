@@ -6,7 +6,7 @@ const Main = () => {
         <>
             <main>
                 {/*breadcrumb area start*/}
-                <section className="breadcrumb_area breadcrumb_overlay" data-background={breadcrum_bg_2}>
+                <section className="breadcrumb_area breadcrumb_overlay" style={{ backgroundImage: `url(${breadcrum_bg_2})` }}>
                     <div className="container">
                         <div className="row">
                             <div className="col-xl-12">

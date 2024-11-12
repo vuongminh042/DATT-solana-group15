@@ -80,6 +80,7 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
+
                       <li>
                         <Link to="/contact">Contact</Link>
                       </li>

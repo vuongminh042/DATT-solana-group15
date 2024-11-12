@@ -34,7 +34,6 @@ const items2: MenuProps['items'] = [
         children: [
             { key: '10', label: <Link to='post-list'>All Posts</Link> },
             { key: '11', label: <Link to='post-add'>Create Post</Link> },
-            { key: '12', label: <Link to='post-edit'>Edit Post</Link> },
         ],
     },
     {
@@ -43,8 +42,7 @@ const items2: MenuProps['items'] = [
         label: 'Category Management',
         children: [
             { key: '13', label: <Link to="category-list">All Categories</Link> },
-            { key: '14', label: <Link to="category-add">Add Category</Link> },
-            { key: '15', label: <Link to="category-edit">Edit Category</Link> },
+            { key: '14', label: <Link to="category-add">Add Category</Link> }
         ],
     }
 ];

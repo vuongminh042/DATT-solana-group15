@@ -1,3 +1,4 @@
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { Button, Popconfirm, Space, Table, Typography, message } from 'antd';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +13,7 @@ const CategoryList = () => {
     useEffect(() => {
         setLoading(true);
         // Chỉnh sửa URL thành localhost:8000
-        fetch("http://localhost:8000/category")
+        fetch("http://localhost:8000/api/category")
             .then((response) => response.json())
             .then((result) => {
                 if (result.success) {
@@ -31,7 +32,7 @@ const CategoryList = () => {
 
     const handleDelete = (key) => {
         // Chỉnh sửa URL thành localhost:8000
-        fetch(`http://localhost:8000/category/${key}`, { method: 'DELETE' })
+        fetch(`http://localhost:8000/api/category/${key}`, { method: 'DELETE' })
             .then((response) => response.json())
             .then((result) => {
                 if (result.success) {
@@ -63,14 +64,14 @@ const CategoryList = () => {
             key: 'actions',
             render: (text, record) => (
                 <Space size="middle">
-                    <Button type="link" onClick={() => navigate(`/dashboard/edit-category/${record.key}`)}>Edit</Button>
+                    <Button type="link" onClick={() => navigate(`/dashboard/category-edit/${record.key}`)}><EditOutlined /></Button>
                     <Popconfirm
                         title="Are you sure you want to delete this category?"
                         onConfirm={() => handleDelete(record.key)}
                         okText="Yes"
                         cancelText="No"
                     >
-                        <Button type="link" danger>Delete</Button>
+                        <Button type="link" danger><DeleteOutlined /></Button>
                     </Popconfirm>
                 </Space>
             ),
