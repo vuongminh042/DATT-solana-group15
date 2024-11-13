@@ -6,11 +6,79 @@ import sidebar4 from "../../../../assets/img/causes/sidebar4.jpg";
 import sidebar5 from "../../../../assets/img/causes/sidebar5.jpg";
 import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
 const Header = () => {
+  const [name, setUserName] = useState<string | null>(null); // State mới để lưu tên người dùng
+  useEffect(() => {
+    const storedName = localStorage.getItem("user");
+    try {
+      if (storedName) {
+        const storedUserObject = JSON.parse(storedName);
+        const userName = storedUserObject.name;
+        setUserName(userName);
+      } else {
+        console.error("Không tìm thấy tên người dùng trong localStorage");
+      }
+    } catch (error) {
+      console.error("Lỗi khi lấy dữ liệu từ localStorage:", error);
+    }
+  }, []);
+  const handleLogout = () => {
+    if (window.confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+      localStorage.removeItem("user");
+      setUserName(null);
+      toast.success("Đăng xuất thành công!");
+    }
+  };
   return (
     <>
-      <header className="header-area header-transparent">
-        <div id="sticky-header" className="header_menu_area res_padd">
+      <header className="header-area">
+        <div className="header_top_area d-none d-lg-block">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-xxl-9 col-xl-9 col-lg-8">
+                <div className="top_mailing">
+                  <a href="#" className="theme-1">
+                    <i className="fal fa-envelope" />
+                    <span
+                      className="__cf_email__"
+                      data-cfemail="f392979e9a9db3979c9e929a9ddd909c9e"
+                    >
+                      [email&nbsp;protected]
+                    </span>
+                  </a>
+                  <a href="#" className="theme-2">
+                    <i className="fal fa-phone" />
+                    088889797697
+                  </a>
+                  <a href="#" className="theme-3">
+                    <i className="fal fa-map-marker-alt" />
+                    street 222, South Africa
+                  </a>
+                </div>
+              </div>
+              <div className="col-xxl-3 col-xl-3 col-lg-4 text-start text-md-end">
+                <div className="top_social">
+                  <a href="#" className="facebook">
+                    <i className="fab fa-facebook-f" />
+                  </a>
+                  <a href="#" className="google">
+                    <i className="fab fa-google-plus-g" />
+                  </a>
+                  <a href="#" className="twitter">
+                    <i className="fab fa-twitter" />
+                  </a>
+                  <a href="#" className="pinterest">
+                    <i className="fab fa-pinterest-p" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="sticky-header" className="header_menu_area header_menu_area_2">
           <div className="container">
             <div className="row align-items-center">
               <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-6 col-6">
@@ -20,14 +88,14 @@ const Header = () => {
                   </Link>
                 </div>
               </div>
-              <div className="col-xxl-7 col-xl-6 col-lg-8 d-none d-lg-block">
-                <div className="main-menu theme-1 text-center">
+              <div className="col-xxl-7 col-xl-7 col-lg-9 d-none d-lg-block">
+                <div className="main-menu menu_2 text-center">
                   <nav id="mobile-menu">
                     <ul>
-                      <li className="active menu-item-has-children">
+                      <li className="menu-item-has-children">
                         <Link to="/">Home</Link>
                       </li>
-                      <li>
+                      <li className="active">
                         <Link to="/about">About</Link>
                       </li>
                       <li className="menu-item-has-children">
@@ -81,32 +149,48 @@ const Header = () => {
                         </ul>
                       </li>
 
-                      <li>
-                        <Link to="/contact">Contact</Link>
-                      </li>
-                      <li>
-                        <Link to="/login">Login</Link>
+                      <li className="menu-item-has-children">
+                        {name ? (
+                          <div className="user-menu">
+                            <Link to="/about">Hello, {name}!</Link>
+                            <ul className="sub-menu">
+                              <li onClick={handleLogout}>
+                                <Link to="/about">Log out</Link>
+                              </li>
+                            </ul>
+                          </div>
+                        ) : (
+                          <Link to="/account">
+                            Account
+                            <ul className="sub-menu">
+                              <li>
+                                <Link to="/register">Register</Link>
+                              </li>
+                              <li>
+                                <Link to="/login">Login</Link>
+                              </li>
+                            </ul>
+                          </Link>
+                        )}
                       </li>
                     </ul>
                   </nav>
                 </div>
               </div>
-              <div className="col-xxl-3 col-xl-4 col-lg-2 col-md-6 col-6">
+              <div className="col-xxl-3 col-xl-3 col-lg-1 col-md-6 col-6">
                 <div className="header-right d-flex align-items-center justify-content-end">
-                  {/* <div className="header-icon d-inline-block">
-                                        <a className="nav-search search-trigger" href="javascript:void(0)"><i className="fal fa-search"></i></a>
-                                    </div> */}
-                  <div className="header-sing d-inline-block ml-20 d-none d-xl-block">
-                    <a
+                  <div className="header-sing d-inline-block d-none d-xl-block">
+                    <Link
+                      to="/donation"
                       className="g_btn hbtn_1 to_right1 rad-30"
-                      href="donation.html"
                     >
-                      Make Donation<span></span>
-                    </a>
+                      Make Donation
+                      <span />
+                    </Link>
                   </div>
                   <div className="hamburger-menu menu-bar info-bar d-inline-block ml-20">
                     <button className="hamburger-btn open-mobile-menu">
-                      <i className="fal fa-bars"></i>
+                      <i className="fal fa-bars" />
                     </button>
                   </div>
                 </div>
@@ -121,9 +205,9 @@ const Header = () => {
           <div className="offset-widget offset-logo mb-30 pb-20">
             <div className="row align-items-center">
               <div className="col-8">
-                <a href="index.html" className="mobile_logo">
+                <Link to="/" className="mobile_logo">
                   <img src={logo} alt="Logo" />
-                </a>
+                </Link>
               </div>
               <div className="col-4 text-end">
                 <button className="side-info-close">
@@ -139,9 +223,7 @@ const Header = () => {
                   type="search"
                   placeholder="What are you searching for?"
                 />
-                <button type="submit" className="offset_search_button">
-                  <i className="fal fa-search" />
-                </button>
+                {/* <button type="submit" className="offset_search_button"><i className="fal fa-search" /></button> */}
               </div>
             </form>
           </div>
@@ -158,14 +240,14 @@ const Header = () => {
                 <span>088889797697</span>
               </a>
               <a
-                href="https://wphix.com/cdn-cgi/l/email-protection#9afbfef7f3f4dafef5f7fbf3f4b4f9f5f7"
+                href="https://wphix.com/cdn-cgi/l/email-protection#3051545d595e70545f5d51595e1e535f5d"
                 className="theme-3"
               >
                 <i className="far fa-envelope" />
                 <span>
                   <span
                     className="__cf_email__"
-                    data-cfemail="4223262f2b2c02262d2f232b2c6c212d2f"
+                    data-cfemail="caabaea7a3a48aaea5a7aba3a4e4a9a5a7"
                   >
                     [email&nbsp;protected]
                   </span>
@@ -195,9 +277,9 @@ const Header = () => {
           <div className="offset-widget offset-logo mb-30 pb-20">
             <div className="row align-items-center">
               <div className="col-8">
-                <a href="index.html">
+                <Link to="/">
                   <img src={logo} alt="Logo" />
-                </a>
+                </Link>
               </div>
               <div className="col-4 text-end">
                 <button className="side-info-close">
@@ -250,7 +332,7 @@ const Header = () => {
               </a>
             </div>
             <div className="col-4 mb-15">
-              <a className="popup-image" href={sidebar4}>
+              <a className="popup-image" href={sidebar3}>
                 <img src={sidebar4} alt="sidebar-img" />
               </a>
             </div>
@@ -280,14 +362,14 @@ const Header = () => {
                 <span>088889797697</span>
               </a>
               <a
-                href="https://wphix.com/cdn-cgi/l/email-protection#f392979e9a9db3979c9e929a9ddd909c9e"
+                href="https://wphix.com/cdn-cgi/l/email-protection#3c5d585155527c5853515d5552125f5351"
                 className="theme-3"
               >
                 <i className="far fa-envelope" />
                 <span>
                   <span
                     className="__cf_email__"
-                    data-cfemail="5c3d383135321c3833313d3532723f3331"
+                    data-cfemail="cfaeaba2a6a18faba0a2aea6a1e1aca0a2"
                   >
                     [email&nbsp;protected]
                   </span>
