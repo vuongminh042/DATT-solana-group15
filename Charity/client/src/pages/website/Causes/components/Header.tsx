@@ -8,9 +8,11 @@ import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+
 
 const Header = () => {
-  const [name, setUserName] = useState<string | null>(null); // State mới để lưu tên người dùng
+  const [name, setUserName] = useState<string | null>(null);
   useEffect(() => {
     const storedName = localStorage.getItem("user");
     try {
@@ -44,7 +46,7 @@ const Header = () => {
                     <i className="fal fa-envelope" />
                     <span
                       className="__cf_email__"
-                      data-cfemail="6e0f0a0307002e0a01030f0700400d0103"
+                      data-cfemail="f392979e9a9db3979c9e929a9ddd909c9e"
                     >
                       [email&nbsp;protected]
                     </span>
@@ -95,10 +97,10 @@ const Header = () => {
                       <li className="menu-item-has-children">
                         <Link to="/">Home</Link>
                       </li>
-                      <li>
+                      <li className="active">
                         <Link to="/about">About</Link>
                       </li>
-                      <li className="active menu-item-has-children">
+                      <li className="menu-item-has-children">
                         <Link to="/causes">Causes</Link>
                         <ul className="sub-menu">
                           <li>
@@ -148,13 +150,14 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
+
                       <li className="menu-item-has-children">
                         {name ? (
                           <div className="user-menu">
-                            <Link to="/">Hello, {name}!</Link>
+                            <Link to="/about">Hello, {name}!</Link>
                             <ul className="sub-menu">
                               <li onClick={handleLogout}>
-                                <Link to="">Log out</Link>
+                                <Link to="/about">Log out</Link>
                               </li>
                             </ul>
                           </div>
@@ -171,6 +174,17 @@ const Header = () => {
                             </ul>
                           </Link>
                         )}
+                      </li>
+
+                      <li className="menu-item-has-children">
+                        <SignedOut>
+                          <SignInButton />
+                        </SignedOut>
+                        <SignedIn>
+                          <div className="user-menu">
+                            <UserButton />
+                          </div>
+                        </SignedIn>
                       </li>
                     </ul>
                   </nav>
@@ -222,9 +236,7 @@ const Header = () => {
                   type="search"
                   placeholder="What are you searching for?"
                 />
-                <button type="submit" className="offset_search_button">
-                  <i className="fal fa-search" />
-                </button>
+                {/* <button type="submit" className="offset_search_button"><i className="fal fa-search" /></button> */}
               </div>
             </form>
           </div>
@@ -241,14 +253,14 @@ const Header = () => {
                 <span>088889797697</span>
               </a>
               <a
-                href="https://wphix.com/cdn-cgi/l/email-protection#f796939a9e99b793989a969e99d994989a"
+                href="https://wphix.com/cdn-cgi/l/email-protection#3051545d595e70545f5d51595e1e535f5d"
                 className="theme-3"
               >
                 <i className="far fa-envelope" />
                 <span>
                   <span
                     className="__cf_email__"
-                    data-cfemail="5233363f3b3c12363d3f333b3c7c313d3f"
+                    data-cfemail="caabaea7a3a48aaea5a7aba3a4e4a9a5a7"
                   >
                     [email&nbsp;protected]
                   </span>
@@ -296,7 +308,9 @@ const Header = () => {
                   type="search"
                   placeholder="What are you searching for?"
                 />
-                {/* <button type="submit" className="offset_search_button"><i className="fal fa-search" /></button> */}
+                <button type="submit" className="offset_search_button">
+                  <i className="fal fa-search" />
+                </button>
               </div>
             </form>
           </div>
@@ -331,7 +345,7 @@ const Header = () => {
               </a>
             </div>
             <div className="col-4 mb-15">
-              <a className="popup-image" href={sidebar4}>
+              <a className="popup-image" href={sidebar3}>
                 <img src={sidebar4} alt="sidebar-img" />
               </a>
             </div>
@@ -361,14 +375,14 @@ const Header = () => {
                 <span>088889797697</span>
               </a>
               <a
-                href="https://wphix.com/cdn-cgi/l/email-protection#f190959c989fb1959e9c90989fdf929e9c"
+                href="https://wphix.com/cdn-cgi/l/email-protection#3c5d585155527c5853515d5552125f5351"
                 className="theme-3"
               >
                 <i className="far fa-envelope" />
                 <span>
                   <span
                     className="__cf_email__"
-                    data-cfemail="ee8f8a838780ae8a81838f8780c08d8183"
+                    data-cfemail="cfaeaba2a6a18faba0a2aea6a1e1aca0a2"
                   >
                     [email&nbsp;protected]
                   </span>

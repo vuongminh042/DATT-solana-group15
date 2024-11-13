@@ -6,8 +6,34 @@ import sidebar4 from "../../../../assets/img/causes/sidebar4.jpg";
 import sidebar5 from "../../../../assets/img/causes/sidebar5.jpg";
 import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+
 
 const Header = () => {
+  const [name, setUserName] = useState<string | null>(null);
+  useEffect(() => {
+    const storedName = localStorage.getItem("user");
+    try {
+      if (storedName) {
+        const storedUserObject = JSON.parse(storedName);
+        const userName = storedUserObject.name;
+        setUserName(userName);
+      } else {
+        console.error("Không tìm thấy tên người dùng trong localStorage");
+      }
+    } catch (error) {
+      console.error("Lỗi khi lấy dữ liệu từ localStorage:", error);
+    }
+  }, []);
+  const handleLogout = () => {
+    if (window.confirm("Bạn có chắc chắn muốn đăng xuất?")) {
+      localStorage.removeItem("user");
+      setUserName(null);
+      toast.success("Đăng xuất thành công!");
+    }
+  };
   return (
     <>
       <header className="header-area">
@@ -124,19 +150,41 @@ const Header = () => {
                           </li>
                         </ul>
                       </li>
-                      <li>
-                        <Link to="/contact">Contact</Link>
-                      </li>
+
                       <li className="menu-item-has-children">
-                        <Link to="/blog">account</Link>
-                        <ul className="sub-menu">
-                          <li>
-                            <Link to="/register">Register</Link>
-                          </li>
-                          <li>
-                            <Link to="/login">Login</Link>
-                          </li>
-                        </ul>
+                        {name ? (
+                          <div className="user-menu">
+                            <Link to="/about">Hello, {name}!</Link>
+                            <ul className="sub-menu">
+                              <li onClick={handleLogout}>
+                                <Link to="/about">Log out</Link>
+                              </li>
+                            </ul>
+                          </div>
+                        ) : (
+                          <Link to="/account">
+                            Account
+                            <ul className="sub-menu">
+                              <li>
+                                <Link to="/register">Register</Link>
+                              </li>
+                              <li>
+                                <Link to="/login">Login</Link>
+                              </li>
+                            </ul>
+                          </Link>
+                        )}
+                      </li>
+
+                      <li className="menu-item-has-children">
+                        <SignedOut>
+                          <SignInButton />
+                        </SignedOut>
+                        <SignedIn>
+                          <div className="user-menu">
+                            <UserButton />
+                          </div>
+                        </SignedIn>
                       </li>
                     </ul>
                   </nav>

@@ -8,9 +8,11 @@ import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+
 
 const Header = () => {
-    const [name, setUserName] = useState<string | null>(null); // State mới để lưu tên người dùng
+    const [name, setUserName] = useState<string | null>(null);
     useEffect(() => {
         const storedName = localStorage.getItem("user");
         try {
@@ -152,10 +154,10 @@ const Header = () => {
                                             <li className="menu-item-has-children">
                                                 {name ? (
                                                     <div className="user-menu">
-                                                        <Link to="/">Hello, {name}!</Link>
+                                                        <Link to="/about">Hello, {name}!</Link>
                                                         <ul className="sub-menu">
                                                             <li onClick={handleLogout}>
-                                                                <Link to="">Log out</Link>
+                                                                <Link to="/about">Log out</Link>
                                                             </li>
                                                         </ul>
                                                     </div>
@@ -172,6 +174,17 @@ const Header = () => {
                                                         </ul>
                                                     </Link>
                                                 )}
+                                            </li>
+
+                                            <li className="menu-item-has-children">
+                                                <SignedOut>
+                                                    <SignInButton />
+                                                </SignedOut>
+                                                <SignedIn>
+                                                    <div className="user-menu">
+                                                        <UserButton />
+                                                    </div>
+                                                </SignedIn>
                                             </li>
                                         </ul>
                                     </nav>
