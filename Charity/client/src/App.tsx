@@ -26,6 +26,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CategoryList from "./pages/dashboard/Category/CategoryList";
 import CategoryAdd from "./pages/dashboard/Category/CategoryAdd";
 import CategoryEdit from "./pages/dashboard/Category/CategoryEdit";
+import Phantom from "./phantom/phantom";
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/Phantom" element={<Phantom />} />
 
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="post-list" element={<PostList />} />

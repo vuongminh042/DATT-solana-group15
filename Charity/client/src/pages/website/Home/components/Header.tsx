@@ -8,8 +8,12 @@ import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
-
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 
 const Header = () => {
   const [name, setUserName] = useState<string | null>(null);
@@ -158,6 +162,9 @@ const Header = () => {
                             <ul className="sub-menu">
                               <li onClick={handleLogout}>
                                 <Link to="/about">Log out</Link>
+                              </li>
+                              <li>
+                                <Link to="/Phantom">Kết nối ví Phantom</Link>
                               </li>
                             </ul>
                           </div>
