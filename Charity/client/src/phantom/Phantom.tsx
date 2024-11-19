@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-
+import Header from "../pages/website/Home/components/Header";
+import Footer from "../pages/website/Home/components/Footer";
+import "../App.css";
 const Phantom = () => {
   const [walletAddress, setWalletAddress] = useState(null);
 
@@ -41,18 +43,28 @@ const Phantom = () => {
 
   return (
     <div>
-      <h2>Kết Nối với Phantom Wallet</h2>
+      <Header />
 
-      {walletAddress ? (
-        <div>
-          <p>Đã kết nối với ví: {walletAddress}</p>
-          <button className="btn btn success">
-            <a href="/">Quay lại home</a>
+      <div className="container2">
+        <h1 className="display-4">Kết nối với Ví Phantom</h1>
+        {walletAddress ? (
+          <div id="wallet-info" className="alert alert-success mt-3">
+            Đã kết nối với ví: {walletAddress}
+            <br />
+            <br />
+            <button className="btn btn-primary">
+              <a style={{ textDecoration: "none" }} href="/">
+                Quay lại home
+              </a>
+            </button>
+          </div>
+        ) : (
+          <button className="btn btn-primary" onClick={connectPhantomWallet}>
+            Kết Nối Phantom Wallet
           </button>
-        </div>
-      ) : (
-        <button onClick={connectPhantomWallet}>Kết Nối Phantom Wallet</button>
-      )}
+        )}
+      </div>
+      <Footer />
     </div>
   );
 };
