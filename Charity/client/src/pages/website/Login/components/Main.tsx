@@ -23,7 +23,7 @@ const Main: React.FC = () => {
       onSuccess: (data) => {
         toast.success("Login successful!");
         setUserName(data.user.name);
-        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("user", JSON.stringify(data.user._id));
 
         navigate("/");
       },
