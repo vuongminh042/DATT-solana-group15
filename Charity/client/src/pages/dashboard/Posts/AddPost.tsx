@@ -46,12 +46,13 @@ const AddPost = () => {
 
   const onFinish = async (values) => {
     try {
-      const user = localStorage.getItem("user"); 
-      const cleanUser = user.split('"').join("");
-      console.log(cleanUser);
+      const storedName = localStorage.getItem("user");
+      const storedUserObject = JSON.parse(storedName);
+      const user = storedUserObject._id;
+      console.log(user);
 
       const response = await axios.post("http://localhost:8000/api/post", {
-        user_id: cleanUser,
+        user_id: user,
         category_id: values.category_id,
         title: values.title,
         images: values.images,
