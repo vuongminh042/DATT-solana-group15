@@ -53,7 +53,7 @@ const Phantom = () => {
             <br />
             <br />
             <button className="btn btn-primary">
-              <a style={{ textDecoration: "none" }} href="/">
+              <a style={{ textDecoration: "none", color: "white" }} href="/">
                 Quay lại home
               </a>
             </button>
