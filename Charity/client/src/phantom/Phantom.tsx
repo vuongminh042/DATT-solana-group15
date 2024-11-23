@@ -64,6 +64,63 @@ const Phantom = () => {
           </button>
         )}
       </div>
+
+      {/* Form đăng ký */}
+      <div className="container mt-5">
+        <div className="card shadow p-4">
+          <h2 className="text-center mb-4">Register User</h2>
+          <form action="/submit" method="post">
+            {/* Trường 1: referenceId */}
+            <div className="mb-3">
+              <label htmlFor="referenceId" className="form-label">
+                Reference ID:
+              </label>
+              <input
+                type="text"
+                id="referenceId"
+                name="referenceId"
+                className="form-control"
+                placeholder="Enter Reference ID"
+                required
+              />
+            </div>
+            {/* Trường 2: email */}
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Email:
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="form-control"
+                placeholder="Enter your Email"
+                required
+              />
+            </div>
+            {/* Trường 3: externalWalletAddress */}
+            <div className="mb-3">
+              <label htmlFor="externalWalletAddress" className="form-label">
+                External Wallet Address:
+              </label>
+              <input
+                type="text"
+                id="externalWalletAddress"
+                name="externalWalletAddress"
+                className="form-control"
+                placeholder="Enter Wallet Address"
+                required
+              />
+            </div>
+            {/* Nút gửi */}
+            <div className="d-grid">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
       <Footer />
     </div>
   );
