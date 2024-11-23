@@ -26,7 +26,7 @@ import "react-toastify/dist/ReactToastify.css";
 import CategoryList from "./pages/dashboard/Category/CategoryList";
 import CategoryAdd from "./pages/dashboard/Category/CategoryAdd";
 import CategoryEdit from "./pages/dashboard/Category/CategoryEdit";
-import Phantom from "./phantom/phantom";
+import Phantom from "./phantom/Phantom";
 
 function App() {
   return (

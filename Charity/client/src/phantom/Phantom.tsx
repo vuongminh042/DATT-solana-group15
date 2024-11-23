@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../pages/website/Home/components/Header";
 import Footer from "../pages/website/Home/components/Footer";
 import "../App.css";
+
 const Phantom = () => {
   const [walletAddress, setWalletAddress] = useState(null);
 
@@ -10,16 +11,39 @@ const Phantom = () => {
     return window.phantom?.solana?.isPhantom || false;
   };
 
+  // Hàm gửi địa chỉ ví đến API
+  const sendWalletToAPI = async (wallet) => {
+    try {
+      const response = await fetch("http://localhost:8000/api/wallet", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ walletAddress: wallet }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Lỗi API: ${response.status}`);
+      }
+
+      const data = await response.json();
+      console.log("Dữ liệu từ API:", data);
+    } catch (error) {
+      console.error("Lỗi khi gửi địa chỉ ví đến API:", error);
+    }
+  };
+
   // Hàm kết nối với Phantom Wallet
   const connectPhantomWallet = async () => {
     if (isPhantomInstalled()) {
       try {
         const response = await window.phantom.solana.connect();
-        setWalletAddress(response.publicKey.toString());
-        console.log(
-          "Kết nối thành công với địa chỉ ví:",
-          response.publicKey.toString()
-        );
+        const wallet = response.publicKey.toString();
+        setWalletAddress(wallet);
+        console.log("Kết nối thành công với địa chỉ ví:", wallet);
+
+        // Gửi địa chỉ ví đến API
+        await sendWalletToAPI(wallet);
       } catch (error) {
         console.error("Lỗi khi kết nối với ví:", error);
       }
@@ -35,7 +59,11 @@ const Phantom = () => {
         const response = await window.phantom.solana.connect({
           onlyIfTrusted: true,
         });
-        setWalletAddress(response.publicKey.toString());
+        const wallet = response.publicKey.toString();
+        setWalletAddress(wallet);
+
+        // Gửi địa chỉ ví đến API
+        await sendWalletToAPI(wallet);
       }
     };
     checkConnection();
