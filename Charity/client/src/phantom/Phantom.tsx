@@ -5,32 +5,15 @@ import "../App.css";
 
 const Phantom = () => {
   const [walletAddress, setWalletAddress] = useState(null);
+  const [formData, setFormData] = useState({
+    referenceId: "",
+    email: "",
+    externalWalletAddress: "",
+  });
 
   // Kiểm tra xem Phantom Wallet có được cài đặt không
   const isPhantomInstalled = () => {
     return window.phantom?.solana?.isPhantom || false;
-  };
-
-  // Hàm gửi địa chỉ ví đến API
-  const sendWalletToAPI = async (wallet) => {
-    try {
-      const response = await fetch("http://localhost:8000/api/wallet", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ walletAddress: wallet }),
-      });
-
-      if (!response.ok) {
-        throw new Error(`Lỗi API: ${response.status}`);
-      }
-
-      const data = await response.json();
-      console.log("Dữ liệu từ API:", data);
-    } catch (error) {
-      console.error("Lỗi khi gửi địa chỉ ví đến API:", error);
-    }
   };
 
   // Hàm kết nối với Phantom Wallet
@@ -38,12 +21,11 @@ const Phantom = () => {
     if (isPhantomInstalled()) {
       try {
         const response = await window.phantom.solana.connect();
-        const wallet = response.publicKey.toString();
-        setWalletAddress(wallet);
-        console.log("Kết nối thành công với địa chỉ ví:", wallet);
-
-        // Gửi địa chỉ ví đến API
-        await sendWalletToAPI(wallet);
+        setWalletAddress(response.publicKey.toString());
+        console.log(
+          "Kết nối thành công với địa chỉ ví:",
+          response.publicKey.toString()
+        );
       } catch (error) {
         console.error("Lỗi khi kết nối với ví:", error);
       }
@@ -59,15 +41,38 @@ const Phantom = () => {
         const response = await window.phantom.solana.connect({
           onlyIfTrusted: true,
         });
-        const wallet = response.publicKey.toString();
-        setWalletAddress(wallet);
-
-        // Gửi địa chỉ ví đến API
-        await sendWalletToAPI(wallet);
+        setWalletAddress(response.publicKey.toString());
       }
     };
     checkConnection();
   }, []);
+
+  // Xử lý thay đổi trong form
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  // Gửi dữ liệu form về backend
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8000/api/wallet", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        alert("Dữ liệu đã được gửi thành công!");
+      } else {
+        alert("Đã xảy ra lỗi khi gửi dữ liệu.");
+      }
+    } catch (error) {
+      console.error("Lỗi khi gửi dữ liệu:", error);
+    }
+  };
 
   return (
     <div>
@@ -97,7 +102,7 @@ const Phantom = () => {
       <div className="container mt-5">
         <div className="card shadow p-4">
           <h2 className="text-center mb-4">Register User</h2>
-          <form action="/submit" method="post">
+          <form onSubmit={handleSubmit}>
             {/* Trường 1: referenceId */}
             <div className="mb-3">
               <label htmlFor="referenceId" className="form-label">
@@ -107,6 +112,8 @@ const Phantom = () => {
                 type="text"
                 id="referenceId"
                 name="referenceId"
+                value={formData.referenceId}
+                onChange={handleChange}
                 className="form-control"
                 placeholder="Enter Reference ID"
                 required
@@ -121,6 +128,8 @@ const Phantom = () => {
                 type="email"
                 id="email"
                 name="email"
+                value={formData.email}
+                onChange={handleChange}
                 className="form-control"
                 placeholder="Enter your Email"
                 required
@@ -135,6 +144,8 @@ const Phantom = () => {
                 type="text"
                 id="externalWalletAddress"
                 name="externalWalletAddress"
+                value={formData.externalWalletAddress}
+                onChange={handleChange}
                 className="form-control"
                 placeholder="Enter Wallet Address"
                 required
