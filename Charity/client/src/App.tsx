@@ -27,6 +27,9 @@ import CategoryList from "./pages/dashboard/Category/CategoryList";
 import CategoryAdd from "./pages/dashboard/Category/CategoryAdd";
 import CategoryEdit from "./pages/dashboard/Category/CategoryEdit";
 import Phantom from "./phantom/Phantom";
+import CauseList from "./pages/dashboard/Cause/CauseList";
+import CauseAdd from "./pages/dashboard/Cause/CauseAdd";
+import CauseEdit from "./pages/dashboard/Cause/CauseEdit";
 
 function App() {
   return (
@@ -58,6 +61,9 @@ function App() {
           <Route path="category-list" element={<CategoryList />} />
           <Route path="category-add" element={<CategoryAdd />} />
           <Route path="category-edit/:id" element={<CategoryEdit />} />
+          <Route path="cause-list" element={<CauseList />} />
+          <Route path="cause-add" element={<CauseAdd />} />
+          <Route path="cause-edit/:id" element={<CauseEdit />} />
         </Route>
       </Routes>
       <ToastContainer />
