@@ -129,7 +129,7 @@ export const createUniqueAsset  = async(req,res,next)=>{
       method: 'POST',
       headers: {
         accept: 'application/json',
-        'x-api-key': apiKey,
+        'x-api-key': API_KEY,
         'content-type': 'application/json',
       },
       body: JSON.stringify({
