@@ -100,16 +100,14 @@ export const NFT = async(req,res,next) => {
       data,
     });
   } catch (error) {
-    console.error('Error creating NFT:', error);
     res.status(500).json({
       error: 'Internal Server Error',
-      details: error.message,
     });
   }
 
     
 } catch (err) {
-    console.error('Error creating and saving NFT:', err);
+    // console.error('Error creating and saving NFT:', err);
     res.status(500).send('Something went wrong.');
 }
 }

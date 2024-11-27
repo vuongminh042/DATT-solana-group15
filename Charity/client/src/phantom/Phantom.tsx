@@ -4,11 +4,12 @@ import Footer from "../pages/website/Home/components/Footer";
 import "../App.css";
 
 const Phantom = () => {
+  const phantom = localStorage.getItem('phantom');
   const [walletAddress, setWalletAddress] = useState(null);
   const [formData, setFormData] = useState({
-    referenceId: "",
+    referenceId: phantom,
     email: "",
-    externalWalletAddress: "",
+    externalWalletAddress: phantom,
   });
 
   // Kiểm tra xem Phantom Wallet có được cài đặt không
@@ -22,6 +23,7 @@ const Phantom = () => {
       try {
         const response = await window.phantom.solana.connect();
         setWalletAddress(response.publicKey.toString());
+        localStorage.setItem('phantom', response.publicKey.toString());
         console.log(
           "Kết nối thành công với địa chỉ ví:",
           response.publicKey.toString()

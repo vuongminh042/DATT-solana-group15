@@ -18,6 +18,7 @@ const CategoryEdit = () => {
                     form.setFieldsValue({
                         name: data.data.name,
                         description: data.data.description,
+                        imageUrl: data.data.imageUrl
                     });
                 } else {
                     message.error("Failed to load category data");
@@ -71,6 +72,14 @@ const CategoryEdit = () => {
                     name="name"
                     label="Category Name"
                     rules={[{ required: true, message: 'Please enter the category name!' }]}
+                >
+                    <Input placeholder="Enter category name" />
+                </Form.Item>
+
+                <Form.Item
+                    name="imageUrl"
+                    label="Category imageUrl"
+                    rules={[{ required: true, message: 'Please enter the category imageUrlme!' }]}
                 >
                     <Input placeholder="Enter category name" />
                 </Form.Item>

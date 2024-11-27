@@ -1,34 +1,42 @@
 import { Button, Form, Input, Space, Typography, message } from "antd";
-import { useNavigate } from "react-router-dom"; // If using react-router for navigation
+import { useNavigate } from "react-router-dom"; // Điều hướng giữa các trang
+import { useState } from "react"; // Quản lý trạng thái
 
 const { Title } = Typography;
 
 const CategoryAdd = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false); // Trạng thái khi gửi dữ liệu
 
-  // Handle form submission
-  const onFinish = (values) => {
-    // Gửi yêu cầu POST đến API của backend
-    fetch("http://localhost:8000/api/category", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          message.success("Category added successfully!");
-          navigate("/dashboard/category-list"); // Redirect to category list
-        } else {
-          message.error("Failed to add category");
+  // Xử lý khi form được submit
+  const onFinish = async (values) => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        "http://localhost:8000/api/wallet/create-nft",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
         }
-      })
-      .catch((error) => {
-        message.error("Failed to add category");
-        console.error("Error:", error);
-      });
+      );
+      const data = await response.json();
+      console.log(data);
+
+      if (response && data) {
+        message.success("Category added successfully!");
+        navigate("/dashboard/category-list"); // Điều hướng đến trang danh sách danh mục
+      } else {
+        message.error(data.message || "Failed to add category");
+      }
+    } catch (error) {
+      message.error("Failed to add category");
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,6 +63,14 @@ const CategoryAdd = () => {
         </Form.Item>
 
         <Form.Item
+          name="imageUrl"
+          label="Category Image URL"
+          rules={[{ required: true, message: "Please enter the image URL!" }]}
+        >
+          <Input placeholder="Enter image URL" />
+        </Form.Item>
+
+        <Form.Item
           name="description"
           label="Description"
           rules={[{ required: true, message: "Please enter a description!" }]}
@@ -63,8 +79,8 @@ const CategoryAdd = () => {
         </Form.Item>
 
         <Space>
-          <Button type="primary" htmlType="submit">
-            Save Category
+          <Button type="primary" htmlType="submit" loading={loading}>
+            {loading ? "Saving..." : "Save Category"}
           </Button>
           <Button
             type="default"

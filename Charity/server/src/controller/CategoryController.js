@@ -1,4 +1,5 @@
 import Category from "../model/Category.js";
+import Nft from "../model/Nft.js";
 
 class CategoryController {
   async create(req, res, next) {
@@ -19,7 +20,7 @@ class CategoryController {
 
   async get(req, res, next) {
     try {
-      const data = await Category.find().populate('cause');
+      const data = await Nft.find();
       if (data) {
         return res.status(200).json({
           success: true,
@@ -35,7 +36,7 @@ class CategoryController {
 
   async getDetail(req, res, next) {
     try {
-      const data = await Category.findById(req.params.id).populate('cause');
+      const data = await Nft.findById(req.params.id);
       if (data) {
         return res.status(200).json({
           success: true,
@@ -51,7 +52,7 @@ class CategoryController {
 
   async delete(req, res, next) {
     try {
-      const data = await Category.findByIdAndDelete(req.params.id);
+      const data = await Nft.findByIdAndDelete(req.params.id);
       if (data) {
         return res.status(200).json({
           success: true,
@@ -67,7 +68,7 @@ class CategoryController {
 
   async update(req, res, next) {
     try {
-      const data = await Category.findByIdAndUpdate(
+      const data = await Nft.findByIdAndUpdate(
         { _id: req.params.id },
         { ...req.body, updatedAt: new Date() },
         { new: true }

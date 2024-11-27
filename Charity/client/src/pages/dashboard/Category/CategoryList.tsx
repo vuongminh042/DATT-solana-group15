@@ -60,6 +60,18 @@ const CategoryList = () => {
             key: 'description',
         },
         {
+            title: 'Image',
+            dataIndex: 'imageUrl',
+            key: 'imageUrl',
+            render: (imageUrl) => (
+                <img 
+                  src={imageUrl} 
+                  alt="Category" 
+                  style={{ width: '100px', height: '100px', objectFit: 'cover' }} 
+                />
+              ),
+        },
+        {
             title: 'Actions',
             key: 'actions',
             render: (text, record) => (
