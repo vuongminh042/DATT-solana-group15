@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 
 
 const nftSchema = new mongoose.Schema({
+    wallet: {
+        type: String,
+    },
     imageUrl: {
         type: String,
         required: true,

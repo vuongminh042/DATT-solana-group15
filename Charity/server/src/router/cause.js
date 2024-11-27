@@ -7,7 +7,7 @@ const routerCause = Router();
 routerCause.get("/", CauseController.get);
 routerCause.get("/:id", CauseController.getDetail);
 
-routerCause.use("/", checkAuth, checkRoles(["admin"]));
+// routerCause.use("/", checkAuth, checkRoles(["admin"]));
 routerCause.post("/", CauseController.create);
 routerCause.delete("/:id", CauseController.delete);
 routerCause.patch("/:id", CauseController.update);

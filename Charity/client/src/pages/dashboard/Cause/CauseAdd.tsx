@@ -18,15 +18,20 @@ const CauseAdd = () => {
       setLoading(true);
       try {
         const response = await axios.get("http://localhost:8000/api/category");
-        console.log(response);
-        
+        console.log("Raw response:", response); // Log toàn bộ phản hồi từ API
+        console.log("Response data:", response.data); // Log phần dữ liệu trả về
+
+        // Kiểm tra nếu API trả về dữ liệu và dữ liệu này là mảng
         if (response.data && Array.isArray(response.data)) {
-          setCategories(response.data); // Save categories in state
+          setCategories(response.data); // Lưu danh mục vào state
+        } else if (response.data?.data && Array.isArray(response.data.data)) {
+          setCategories(response.data.data); // Nếu dữ liệu nằm trong thuộc tính `data`
         } else {
-          console.error("Invalid response format");
+          console.error("Invalid response format: Expected an array but got", typeof response.data);
         }
       } catch (error) {
-        console.error("Error fetching categories:", error);
+        console.error("Error fetching categories:", error.response?.data || error.message);
+        message.error("Failed to fetch categories");
       } finally {
         setLoading(false);
       }
@@ -36,29 +41,31 @@ const CauseAdd = () => {
   }, []);
 
   // Handle form submission
-  // const onFinish = (values) => {
-  //   // Gửi yêu cầu POST đến API của backend
-  //   fetch("http://localhost:8000/api/wallet/create-nft", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({ ...values, destinationUserReferenceId }),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.success) {
-  //         message.success("Cause added successfully!");
-  //         navigate("/dashboard/category-list"); // Redirect to category list
-  //       } else {
-  //         message.error("Failed to add cause");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       message.error("Failed to add cause");
-  //       console.error("Error:", error);
-  //     });
-  // };
+  const onFinish = async (values) => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://localhost:8000/api/wallet/asset", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...values, destinationUserReferenceId }),
+      });
+      const data = await response.json();
+
+      if (response && data) {
+        message.success("Cause added successfully!");
+        navigate("/dashboard/cause-list"); // Redirect to category list
+      } else {
+        message.error(data.message || "Failed to add cause");
+      }
+    } catch (error) {
+      message.error("Failed to add cause");
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div>
@@ -76,9 +83,7 @@ const CauseAdd = () => {
         <Form.Item
           name="name"
           label="Cause Name"
-          rules={[
-            { required: true, message: "Please enter the cause name!" },
-          ]}
+          rules={[{ required: true, message: "Please enter the cause name!" }]}
         >
           <Input placeholder="Enter cause name" />
         </Form.Item>
@@ -86,9 +91,7 @@ const CauseAdd = () => {
         <Form.Item
           name="imageUrl"
           label="Cause Image URL"
-          rules={[
-            { required: true, message: "Please enter the cause image URL!" },
-          ]}
+          rules={[{ required: true, message: "Please enter the cause image URL!" }]}
         >
           <Input placeholder="Enter cause image URL" />
         </Form.Item>
@@ -102,15 +105,13 @@ const CauseAdd = () => {
         </Form.Item>
 
         <Form.Item
-          name="category"
+          name="collectionId"
           label="Category"
-          rules={[
-            { required: true, message: "Please select a category!" },
-          ]}
+          rules={[{ required: true, message: "Please select a category!" }]}
         >
           <Select placeholder="Select a category" loading={loading}>
             {categories.map((category) => (
-              <Option key={category._id} value={category._id}>
+              <Option key={category.wallet} value={category.wallet}>
                 {category.name}
               </Option>
             ))}
@@ -118,13 +119,10 @@ const CauseAdd = () => {
         </Form.Item>
 
         <Space>
-          <Button type="primary" htmlType="submit">
-            Save Cause
+          <Button type="primary" htmlType="submit" loading={loading}>
+            {loading ? "Saving..." : "Save Cause"}
           </Button>
-          <Button
-            type="default"
-            onClick={() => navigate("/dashboard/category-list")}
-          >
+          <Button type="default" onClick={() => navigate("/dashboard/category-list")}>
             Cancel
           </Button>
         </Space>

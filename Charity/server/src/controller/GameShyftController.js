@@ -55,23 +55,89 @@ export const wallet = async (req, res, next) => {
   }
 };
 
-export const NFT = async(req,res,next) => {
-  try {
-    const url = 'https://api.gameshift.dev/nx/asset-collections';
+// export const NFT = async(req,res,next) => {
+//   try {
+//     const url = 'https://api.gameshift.dev/nx/asset-collections';
+//   // Lấy dữ liệu từ request body
+//   const { name, description, imageUrl } = req.body;
+
+//   const options = {
+//     method: 'POST',
+//     headers: {
+//       accept: 'application/json',
+//       'x-api-key': API_KEY,
+//       'content-type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       name,
+//       description,
+//       imageUrl,
+//     }),
+//   };
+
+//   try {
+//     // Gửi yêu cầu tới API bên thứ ba
+//     const response = await fetch(url, options);
+
+//     if (!response.ok) {
+//       return res.status(response.status).json({
+//         error: `API Error: ${response.statusText}`,
+//       });
+//     }
+
+//     const data = await response.json();
+//     console.log(data.id);
+
+    
+//     // Trả dữ liệu về client
+//     const newNFT = new Nft({
+//       wallet: data.id,
+//       name: data.name,
+//       description: data.description,
+//       imageUrl: data.imageUrl,
+//     });
+
+//     await newNFT.save();
+
+//     res.status(200).json({
+//       message: 'NFT created successfully and saved to database',
+//       data,
+//     });
+//   } catch (error) {
+//     res.status(500).json({
+//       error: 'Internal Server Error',
+//     });
+//   }
+
+    
+// } catch (err) {
+//     // console.error('Error creating and saving NFT:', err);
+//     res.status(500).send('Something went wrong.');
+// }
+// }
+export const NFT = async (req, res, next) => {
+  const url = "https://api.gameshift.dev/nx/asset-collections";
+
   // Lấy dữ liệu từ request body
   const { name, description, imageUrl } = req.body;
 
+  // Kiểm tra dữ liệu đầu vào
+  if (!name || !description || !imageUrl) {
+    return res.status(400).json({ error: "Missing required fields (name, description, imageUrl)" });
+  }
+
+  // Cấu hình API request
   const options = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      accept: 'application/json',
-      'x-api-key': API_KEY,
-      'content-type': 'application/json',
+      accept: "application/json",
+      "x-api-key": API_KEY,
+      "content-type": "application/json",
     },
     body: JSON.stringify({
-      name,
-      description,
-      imageUrl,
+      name: name.trim(),
+      description: description.trim(),
+      imageUrl: imageUrl.trim(),
     }),
   };
 
@@ -79,38 +145,52 @@ export const NFT = async(req,res,next) => {
     // Gửi yêu cầu tới API bên thứ ba
     const response = await fetch(url, options);
 
+    // Kiểm tra phản hồi từ API
     if (!response.ok) {
+      const errorResponse = await response.json();
       return res.status(response.status).json({
         error: `API Error: ${response.statusText}`,
+        details: errorResponse,
       });
     }
 
+    // Lấy dữ liệu trả về từ API
     const data = await response.json();
-    // Trả dữ liệu về client
+    console.log("API Response:", data);
+
+    // Kiểm tra dữ liệu trả về từ API
+    const { id, name: apiName, description: apiDescription, imageUrl: apiImageUrl } = data;
+    if (!id) {
+      return res.status(400).json({
+        error: "Missing ID from API response",
+      });
+    }
+
+    // Tạo đối tượng NFT mới và lưu vào MongoDB
     const newNFT = new Nft({
-      name: data.name,
-      description: data.description,
-      imageUrl: data.imageUrl,
+      wallet: id, // ID từ API trả về
+      name: apiName || name, // Nếu không có, fallback từ request body
+      description: apiDescription || description,
+      imageUrl: apiImageUrl || imageUrl,
     });
+
+    console.log("Saving NFT:", newNFT);
 
     await newNFT.save();
 
+    // Trả kết quả về client
     res.status(200).json({
-      message: 'NFT created successfully and saved to database',
-      data,
+      message: "NFT created successfully and saved to database",
+      data: newNFT, // Trả về NFT đã lưu
     });
   } catch (error) {
+    console.error("Error creating and saving NFT:", error);
     res.status(500).json({
-      error: 'Internal Server Error',
+      error: "Internal Server Error",
+      details: error.message,
     });
   }
-
-    
-} catch (err) {
-    // console.error('Error creating and saving NFT:', err);
-    res.status(500).send('Something went wrong.');
-}
-}
+};
 
 
 export const createUniqueAsset  = async(req,res,next)=>{
@@ -159,9 +239,9 @@ export const createUniqueAsset  = async(req,res,next)=>{
   
       // Nếu cần lưu vào MongoDB
       const newNFT = new assetNft({
-        name: data.collection.name,
-        description: data.collection.description,
-        imageUrl: data.collection.imageUrl,
+        name:req.body.name,
+        description: req.body.description,
+        imageUrl: req.body.imageUrl,
         collectionId: data.collection.id,
         destinationUserReferenceId: req.body.destinationUserReferenceId,
       });
@@ -170,7 +250,7 @@ export const createUniqueAsset  = async(req,res,next)=>{
   
       res.status(200).json({
         message: 'Unique asset created successfully and saved to database',
-        data,
+        data: newNFT,
       });
     } catch (error) {
       console.error('Error creating unique asset:', error);

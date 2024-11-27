@@ -1,3 +1,4 @@
+import assetNft from "../model/assetNft.js";
 import Category from "../model/Category.js";
 import Cause from "../model/Cause.js";
 import User from "../model/User.js";
@@ -39,7 +40,7 @@ class CauseController {
 
   async get(req, res, next) {
     try {
-      const data = await Cause.find();
+      const data = await assetNft.find();
       if (data) {
         return res.status(200).json({
           success: true,
@@ -55,7 +56,7 @@ class CauseController {
 
   async getDetail(req, res, next) {
     try {
-      const data = await Cause.findById(req.params.id);
+      const data = await assetNft.findById(req.params.id);
       if (data) {
         return res.status(200).json({
           success: true,
@@ -71,7 +72,7 @@ class CauseController {
 
   async delete(req, res, next) {
     try {
-      const data = await Cause.findByIdAndDelete(req.params.id);
+      const data = await assetNft.findByIdAndDelete(req.params.id);
       if (data) {
         return res.status(200).json({
           success: true,
@@ -87,7 +88,7 @@ class CauseController {
 
   async update(req, res, next) {
     try {
-      const data = await Cause.findByIdAndUpdate(
+      const data = await assetNft.findByIdAndUpdate(
         { _id: req.params.id },
         { ...req.body, updatedAt: new Date() },
         { new: true }
