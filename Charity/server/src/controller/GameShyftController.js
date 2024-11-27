@@ -1,5 +1,7 @@
 import assetNft from "../model/assetNft.js";
 import Nft from "../model/Nft.js";
+import { API_KEY } from "../ultils/env.js";
+
 
 export const wallet = async (req, res, next) => {
   const { referenceId, externalWalletAddress, email } = req.body;
@@ -18,7 +20,7 @@ export const wallet = async (req, res, next) => {
       method: "POST",
       headers: {
         accept: "application/json",
-        "x-api-key": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJjOWU4MDViOC05YmIwLTQxZmQtOGJjYy05YTAyYzY5NzY3YTgiLCJzdWIiOiJjZjMwMDkzOS1kNDBkLTQ1NjYtYjFhMy1iNDk1N2NjNmRhMzMiLCJpYXQiOjE3MzE3MzE0MDN9.pRk6VD_FeUxFmH4Ffl36cXpDM5WlpIwas2im6RLK0iQ", // Thay bằng API key thực tế
+        "x-api-key": API_KEY,
         "content-type": "application/json",
       },
       body: JSON.stringify({ referenceId, externalWalletAddress, email }),
@@ -56,9 +58,6 @@ export const wallet = async (req, res, next) => {
 export const NFT = async(req,res,next) => {
   try {
     const url = 'https://api.gameshift.dev/nx/asset-collections';
-  const apiKey =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJjOWU4MDViOC05YmIwLTQxZmQtOGJjYy05YTAyYzY5NzY3YTgiLCJzdWIiOiJjZjMwMDkzOS1kNDBkLTQ1NjYtYjFhMy1iNDk1N2NjNmRhMzMiLCJpYXQiOjE3MzE3MzE0MDN9.pRk6VD_FeUxFmH4Ffl36cXpDM5WlpIwas2im6RLK0iQ';
-
   // Lấy dữ liệu từ request body
   const { name, description, imageUrl } = req.body;
 
@@ -66,7 +65,7 @@ export const NFT = async(req,res,next) => {
     method: 'POST',
     headers: {
       accept: 'application/json',
-      'x-api-key': apiKey,
+      'x-api-key': API_KEY,
       'content-type': 'application/json',
     },
     body: JSON.stringify({
@@ -119,8 +118,6 @@ export const NFT = async(req,res,next) => {
 export const createUniqueAsset  = async(req,res,next)=>{
   try {
     const url = 'https://api.gameshift.dev/nx/unique-assets';
-    const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiJjOWU4MDViOC05YmIwLTQxZmQtOGJjYy05YTAyYzY5NzY3YTgiLCJzdWIiOiJjZjMwMDkzOS1kNDBkLTQ1NjYtYjFhMy1iNDk1N2NjNmRhMzMiLCJpYXQiOjE3MzE3MzE0MDN9.pRk6VD_FeUxFmH4Ffl36cXpDM5WlpIwas2im6RLK0iQ';
-  
     const { collectionId, description, imageUrl, name, destinationUserReferenceId } = req.body;
   
     // Kiểm tra các trường bắt buộc
@@ -163,15 +160,15 @@ export const createUniqueAsset  = async(req,res,next)=>{
       
   
       // Nếu cần lưu vào MongoDB
-      // const newNFT = new assetNft({
-      //   name: data.collection.name,
-      //   description: data.collection.description,
-      //   imageUrl: data.collection.imageUrl,
-      //   collectionId: data.collection.id,
-      //   destinationUserReferenceId: data.collection.destinationUserReferenceId,
-      // });
+      const newNFT = new assetNft({
+        name: data.collection.name,
+        description: data.collection.description,
+        imageUrl: data.collection.imageUrl,
+        collectionId: data.collection.id,
+        destinationUserReferenceId: req.body.destinationUserReferenceId,
+      });
   
-      // await newNFT.save();
+      await newNFT.save();
   
       res.status(200).json({
         message: 'Unique asset created successfully and saved to database',

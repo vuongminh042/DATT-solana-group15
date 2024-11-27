@@ -18,8 +18,7 @@ const assetNftSchema = new mongoose.Schema({
         required: true,
     },
     collectionId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'NFT',
+        type: String,
         required: true,
     },
     destinationUserReferenceId: {
