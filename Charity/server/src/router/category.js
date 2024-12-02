@@ -7,7 +7,7 @@ const routerCategory = Router()
 routerCategory.get('/', CategoryController.get)
 routerCategory.get('/:id', CategoryController.getDetail)
 
-// routerCategory.use('/', checkAuth, checkRoles(['admin']))
+routerCategory.use('/', checkAuth, checkRoles(['admin']))
 routerCategory.post('/', CategoryController.create)
 routerCategory.delete('/:id', CategoryController.delete)
 routerCategory.patch('/:id', CategoryController.update)

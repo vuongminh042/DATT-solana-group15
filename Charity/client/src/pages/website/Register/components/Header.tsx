@@ -1,14 +1,13 @@
-import logo from "../../../../assets/img/logo/logo.png";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import sidebar1 from "../../../../assets/img/causes/sidebar1.jpg";
 import sidebar2 from "../../../../assets/img/causes/sidebar2.jpg";
 import sidebar3 from "../../../../assets/img/causes/sidebar3.jpg";
 import sidebar4 from "../../../../assets/img/causes/sidebar4.jpg";
 import sidebar5 from "../../../../assets/img/causes/sidebar5.jpg";
 import sidebar6 from "../../../../assets/img/causes/sidebar6.jpg";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/clerk-react';
+import logo from "../../../../assets/img/logo/logo.png";
 
 
 const Header = () => {
@@ -174,17 +173,6 @@ const Header = () => {
                             </ul>
                           </Link>
                         )}
-                      </li>
-
-                      <li className="menu-item-has-children">
-                        <SignedOut>
-                          <SignInButton />
-                        </SignedOut>
-                        <SignedIn>
-                          <div className="user-menu">
-                            <UserButton />
-                          </div>
-                        </SignedIn>
                       </li>
                     </ul>
                   </nav>

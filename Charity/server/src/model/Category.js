@@ -12,8 +12,8 @@ const categorySchema = new mongoose.Schema(
       type: String,
     },
     cause: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Cause"
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Cause"
     }]
   },
   {
