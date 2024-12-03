@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, DollarOutlined } from "@ant-design/icons";
 import { Button, Popconfirm, Space, Table, Typography, message } from "antd";
 import { useNavigate } from "react-router-dom";
 
@@ -11,34 +11,65 @@ const CauseList = () => {
 
   useEffect(() => {
     setLoading(true);
-    // Fetch data from the API
     fetch("http://localhost:8000/api/cause")
       .then((response) => response.json())
       .then((result) => {
         if (result.success) {
           const newData = result.data.data.map((item) => ({
-            key: item?.item?.id ?? "", // Ensure item.id exists, fallback to empty string
-            name: item?.item?.name ?? "Unknown", // Fallback to 'Unknown' if item.name is undefined
-            description: item?.item?.description ?? "No description", // Fallback to 'No description'
-            environment: item?.item?.environment ?? "N/A", // Fallback to 'N/A'
-            imageUrl: item?.item?.imageUrl ?? "", // Fallback to empty string if imageUrl is missing
-            collectionName: item?.item.collection?.name ?? "No collection", // Fallback if collection is undefined
+            key: item?.item?.id ?? "",
+            name: item?.item?.name ?? "Unknown",
+            description: item?.item?.description ?? "No description",
+            environment: item?.item?.environment ?? "N/A",
+            imageUrl: item?.item?.imageUrl ?? "",
+            collectionName: item?.item.collection?.name ?? "No collection",
             collectionDescription:
-              item?.item.collection?.description ?? "No description", // Fallback
+              item?.item.collection?.description ?? "No description",
           }));
-          setData(newData); // Set data state
-          console.log(newData); // Log the new data after it's set
+          setData(newData);
         } else {
-          message.error(result.message || "Failed to load categories");
+          message.error(result.message || "Failed to load causes");
         }
         setLoading(false);
       })
       .catch((error) => {
-        message.error("Failed to load categories");
+        message.error("Failed to load causes");
         console.error("Error:", error);
         setLoading(false);
       });
-  }, []); // Empty dependency array, so it only runs on mount
+  }, []);
+
+  // Handler to list asset for sale
+  const handleListForSale = async (assetId) => {
+    setLoading(true);
+    try {
+      const response = await fetch(`http://localhost:8000/api/wallet/market/${assetId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          price: { currencyId: "USDC", naturalAmount: "1" },
+        }),
+      });
+      const result = await response.json();
+      if (result.success) {
+        message.success("Asset listed for sale successfully!");
+      } else {
+        message.error(result.message || "Failed to list asset for sale");
+      }
+      if (result.success) {
+        window.location.href = result.data.consentUrl;
+      } else {
+        console.log("Không thể niêm yết tài sản.");
+      }
+    } catch (error) {
+      message.error("Failed to list asset for sale");
+      console.error("Error:", error);
+    } finally {
+      setLoading(false);
+    }
+    // navigate('https://app.gameshift.dev/consent?transaction=3473c141-9cfd-4e13-b71f-563a5f6066ae')
+  };
 
   const columns = [
     {
@@ -60,11 +91,6 @@ const CauseList = () => {
       title: "Collection Name",
       dataIndex: "collectionName",
       key: "collectionName",
-    },
-    {
-      title: "Collection Description",
-      dataIndex: "collectionDescription",
-      key: "collectionDescription",
     },
     {
       title: "Image",
@@ -89,14 +115,14 @@ const CauseList = () => {
           >
             <EditOutlined />
           </Button>
-          {/* <Popconfirm
-            title="Are you sure you want to delete this category?"
-            onConfirm={() => handleDelete(record.key)}
+          <Popconfirm
+            title="Are you sure you want to list this asset for sale?"
+            onConfirm={() => handleListForSale(record.key)}
             okText="Yes"
             cancelText="No"
           >
-            <Button type="link" danger><DeleteOutlined /></Button>
-          </Popconfirm> */}
+            <Button type="link" icon={<DollarOutlined />} />
+          </Popconfirm>
         </Space>
       ),
     },
@@ -105,13 +131,6 @@ const CauseList = () => {
   return (
     <div>
       <Title level={2}>Cause List</Title>
-      <Button
-        type="primary"
-        style={{ marginBottom: 16 }}
-        onClick={() => navigate("/dashboard/category-add")}
-      >
-        Add Category
-      </Button>
       <Table
         columns={columns}
         dataSource={data}

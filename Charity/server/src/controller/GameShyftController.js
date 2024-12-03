@@ -302,3 +302,42 @@ export const market = async(req,res,next)=> {
     });
   }
 }
+
+export const buy = async(req,res,next)=> {
+  const itemId = req.params.id
+  const url = `https://api.gameshift.dev/nx/unique-assets/${itemId}/buy`;
+
+  // Lấy buyerId từ body request
+  const { buyerId } = req.body;
+
+  if (!buyerId) {
+    return res.status(400).json({ error: 'Buyer ID là bắt buộc' });
+  }
+
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'x-api-key': API_KEY,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({ buyerId })
+  };
+
+  try {
+    // Gửi yêu cầu tới API Gameshift
+    const response = await fetch(url, options);
+    const json = await response.json();
+
+    if (response.ok) {
+      // Nếu yêu cầu thành công, trả kết quả cho client
+      res.status(200).json(json);
+    } else {
+      // Nếu API trả về lỗi, gửi mã lỗi và thông báo
+      res.status(response.status).json(json);
+    }
+  } catch (err) {
+    console.error('Lỗi:', err);
+    res.status(500).json({ error: 'Đã có lỗi xảy ra trong quá trình xử lý yêu cầu.' });
+  }
+}
