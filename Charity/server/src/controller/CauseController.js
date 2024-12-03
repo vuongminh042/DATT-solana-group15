@@ -39,19 +39,38 @@ class CauseController {
   }
 
   async get(req, res, next) {
-    try {
-      const data = await assetNft.find();
-      if (data) {
-        return res.status(200).json({
-          success: true,
-          data,
-          messages: "get successfuly",
-        });
-      }
-      next();
-    } catch (error) {
-      next(error);
+    const url = 'https://api.gameshift.dev/nx/items';
+  const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      'x-api-key': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJrZXkiOiI2ZjE2MzVkMC0wZDFhLTQ3YTQtYTM3Ny1lNmJiNjA4NTMwZjEiLCJzdWIiOiIwN2Q5MjIyMi03OGFmLTRlZjUtODEzMS0zM2FiZGI0NTEzMmUiLCJpYXQiOjE3MzMxOTA0NjF9.jIv7HYvEqfqE2EdkR4B_qydgMMck18mtghcZUdLCgjw'
     }
+  };
+
+  try {
+    const response = await fetch(url, options);
+    
+    if (!response.ok) {
+      return res.status(response.status).json({
+        success: false,
+        message: `Failed to fetch items. Status: ${response.status}`
+      });
+    }
+
+    const data = await response.json();
+    res.status(200).json({
+      success: true,
+      data: data
+    });
+  } catch (error) {
+    console.error('Error fetching items:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Internal Server Error',
+      error: error.message
+    });
+  }
   }
 
   async getDetail(req, res, next) {

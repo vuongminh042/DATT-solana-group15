@@ -16,7 +16,9 @@ const CauseList = () => {
           .then((response) => response.json())
           .then((result) => {
               if (result.success) {
-                  setData(result.data.map(item => ({ key: item._id, ...item })));
+                  setData(result.data.data.map(item => ({ key: item.item.id, ...item })));
+                  console.log(data);
+                  
               } else {
                   message.error(result.message || "Failed to load categories");
               }

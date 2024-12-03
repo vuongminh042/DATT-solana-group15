@@ -10,18 +10,22 @@ const CategoryList = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    // Fetch data from the API
     useEffect(() => {
         setLoading(true);
-        // Chỉnh sửa URL thành localhost:8000
         fetch("http://localhost:8000/api/category")
             .then((response) => response.json())
             .then((result) => {
+                console.log(result.items.data);
+
                 if (result.success) {
-                    setData(result.data.map(item => ({ key: item._id, ...item })));
+                    // If categories are successfully loaded, map the data with unique key
+                    setData(result.items.data.map(item => ({ key: item.id, ...item })));
                 } else {
                     message.error(result.message || "Failed to load categories");
                 }
                 setLoading(false);
+                
             })
             .catch((error) => {
                 message.error("Failed to load categories");
@@ -30,14 +34,14 @@ const CategoryList = () => {
             });
     }, []);
 
+    // Handle category deletion
     const handleDelete = (key) => {
-        // Chỉnh sửa URL thành localhost:8000
         fetch(`http://localhost:8000/api/category/${key}`, { method: 'DELETE' })
             .then((response) => response.json())
             .then((result) => {
                 if (result.success) {
                     message.success("Category deleted successfully!");
-                    setData(data.filter((item) => item.key !== key));
+                    setData(data.filter((item) => item.key !== key));  // Remove deleted item from state
                 } else {
                     message.error(result.message || "Failed to delete category");
                 }
@@ -48,6 +52,7 @@ const CategoryList = () => {
             });
     };
 
+    // Define the columns for the table
     const columns = [
         {
             title: 'Category Name',
@@ -69,21 +74,25 @@ const CategoryList = () => {
                   alt="Category" 
                   style={{ width: '100px', height: '100px', objectFit: 'cover' }} 
                 />
-              ),
+            ),
         },
         {
             title: 'Actions',
             key: 'actions',
             render: (text, record) => (
                 <Space size="middle">
-                    <Button type="link" onClick={() => navigate(`/dashboard/category-edit/${record.key}`)}><EditOutlined /></Button>
+                    <Button type="link" onClick={() => navigate(`/dashboard/category-edit/${record.key}`)}>
+                        <EditOutlined />
+                    </Button>
                     <Popconfirm
                         title="Are you sure you want to delete this category?"
                         onConfirm={() => handleDelete(record.key)}
                         okText="Yes"
                         cancelText="No"
                     >
-                        <Button type="link" danger><DeleteOutlined /></Button>
+                        <Button type="link" danger>
+                            <DeleteOutlined />
+                        </Button>
                     </Popconfirm>
                 </Space>
             ),
@@ -100,7 +109,12 @@ const CategoryList = () => {
             >
                 Add Category
             </Button>
-            <Table columns={columns} dataSource={data} loading={loading} rowKey="key" />
+            <Table 
+                columns={columns} 
+                dataSource={data} 
+                loading={loading} 
+                rowKey="key" 
+            />
         </div>
     );
 };

@@ -1,5 +1,7 @@
 import Category from "../model/Category.js";
 import Nft from "../model/Nft.js";
+import { API_KEY } from "../ultils/env.js";
+import fetch from 'node-fetch'; // Sử dụng node-fetch để gửi HTTP request
 
 class CategoryController {
   async create(req, res, next) {
@@ -19,18 +21,37 @@ class CategoryController {
   }
 
   async get(req, res, next) {
+    const url = 'https://api.gameshift.dev/nx/asset-collections';
+    const options = {
+      method: 'GET',
+      headers: {
+        accept: 'application/json',
+        'x-api-key': API_KEY // Lấy API key từ biến môi trường
+      },
+    };
+  
     try {
-      const data = await Nft.find();
-      if (data) {
-        return res.status(200).json({
-          success: true,
-          data,
-          messages: "get successfuly",
+      const response = await fetch(url, options);
+  
+      if (!response.ok) {
+        // Nếu API trả về lỗi
+        return res.status(response.status).json({
+          message: `Error fetching items: ${response.statusText}`,
         });
       }
-      next();
+  
+      const data = await response.json();
+      return res.status(200).json({
+        success: true,
+        items: data , // Trả về danh sách các items (nếu có)
+      });
     } catch (error) {
-      next(error);
+      // Bắt lỗi nếu có sự cố trong quá trình xử lý request
+      return res.status(500).json({
+        success: false,
+        message: 'Internal Server Error',
+        error: error.message,
+      });
     }
   }
 
