@@ -3,6 +3,7 @@ import {
   UserOutlined,
   TagsOutlined, // Import an icon for the Category section
   AppstoreOutlined,
+  BarChartOutlined,
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Breadcrumb, Layout, Menu, theme } from "antd";
@@ -52,6 +53,12 @@ const items2: MenuProps["items"] = [
       { key: "15", label: <Link to="cause-list">All Cause</Link> },
       { key: "16", label: <Link to="cause-add">Add Cause</Link> },
     ],
+  },
+  {
+    key: "sub6",
+    icon: <BarChartOutlined />, // Đổi icon sang thống kê
+    label: "statistical Management",
+    children: [{ key: "17", label: <Link to="thongke">Thống kê</Link> }],
   },
 ];
 
