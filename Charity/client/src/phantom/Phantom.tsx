@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import Header from "../pages/website/Home/components/Header";
 import Footer from "../pages/website/Home/components/Footer";
 import "../App.css";
 
 const Phantom = () => {
+  const navigate = useNavigate(); // Hook điều hướng
   const phantom = localStorage.getItem("phantom");
   const [walletAddress, setWalletAddress] = useState(null);
   const [formData, setFormData] = useState({
@@ -68,6 +70,7 @@ const Phantom = () => {
       });
       if (response.ok) {
         alert("Dữ liệu đã được gửi thành công!");
+        navigate("/"); // Chuyển hướng về trang index sau khi submit thành công
       } else {
         alert("Đã xảy ra lỗi khi gửi dữ liệu.");
       }
@@ -95,7 +98,6 @@ const Phantom = () => {
               <div className="card shadow p-4">
                 <h2 className="text-center mb-4">Register User</h2>
                 <form onSubmit={handleSubmit}>
-                  {/* Trường 1: referenceId */}
                   <div className="mb-3">
                     <label htmlFor="referenceId" className="form-label">
                       Reference ID:
@@ -111,7 +113,6 @@ const Phantom = () => {
                       required
                     />
                   </div>
-                  {/* Trường 2: email */}
                   <div className="mb-3">
                     <label htmlFor="email" className="form-label">
                       Email:
@@ -127,7 +128,6 @@ const Phantom = () => {
                       required
                     />
                   </div>
-                  {/* Trường 3: externalWalletAddress */}
                   <div className="mb-3">
                     <label
                       htmlFor="externalWalletAddress"
@@ -146,7 +146,6 @@ const Phantom = () => {
                       required
                     />
                   </div>
-                  {/* Nút gửi */}
                   <div className="d-grid">
                     <button type="submit" className="btn btn-primary">
                       Submit
@@ -162,8 +161,6 @@ const Phantom = () => {
           </button>
         )}
       </div>
-      {/* Form đăng ký */}
-
       <Footer />
     </div>
   );
