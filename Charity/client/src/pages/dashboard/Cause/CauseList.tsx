@@ -39,23 +39,8 @@ const CauseList = () => {
       });
   }, []); // Empty dependency array, so it only runs on mount
 
-  const handleDelete = (key) => {
-    // Call the delete API
-    fetch(`http://localhost:8000/api/cause/${key}`, { method: 'DELETE' })
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.success) {
-          message.success("Category deleted successfully!");
-          setData(data.filter((item) => item.key !== key));
-        } else {
-          message.error(result.message || "Failed to delete category");
-        }
-      })
-      .catch((error) => {
-        message.error("Failed to delete category");
-        console.error("Error:", error);
-      });
-  };
+  const handleMarket
+ 
 
   const columns = [
     {
@@ -101,14 +86,14 @@ const CauseList = () => {
       render: (text, record) => (
         <Space size="middle">
           <Button type="link" onClick={() => navigate(`/dashboard/cause-edit/${record.key}`)}><EditOutlined /></Button>
-          <Popconfirm
+          {/* <Popconfirm
             title="Are you sure you want to delete this category?"
             onConfirm={() => handleDelete(record.key)}
             okText="Yes"
             cancelText="No"
           >
             <Button type="link" danger><DeleteOutlined /></Button>
-          </Popconfirm>
+          </Popconfirm> */}
         </Space>
       ),
     },
@@ -116,7 +101,7 @@ const CauseList = () => {
 
   return (
     <div>
-      <Title level={2}>Category List</Title>
+      <Title level={2}>Cause List</Title>
       <Button
         type="primary"
         style={{ marginBottom: 16 }}
