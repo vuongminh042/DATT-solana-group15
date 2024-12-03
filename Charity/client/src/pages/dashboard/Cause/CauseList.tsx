@@ -22,8 +22,8 @@ const CauseList = () => {
             description: item?.item?.description ?? 'No description', // Fallback to 'No description'
             environment: item?.item?.environment ?? 'N/A', // Fallback to 'N/A'
             imageUrl: item?.item?.imageUrl ?? '', // Fallback to empty string if imageUrl is missing
-            collectionName: item?.collection?.name ?? 'No collection', // Fallback if collection is undefined
-            collectionDescription: item?.collection?.description ?? 'No description', // Fallback
+            collectionName: item?.item.collection?.name ?? 'No collection', // Fallback if collection is undefined
+            collectionDescription: item?.item.collection?.description ?? 'No description', // Fallback
           }));
           setData(newData); // Set data state
           console.log(newData); // Log the new data after it's set
