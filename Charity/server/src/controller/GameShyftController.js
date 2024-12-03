@@ -341,3 +341,38 @@ export const buy = async(req,res,next)=> {
     res.status(500).json({ error: 'Đã có lỗi xảy ra trong quá trình xử lý yêu cầu.' });
   }
 }
+
+export const deletes = async(req,res,next)=> {
+  const assetId = req.params.id;
+  console.log(assetId);
+  
+  
+  const url = `https://api.gameshift.dev/nx/unique-assets/${assetId}/cancel-listing`;
+
+  try {
+    const response = await axios.post(url, {}, {
+      headers: {
+        accept: 'application/json',
+        'x-api-key': API_KEY,
+      },
+    });
+
+    if (response.data) {
+      res.status(200).json({
+        message: "Hủy niêm yết thành công!",
+        data: response.data,
+      });
+    } else {
+      res.status(400).json({
+        message: "Không thể hủy niêm yết!",
+        error: response.data.message,
+      });
+    }
+  } catch (error) {
+    console.error("Error canceling listing:", error);
+    res.status(500).json({
+      message: "Có lỗi xảy ra khi hủy niêm yết!",
+      error: error.message,
+    });
+  }
+}
