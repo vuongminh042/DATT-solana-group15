@@ -69,10 +69,10 @@ const CategoryList = () => {
             dataIndex: 'imageUrl',
             key: 'imageUrl',
             render: (imageUrl) => (
-                <img 
-                  src={imageUrl} 
-                  alt="Category" 
-                  style={{ width: '100px', height: '100px', objectFit: 'cover' }} 
+                <img
+                    src={imageUrl}
+                    alt="Category"
+                    style={{ width: '100px', height: '100px', objectFit: 'cover' }}
                 />
             ),
         },
