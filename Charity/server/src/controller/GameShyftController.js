@@ -1,6 +1,7 @@
 import assetNft from "../model/assetNft.js";
 import Nft from "../model/Nft.js";
 import { API_KEY } from "../ultils/env.js";
+import axios from "axios"
 
 
 export const wallet = async (req, res, next) => {
@@ -261,5 +262,43 @@ export const createUniqueAsset  = async(req,res,next)=>{
     }
   } catch (error) {
     next(error)
+  }
+}
+
+export const market = async(req,res,next)=> {
+  const assetId = req.params.id; // lấy assetId từ body request
+  const price = req.body.price;     // lấy thông tin giá từ body request
+
+  // URL và header
+  const url = `https://api.gameshift.dev/nx/unique-assets/${assetId}/list-for-sale`;
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'x-api-key': API_KEY,
+      'content-type': 'application/json',
+    },
+    data: {
+      price: {
+        currencyId: 'USDC',     // Đơn vị tiền tệ (USD Coin)
+        naturalAmount: price.naturalAmount || '1'  // Số tiền
+      }
+    }
+  };
+
+  try {
+    const response = await axios(url, options);
+    res.status(200).json({
+      success: true,
+      message: 'Asset listed for sale successfully!',
+      data: response.data,
+    });
+  } catch (error) {
+    console.error('Error listing asset for sale:', error.response?.data || error.message);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to list asset for sale',
+      error: error.response?.data || error.message,
+    });
   }
 }
