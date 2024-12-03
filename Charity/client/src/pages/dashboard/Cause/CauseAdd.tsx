@@ -21,13 +21,19 @@ const CauseAdd = () => {
         console.log("Raw response:", response); // Log toàn bộ phản hồi từ API
         console.log("Response data:", response.data); // Log phần dữ liệu trả về
 
-        // Kiểm tra nếu API trả về dữ liệu và dữ liệu này là mảng
-        if (response.data && Array.isArray(response.data)) {
-          setCategories(response.data); // Lưu danh mục vào state
-        } else if (response.data?.data && Array.isArray(response.data.data)) {
-          setCategories(response.data.data); // Nếu dữ liệu nằm trong thuộc tính `data`
+        // Lấy mảng danh mục từ API
+        if (
+          response.data &&
+          response.data.items &&
+          response.data.items.data &&
+          Array.isArray(response.data.items.data)
+        ) {
+          setCategories(response.data.items.data); // Lưu danh mục vào state
         } else {
-          console.error("Invalid response format: Expected an array but got", typeof response.data);
+          console.error(
+            "Invalid response format: Expected an array but got",
+            typeof response.data
+          );
         }
       } catch (error) {
         console.error("Error fetching categories:", error.response?.data || error.message);
@@ -53,9 +59,9 @@ const CauseAdd = () => {
       });
       const data = await response.json();
 
-      if (response && data) {
+      if (response.ok) {
         message.success("Cause added successfully!");
-        navigate("/dashboard/cause-list"); // Redirect to category list
+        navigate("/dashboard/cause-list"); // Redirect to cause list
       } else {
         message.error(data.message || "Failed to add cause");
       }
@@ -111,7 +117,7 @@ const CauseAdd = () => {
         >
           <Select placeholder="Select a category" loading={loading}>
             {categories.map((category) => (
-              <Option key={category.wallet} value={category.wallet}>
+              <Option key={category.id} value={category.wallet}>
                 {category.name}
               </Option>
             ))}
@@ -122,7 +128,7 @@ const CauseAdd = () => {
           <Button type="primary" htmlType="submit" loading={loading}>
             {loading ? "Saving..." : "Save Cause"}
           </Button>
-          <Button type="default" onClick={() => navigate("/dashboard/category-list")}>
+          <Button type="default" onClick={() => navigate("/dashboard/cause-list")}>
             Cancel
           </Button>
         </Space>
