@@ -30,6 +30,7 @@ import Phantom from "./phantom/Phantom";
 import CauseList from "./pages/dashboard/Cause/CauseList";
 import CauseAdd from "./pages/dashboard/Cause/CauseAdd";
 import CauseEdit from "./pages/dashboard/Cause/CauseEdit";
+import Thongke from "./pages/dashboard/thongke/thongke";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
           <Route path="cause-list" element={<CauseList />} />
           <Route path="cause-add" element={<CauseAdd />} />
           <Route path="cause-edit/:id" element={<CauseEdit />} />
+          <Route path="thongke" element={<Thongke />} />
         </Route>
       </Routes>
       <ToastContainer />
