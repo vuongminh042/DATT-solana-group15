@@ -4,16 +4,17 @@ import {
   EditOutlined,
   DollarOutlined,
 } from "@ant-design/icons";
-import { Button, Popconfirm, Space, Table, Typography, message } from "antd";
+import { Button, Input, Popconfirm, Space, Table, Typography, message } from "antd";
 import { useNavigate } from "react-router-dom";
 
 const CauseList = () => {
-  const [data, setData] = useState([]); // Danh sách dữ liệu NFT
-  const [loading, setLoading] = useState(false); // Trạng thái loading
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [editingKey, setEditingKey] = useState(null);
+  const [priceInput, setPriceInput] = useState("");
   const navigate = useNavigate();
   const { Title } = Typography;
 
-  // Fetch dữ liệu danh sách NFT từ API khi component được mount
   useEffect(() => {
     fetchCauseList();
   }, []);
@@ -32,8 +33,6 @@ const CauseList = () => {
           environment: item?.item?.environment ?? "N/A",
           imageUrl: item?.item?.imageUrl ?? "",
           collectionName: item?.item.collection?.name ?? "No collection",
-          collectionDescription:
-            item?.item.collection?.description ?? "No description",
           price: item?.item?.price?.naturalAmount ?? "Chưa bán",
         }));
         setData(newData);
@@ -48,9 +47,15 @@ const CauseList = () => {
     }
   };
 
-  // Handler niêm yết tài sản
   const handleListForSale = async (assetId) => {
     setLoading(true);
+
+    if (!priceInput || isNaN(priceInput)) {
+      message.error("Vui lòng nhập giá trị hợp lệ!");
+      setLoading(false);
+      return;
+    }
+
     try {
       const response = await fetch(
         `http://localhost:8000/api/wallet/market/${assetId}`,
@@ -60,27 +65,27 @@ const CauseList = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            price: { currencyId: "USDC", naturalAmount: "1" },
+            price: { currencyId: "USDC", naturalAmount: priceInput },
           }),
         }
       );
       const result = await response.json();
 
       if (result.success) {
-        message.success("Asset listed for sale successfully!");
+        message.success("Niêm yết thành công!");
         window.location.href = result.data.consentUrl;
       } else {
-        message.error(result.message || "Failed to list asset for sale");
+        message.error(result.message || "Không thể niêm yết tài sản");
       }
     } catch (error) {
-      message.error("Failed to list asset for sale");
+      message.error("Có lỗi xảy ra khi niêm yết!");
       console.error("Error:", error);
     } finally {
       setLoading(false);
+      setEditingKey(null);
     }
   };
 
-  // Handler hủy niêm yết tài sản
   const handleCancelListing = async (assetId) => {
     setLoading(true);
     try {
@@ -96,11 +101,11 @@ const CauseList = () => {
       const result = await response.json();
 
       if (result) {
-        message.success("Hủy niêm yết thành công!");
+        fetchCauseList(); // Cập nhật danh sách sau khi hủy
         window.location.href = result.data.consentUrl;
-        fetchCauseList(); // Cập nhật lại danh sách sau khi hủy
+
       } else {
-        message.error(result.message || "Hủy niêm yết thất bại!");
+        message.error(result.message || "Không thể hủy niêm yết!");
       }
     } catch (error) {
       message.error("Có lỗi xảy ra khi hủy niêm yết!");
@@ -122,19 +127,10 @@ const CauseList = () => {
       key: "description",
     },
     {
-      title: "Môi trường",
-      dataIndex: "environment",
-      key: "environment",
-    },
-    {
-      title: "Bộ sưu tập",
-      dataIndex: "collectionName",
-      key: "collectionName",
-    },
-    {
-      title: "Giá",
+      title: "Giá (USDC)",
       dataIndex: "price",
       key: "price",
+      render: (price) => (price !== "Chưa bán" ? `${price} USDC` : price),
     },
     {
       title: "Hình ảnh",
@@ -143,7 +139,7 @@ const CauseList = () => {
       render: (imageUrl) => (
         <img
           src={imageUrl}
-          alt="Category"
+          alt="NFT"
           style={{ width: "100px", height: "100px", objectFit: "cover" }}
         />
       ),
@@ -159,21 +155,40 @@ const CauseList = () => {
           >
             <EditOutlined />
           </Button>
+
+          {editingKey === record.key ? (
+            <Input
+              placeholder="Nhập giá (USDC)"
+              value={priceInput}
+              onChange={(e) => setPriceInput(e.target.value)}
+              style={{ width: 120, marginRight: 8 }}
+            />
+          ) : null}
+
           <Popconfirm
             title="Bạn có chắc chắn muốn niêm yết tài sản này?"
             onConfirm={() => handleListForSale(record.key)}
             okText="Yes"
             cancelText="No"
           >
-            <Button type="link" icon={<DollarOutlined />} />
+            <Button
+              type="link"
+              icon={<DollarOutlined />}
+              onClick={() => setEditingKey(record.key)}
+            >
+              Bán
+            </Button>
           </Popconfirm>
+
           <Popconfirm
             title="Bạn có chắc chắn muốn hủy niêm yết tài sản này?"
             onConfirm={() => handleCancelListing(record.key)}
             okText="Yes"
             cancelText="No"
           >
-            <Button type="link" icon={<DeleteOutlined />} danger />
+            <Button type="link" icon={<DeleteOutlined />} danger>
+              Hủy niêm yết
+            </Button>
           </Popconfirm>
         </Space>
       ),
