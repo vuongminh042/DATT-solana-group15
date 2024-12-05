@@ -87,7 +87,7 @@ const AddPost = () => {
           rules={[{ required: true, message: "Vui lòng chọn danh mục!" }]}
         >
           <Select placeholder="Chọn danh mục">
-            {categories.map((category) => (
+            {categories?.map((category) => (
               <Select.Option key={category._id} value={category._id}>
                 {category.name}
               </Select.Option>
